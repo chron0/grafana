@@ -9,6 +9,7 @@ define([
   'config',
   'bootstrap',
   'angular-route',
+  'angular-sanitize',
   'angular-strap',
   'angular-dragdrop',
   'extend-jquery',
@@ -61,8 +62,9 @@ function (angular, $, _, appLevelRequire, config) {
 
   var apps_deps = [
     'ngRoute',
+    'ngSanitize',
     '$strap.directives',
-    'ngDragDrop',
+    'ang-drag-drop',
     'grafana',
     'pasvaz.bindonce'
   ];

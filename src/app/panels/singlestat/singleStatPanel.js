@@ -29,6 +29,7 @@ function (angular, app, _, $) {
               height = parseInt(height.replace('px', ''), 10);
             }
 
+            height -= 5; // padding
             height -= panel.title ? 24 : 9; // subtract panel title bar
 
             elem.css('height', height + 'px');
@@ -147,7 +148,7 @@ function (angular, app, _, $) {
 
           var body = getBigValueHtml();
 
-          if (panel.colorBackground && data.mainValue) {
+          if (panel.colorBackground && !isNaN(data.mainValue)) {
             var color = getColorForValue(data.mainValue);
             if (color) {
               $panelContainer.css('background-color', color);
@@ -185,7 +186,13 @@ function (angular, app, _, $) {
           var linkInfo = linkSrv.getPanelLinkAnchorInfo(panel.links[0]);
           if (linkInfo.href[0] === '#') { linkInfo.href = linkInfo.href.substring(1); }
 
-          $timeout(function() { $location.url(linkInfo.href); });
+          if (linkInfo.href.indexOf('http') === 0) {
+            window.location.href = linkInfo.href;
+          } else {
+            $timeout(function() {
+              $location.url(linkInfo.href);
+            });
+          }
 
           drilldownTooltip.detach();
         });
@@ -195,7 +202,7 @@ function (angular, app, _, $) {
 
           drilldownTooltip.text('click to go to: ' + panel.links[0].title);
 
-          drilldownTooltip.place_tt(e.clientX+20, e.clientY-15);
+          drilldownTooltip.place_tt(e.pageX+20, e.pageY-15);
         });
       }
     };
