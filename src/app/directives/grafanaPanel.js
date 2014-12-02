@@ -11,7 +11,7 @@ function (angular, $, config) {
     .module('grafana.directives')
     .directive('grafanaPanel', function($compile, $parse) {
 
-      var container = '<div class="panel-container"></div>';
+      var container = '<div class="panel-container apollo-panel"></div>';
       var content = '<div class="panel-content"></div>';
 
       var panelHeader =

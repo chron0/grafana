@@ -7,8 +7,9 @@
     <meta name="viewport" content="width=device-width">
     <meta name="google" value="notranslate">
 
-    <title>Grafana</title>
+    <title>Apollo-NG Virtual Flight Control Center (VFCC)</title>
     <link rel="stylesheet" href="css/grafana.dark.min.css" title="Dark">
+    <link rel="stylesheet" href="css/local.css">
     <link rel="icon" type="image/png" href="img/fav32.png">
 
     <!-- build:js app/app.js -->
@@ -21,8 +22,6 @@
   </head>
 
   <body ng-cloak ng-controller="GrafanaCtrl">
-
-    <link rel="stylesheet" href="css/grafana.light.min.css" ng-if="grafana.style === 'light'">
 
 		<div class="page-alert-list">
 			<div ng-repeat='alert in dashAlerts.list' class="alert-{{alert.severity}} alert">
