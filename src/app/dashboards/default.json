@@ -5,24 +5,7 @@
   "timezone": "browser",
   "editable": false,
   "rows": [
-    {
-      "title": "New row",
-      "height": "350px",
-      "collapse": false,
-      "editable": false,
-      "panels": [
-        {
-          "id": 1,
-          "span": 12,
-          "editable": true,
-          "type": "text",
-          "mode": "html",
-          "content": "<div style=\"padding-top: 15px; text-align: center; overflow: hidden\"><object style=\"\" class=\"emb\" data=\"img/apollo-ng-full-system-view.svg\" height=\"350\" width=\"1150\" type=\"image/svg+xml\"></object></div>",
-          "style": {},
-          "title": ""
-        }
-      ]
-    }
+
   ],
   "nav": [
     {
