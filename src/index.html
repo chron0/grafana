@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="google" value="notranslate">
 
-    <title>Apollo-NG Virtual Flight Control Center (VFCC)</title>
+    <title>Virtual Flight Control Center</title>
     <link rel="stylesheet" href="css/grafana.dark.min.css" title="Dark">
     <link rel="stylesheet" href="css/local.css">
     <link rel="icon" type="image/png" href="img/fav32.png">
@@ -18,6 +18,154 @@
     <!-- endbuild -->
 
     <script>require(['app'], function (app) { app.boot(); })</script>
+
+<script>
+var update = 0;
+var cur_angle = 0;
+var angle = 90;
+var manangle=0;
+
+var myVar=setInterval(function () {myTimer();}, 5000);
+
+function myTimer()
+{
+	API="https://apollo.open-resource.org/flight-control/metrics/graphite/series?u=grafana&p=KjLHxTnhwe12w&q="
+	Q_ANGLE="select+mean(value)+from+%22odyssey.ucsspm.sza%22+where+time+%3E+now()+-+10s+group+by+time(1m)"
+
+	console.log("Time to work");
+
+	if (manangle == 0 )
+	{
+		request = new XMLHttpRequest();
+		request.open('GET', API + Q_ANGLE, true);
+
+		request.onload = function()
+		{
+			if (request.status >= 200 && request.status < 400)
+			{
+				// Success!
+				data = JSON.parse(request.responseText);
+				angle = Math.round(data[0]['points'][0][1]*10)/10;
+				//angle = 35;
+                update = 1;
+				console.log("---> Got data reply, angle @ " + angle)
+   			}
+		 	else
+			{
+				// We reached our target server, but it returned an error
+				console.log('xerror');
+			}
+		};
+
+		request.onerror = function() {
+			console.log('There was a connection error of some sort');
+		};
+
+		request.send();
+	}
+	else
+	{
+		angle = manangle;
+		update = 1;
+	}
+
+	if (update == 1)
+	{
+		console.log('Updating');
+
+		document.getElementById("sun").setAttribute("opacity", "1");
+		document.getElementById("moon").setAttribute("opacity", "0");
+
+		if (angle >= 90)
+		{
+			angle = 0;
+			document.getElementById("sun").setAttribute("opacity", "0");
+			document.getElementById("moon").setAttribute("opacity", "0.35");
+		}
+		else if (angle > 50)
+		{
+			angle = 50;
+		}
+
+    	if (angle != cur_angle)
+		{
+			movePanels();
+		}
+		update = 0;
+	}
+}
+
+function setOdysseyPanel(deg)
+{
+	shift=deg/1.9;
+	document.getElementById("O-PV-Panel-1").setAttribute("transform", "translate(0) rotate(" + deg*-1 + " 235 427)");
+	document.getElementById("O-PV-Panel-1-Connection").setAttribute("d", "M245," + (431-(shift/4)) + " L245,445 Q245,450 250,450 L390,450 Q395,450 395,455 L395,462");
+	document.getElementById("O-PV-Panel-1-Animation").setAttribute("path", "M245," + (431-(shift/4)) + " L245,445 Q245,450 250,450 L390,450 Q395,450 395,455 L395,462");
+	document.getElementById("Sun-Ray-O-1-Connection").setAttribute("d", "M170,207 L" + (256-(shift/4)) + "," + (427-(shift/2)));
+	document.getElementById("Sun-Ray-O-1-Animation").setAttribute("path", "M170,207 L" + (256-(shift/4)) + "," + (427-(shift/2)));
+
+	document.getElementById("O-PV-Panel-2").setAttribute("transform", "translate(" + shift + ") rotate(" + deg*-1 + " 275 427)");
+	document.getElementById("O-PV-Panel-2-Connection").setAttribute("d", "M" + (285+shift) + "," + (431-(shift/4)) + " L" + (285+shift) + ",442 Q" + (285+shift) + ",447 " + (290+shift) + ",447 L390,447 Q398,447 398,455 L398,462");
+	document.getElementById("O-PV-Panel-2-Animation").setAttribute("path", "M" + (285+shift) + "," + (431-(shift/4)) + " L" + (285+shift) + ",442 Q" + (285+shift) + ",447 " + (290+shift) + ",447 L390,447 Q398,447 398,455 L398,462");
+	document.getElementById("Sun-Ray-O-2-Connection").setAttribute("d", "M176,205 L" + (296+(shift*0.85)) + "," + (427-(shift/2)));
+	document.getElementById("Sun-Ray-O-2-Animation").setAttribute("path", "M176,205 L" + (296+(shift*0.85)) + "," + (427-(shift/2)));
+	shift=shift*2;
+	document.getElementById("O-PV-Panel-3").setAttribute("transform", "translate(" + shift + ") rotate(" + deg*-1 + " 315 427)");
+	document.getElementById("O-PV-Panel-3-Connection").setAttribute("d", "M" + (326+(shift-1)) + "," + (431-(shift/8)) + " L" + (326+(shift-1)) + ",439 Q" + (326+(shift-1)) + ",444 " + (331+(shift-1)) + ",444 L390,444 Q401,444 401,455 L401,462");
+	document.getElementById("O-PV-Panel-3-Animation").setAttribute("path", "M" + (326+(shift-1)) + "," + (431-(shift/8)) + " L" + (326+(shift-1)) + ",439 Q" + (326+(shift-1)) + ",444 " + (331+(shift-1)) + ",444 L390,444 Q401,444 401,455 L401,462");
+	document.getElementById("Sun-Ray-O-3-Connection").setAttribute("d", "M181,202 L" + (335+(shift*0.9)) + "," + (427-(shift/4)));
+	document.getElementById("Sun-Ray-O-3-Animation").setAttribute("path", "M181,202 L" + (335+(shift*0.9)) + "," + (427-(shift/4)));
+}
+
+function setAquariusPanel(deg)
+{
+	shift=deg/3.1415;
+	document.getElementById("A-PV-Panel-1").setAttribute("transform", "translate(0) rotate(" + deg*-1 + " 85 68)");
+	document.getElementById("A-PV-Panel-1-Connection").setAttribute("d", "M105," + (75-(shift*1.2)) + " L105,82 Q105,87 110,87 L180,87 Q185,87 185,92 L185,100");
+	document.getElementById("A-PV-Panel-1-Animation").setAttribute("path", "M105," + (75-(shift*1.2)) + " L105,82 Q105,87 110,87 L180,87 Q185,87 185,92 L185,100");
+	document.getElementById("Sun-Ray-A-1-Connection").setAttribute("d", "M208,164 L" + (719-(shift/3.1)) + "," + (374-(shift*2)));
+	document.getElementById("Sun-Ray-A-1-Animation").setAttribute("path", "M208,164 L" + (719-(shift/3.1)) + "," + (374-(shift*2)));
+
+	document.getElementById("A-PV-Panel-2").setAttribute("transform", "translate(" + shift*1.1 + ") rotate(" + deg*-1 + " 180 68)");
+	document.getElementById("A-PV-Panel-2-Connection").setAttribute("d", "M" + (202+(shift*0.9)) + "," + (75-(shift*1.2)) + " L" + (202+(shift*0.9)) + ",80 Q" + (202+(shift*0.9)) + ",84 " + (197+(shift*0.9)) + ",84 L197,84 Q188,84 188,95 L188,100");
+	document.getElementById("A-PV-Panel-2-Animation").setAttribute("path", "M" + (202+(shift*0.9)) + "," + (75-(shift*1.2)) + " L" + (202+(shift*0.9)) + ",80 Q" + (202+(shift*0.9)) + ",84 " + (197+(shift*0.9)) + ",84 L197,84 Q188,84 188,95 L188,100");
+	document.getElementById("Sun-Ray-A-2-Connection").setAttribute("d", "M209,160 L" + (815+(shift/2)) + "," + (374-(shift*2)));
+	document.getElementById("Sun-Ray-A-2-Animation").setAttribute("path", "M209,160 L" + (815+(shift/2)) + "," + (374-(shift*2)));
+
+	document.getElementById("A-PV-Panel-3").setAttribute("transform", "translate(" + shift*2.3 + ") rotate(" + deg*-1 + " 275 68)")
+	document.getElementById("A-PV-Panel-3-Connection").setAttribute("d", "M" + (295+(shift*2.3)) + "," + (75-(shift*1.2)) + " L" + (295+(shift*2.3)) + ",82 Q" + (295+(shift*2.3)) + ",87 " + (290+(shift*2.3)) + ",87 L198,87 Q191,87 191,95 L191,100");
+	document.getElementById("A-PV-Panel-3-Animation").setAttribute("path", "M" + (295+(shift*2.3)) + "," + (75-(shift*1.2)) + " L" + (295+(shift*2.3)) + ",82 Q" + (295+(shift*2.3)) + ",87 " + (290+(shift*2.3)) + ",87 L198,87 Q191,87 191,95 L191,100");
+	document.getElementById("Sun-Ray-A-3-Connection").setAttribute("d", "M209,155 L" + (910+(shift*2)) + "," + (374-(shift*2)));
+	document.getElementById("Sun-Ray-A-3-Animation").setAttribute("path", "M209,155 L" + (910+(shift*2)) + "," + (374-(shift*2)));
+
+	document.getElementById("A-PV-Panel-4").setAttribute("transform", "translate(" + shift*3.5 + ") rotate(" + deg*-1 + " 370 68)");
+	document.getElementById("A-PV-Panel-4-Connection").setAttribute("d", "M" + (390+(shift*3.5)) + "," + (75-(shift*1.2)) + " L" + (390+(shift*3.5)) + ",85 Q" + (390+(shift*3.5)) + ",90 " + (385+(shift*3.5)) + ",90 L199,90 Q194,90 194,95 L194,100");
+	document.getElementById("A-PV-Panel-4-Animation").setAttribute("path", "M" + (390+(shift*3.5)) + "," + (75-(shift*1.2)) + " L" + (390+(shift*3.5)) + ",85 Q" + (390+(shift*3.5)) + ",90 " + (385+(shift*3.5)) + ",90 L199,90 Q194,90 194,95 L194,100");
+	document.getElementById("Sun-Ray-A-4-Connection").setAttribute("d", "M209,150 L" + (1005+(shift*3)) + "," + (374-(shift*2)));
+	document.getElementById("Sun-Ray-A-4-Animation").setAttribute("path", "M209,150 L" + (1005+(shift*3)) + "," + (374-(shift*2)));
+}
+
+
+
+function movePanels()
+{
+    if(cur_angle != angle)
+	{
+		console.log("Next move to:" + cur_angle + " (" + angle + ")")
+
+		if   ( cur_angle < angle )
+			 { cur_angle=Math.round((cur_angle+0.1)*10)/10; }
+		else { cur_angle=Math.round((cur_angle-0.1)*10)/10; }
+
+		setOdysseyPanel(cur_angle);
+		setAquariusPanel(cur_angle);
+        setTimeout(movePanels, 40);
+    }
+}
+
+</script>
+
+
 
   </head>
 
@@ -35,7 +183,7 @@
 
 		<div ng-view></div>
 
-<div id="system-overview" class="apollo-panel" style="display: none; margin: 15px; border: 1px solid green; width: 100%; height: 650px; overflow: hidden; text-align: center;">
+<div id="system-overview" class="apollo-panel">
 <!--
 <object class="emb" data="apollo-ng-full-system-view-electrics.svgz" width="1280" height="700" type="image/svg+xml"></object>
 <image x="0" y="0" height="650" width="1150" xlink:href="apollo-ng-full-system-view-electrics.svg" />
@@ -232,6 +380,52 @@
  <animateMotion id="Sun-Ray-A-4-Animation" path="M209,150 L1005,374" begin="0s" dur="3s" repeatCount="indefinite">
 </circle>
 <circle fill="#ffad09" stroke="#000000" stroke-width="1" cx="150" cy="150" r="60" opacity="0.35" />
+
+
+  <text x="150" y="140" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 22; letter-spacing:0.1; text-anchor: middle; dominant-baseline: hanging;">
+    1199 W/m²
+</text>
+
+
+    <g id="A-RSO" transform="translate(175,280)" onclick='console.log(evt)' class="button">
+
+		<rect   x="-1" y="-1"
+				height="41" width="121"
+				rx="4" ry="4"
+				style="stroke:#ffad09; fill: none; stroke-width: 1.5; filter: url(#buttonBlur);" opacity="0.5" />
+		<rect   x="0" y="0"
+				height="39" width="120"
+				rx="4" ry="4"
+				style="stroke:url(#buttonStrokeGradient); fill: url(#buttonPattern); stroke-width: 1.5;" opacity="0.2"/>
+		<rect   x="0" y="0"
+				height="40" width="120"
+				rx="4" ry="4"
+				style="stroke: none; fill:url(#buttonFaceGradient);" opacity="0.4"/>
+<text id="A-RSO-Text" x="60" y="10" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 22; letter-spacing:0.1; text-anchor: middle; dominant-baseline: hanging;">
+    1053 W/m²
+</text>
+    </g>
+
+    <g id="O-RSO" transform="translate(440,225)" onclick='console.log(evt)' class="button">
+		<rect   x="-1" y="-1"
+				height="41" width="121"
+				rx="4" ry="4"
+				style="stroke:#ffad09; fill: none; stroke-width: 1.5; filter: url(#buttonBlur);" opacity="0.5" />
+		<rect   x="0" y="0"
+		<rect   x="0" y="0"
+				height="39" width="120"
+				rx="4" ry="4"
+				style="stroke:url(#buttonStrokeGradient); fill: url(#buttonPattern); stroke-width: 1.5;" opacity="0.2"/>
+		<rect   x="0" y="0"
+				height="40" width="120"
+				rx="4" ry="4"
+				style="stroke: none; fill:url(#buttonFaceGradient);" opacity="0.7"/>
+  <text id="O-RSO-Text" x="60" y="10" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 22; letter-spacing:0.1; text-anchor: middle; dominant-baseline: hanging;">
+    553 W/m²
+</text>
+    </g>
+
+
 </g>
 
 <g id="Odyssey-Alternator" transform="translate(108,530)">>
@@ -326,7 +520,7 @@ A
 
 <g id="SC-BatB-Connection">
 <path d="M390,557 L390,560 Q390,565 385,565 L265,565 Q260,565 260,560 L260,557" style="stroke:#75890c; stroke-width: 2px; fill:none;"/>
-        <circle cx="0" cy="0" r="2" style="stroke: #75890c; fill: #ffffff; ">
+        <circle cx="0" cy="0" r="1.5" style="stroke: #E0F47A; fill: #F6FFC5; ">
                 <animateMotion path="M392,557 L392,560 Q392,565 387,565 L265,565 Q260,565 260,560 L260,557" begin="0s" dur="3s" repeatCount="indefinite">
         </circle>
 </g>
@@ -338,7 +532,7 @@ A
 </g>
 <g id="BC-BatB-Connection">
 <path d="M201,557 L201,560 Q201,565 207,565 L240,565 Q245,565 245,560 L245,557" style="stroke:#75890c; stroke-width: 1.5px; fill:none;"/>
-        <circle cx="0" cy="0" r="1.5" style="stroke: #75890c; fill: #ffffff; ">
+        <circle cx="0" cy="0" r="1.5" r="1.5" style="stroke: #E0F47A; fill: #F6FFC5; ">
                 <animateMotion path="M201,557 L201,560 Q201,565 207,565 L240,565 Q245,565 245,560 L245,557" begin="0s" dur="3s" repeatCount="indefinite">
         </circle>
 </g>
@@ -387,14 +581,14 @@ A
 
 <g id="BatB-PDU-Connection">
 <path d="M274,537, L279,537" style="stroke:#75890c; stroke-width: 5px; fill:none;"/>
-<circle cx="0" cy="0" r="2.5" style="stroke: #75890c; fill: #ffffff; ">
+<circle cx="0" cy="0" r="1.5" style="stroke: #E0F47A; fill: #F6FFC5; ">
  <animateMotion path="M274,537, L280,537" begin="0s" dur="3s" repeatCount="indefinite">
 </circle>
 </g>
 
 <g id="BatB-SKU-Connection">
 <path d="M253,517, L253,512" style="stroke:#75890c; stroke-width: 1.5px; fill:none;"/>
-<circle cx="0" cy="0" r="1.5" style="stroke: #75890c; stroke-width: 1.5px; fill: #ffffff; ">
+<circle cx="0" cy="0" r="1.5" style="stroke: #E0F47A; fill: #F6FFC5;">
  <animateMotion path="M253,518, L253,511" begin="0s" dur="3s" repeatCount="indefinite">
 </circle>
 </g>
@@ -537,7 +731,7 @@ B
 </g>
 <g id="APU-BatA-Connection">
 <path d="M51,202 L51,200 Q51,195 56,195 L227,195" style="stroke:#75890c; stroke-width: 2px; fill:none;"/>
-        <circle cx="0" cy="0" r="2.5" style="stroke: #e0e0e0; fill: #ffffff; ">
+        <circle cx="0" cy="0" r="1.5" style="stroke: #E0F47A; fill: #F6FFC5; ">
                 <animateMotion path="M51,202 L51,200 Q51,195 56,195 L227,195" begin="0s" dur="3s" repeatCount="indefinite">
         </circle>
 </g>
@@ -551,7 +745,7 @@ B
 </g>
 <g id="GC-BatA-Connection">
 <path d="M209,223 L227,223" style="stroke:#75890c; stroke-width: 2px; fill:none;"/>
-        <circle cx="0" cy="0" r="2.5" style="stroke:#75890c; fill: #ffffff; ">
+        <circle cx="0" cy="0" r="1.5" style="stroke: #E0F47A; fill: #F6FFC5; ">
                 <animateMotion path="M209,223 L227,223" begin="0s" dur="3s" repeatCount="indefinite">
         </circle>
 </g>
@@ -564,7 +758,7 @@ B
 </g>
 <g id="BatA-PDU-Connection">
 <path d="M313,223 L329,223" style="stroke:#75890c; stroke-width: 2px; fill:none;"/>
-        <circle cx="0" cy="0" r="2.5" style="stroke: #e0e0e0; fill: #ffffff; ">
+        <circle cx="0" cy="0" r="1.5" style="stroke: #E0F47A; fill: #F6FFC5; ">
                 <animateMotion path="M313,223 L329,223" begin="0s" dur="3s" repeatCount="indefinite">
         </circle>
 </g>
@@ -577,7 +771,7 @@ B
 </g>
 <g id="BatA-SKU-Connection">
 <path d="M247,158, L247,141" style="stroke:#75890c; stroke-width: 1.5px; fill:none;"/>
-<circle cx="0" cy="0" r="1.5" style="stroke: #00ff00; fill: #ffffff; ">
+<circle cx="0" cy="0" r="1.5" style="stroke: #E0F47A; fill: #F6FFC5; ">
  <animateMotion path="M247,158, L247,141" begin="0s" dur="3s" repeatCount="indefinite">
 </circle>
 </g>
@@ -589,7 +783,7 @@ B
 </text>
 </g>
 <g id="A-PDU-MCU-Connection">
-<path d="M329,121 L313,121" style="stroke:#75890c; stroke-width: 1.5px; fill:none;"/>
+<path d="M329,121 L313,121" style="stroke:#ffff00; stroke-width: 1.5px; fill:none;"/>
         <circle cx="0" cy="0" r="2.5" style="stroke: #e0e0e0; fill: #ffffff; ">
                 <animateMotion path="M329,121 L313,121" begin="0s" dur="3s" repeatCount="indefinite">
         </circle>
@@ -611,7 +805,7 @@ B
 </g>
 <g id="BatA-PDU-Connection">
 <path d="M313,172 L329,172" style="stroke:#75890c; stroke-width: 2px; fill:none;"/>
-        <circle cx="0" cy="0" r="2.5" style="stroke: #e0e0e0; fill: #ffffff; ">
+        <circle cx="0" cy="0" r="1.5" style="stroke: #E0F47A; fill: #F6FFC5; ">
                 <animateMotion path="M313,172 L329,172" begin="0s" dur="3s" repeatCount="indefinite">
         </circle>
 </g>
@@ -625,7 +819,7 @@ B
 </g>
 <g id="A-SC-BatA-Connection">
 <path d="M209,172 L227,172" style="stroke:#75890c; stroke-width: 2px; fill:none;"/>
-        <circle cx="0" cy="0" r="2.5" style="stroke: #e0e0e0; fill: #ffffff; ">
+        <circle cx="0" cy="0" r="1.5" style="stroke: #E0F47A; fill: #F6FFC5; ">
                 <animateMotion path="M209,172 L227,172" begin="0s" dur="3s" repeatCount="indefinite">
         </circle>
 </g>
@@ -639,7 +833,7 @@ B
 
 <g id="BatA-Load-Connection">
 <path d="M312,195 L390,195 Q395,195 395,190 L395,185" style="stroke:#75890c; stroke-width: 2px; fill:none;"/>
-        <circle cx="0" cy="0" r="2.5" style="stroke: #e0e0e0; fill: #ffffff; ">
+        <circle cx="0" cy="0" r="1.5" style="stroke: #E0F47A; fill: #F6FFC5; ">
                 <animateMotion path="M312,195 L390,195 Q395,195 395,190 L395,185" begin="0s" dur="3s" repeatCount="indefinite">
         </circle>
 </g>
@@ -657,10 +851,6 @@ B
  <animateMotion path="M370,121, L379,121" begin="0s" dur="3s" repeatCount="indefinite">
 </circle>
 
-<path d="M314,121, L330,121" style="stroke:#ffff00; stroke-width: 1.5px; fill:none;"/>
-<circle cx="0" cy="0" r="1.5" style="stroke: #ffff00; fill: #ffffff; ">
- <animateMotion path="M314,121, L330,121" begin="0s" dur="3s" repeatCount="indefinite">
-</circle>
 
 <path d="M370,146, L379,146" style="stroke:#ff0000; stroke-width: 1.5px; fill:none;"/>
 <circle cx="0" cy="0" r="1.5" style="stroke: #ff0000; fill: #ffffff; ">
@@ -675,19 +865,19 @@ B
 
 <g id="Grid-GC-Connection">
 <path d="M445,244 L445,250 Q445,255 440,255 L194,255 Q189,255 189,250 L189,244" style="stroke:#83652E; stroke-width: 1.5px; fill:none;"/>
-        <circle cx="0" cy="0" r="1.5" style="stroke: #e0e0e0; fill: #ffffff; ">
+        <circle cx="0" cy="0" r="1.5" style="stroke: #DFC479; fill: #DAB782; ">
                 <animateMotion path="M445,244 L445,250 Q445,255 440,255 L194,255 Q189,255 189,250 L189,244" begin="0s" dur="3s" repeatCount="indefinite">
         </circle>
 </g>
 <g id="Grid-GI-Connection">
 <path d="M349,255 L349,244" style="stroke:#83652E; stroke-width: 1.5px; fill:none;"/>
-        <circle cx="0" cy="0" r="1.5" style="stroke: #e0e0e0; fill: #ffffff; ">
+        <circle cx="0" cy="0" r="1.5" style="stroke: #DFC479; fill: #E8DAB2; ">
                 <animateMotion path="M445,244 L445,250 Q445,255 440,255 L349,255 L349,244" begin="0s" dur="3s" repeatCount="indefinite">
         </circle>
 </g>
 <g id="GI-Load-Connection">
 <path d="M370,223 L406,223 Q411,223 411,218 L411,188" style="stroke:#83652E; stroke-width: 1.5px; fill:none;"/>
-        <circle cx="0" cy="0" r="1.5" style="stroke: #e0e0e0; fill: #ffffff; ">
+        <circle cx="0" cy="0" r="1.5" style="stroke: #E8DAB2; fill: #DFC479; ">
                 <animateMotion path="M370,223 L406,223 Q411,223 411,218 L411,188" begin="0s" dur="3s" repeatCount="indefinite">
         </circle>
 </g>

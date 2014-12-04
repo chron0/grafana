@@ -127,6 +127,15 @@ border-bottom: 1px solid #111;
 	padding: 0px 0px 0px 0px !important;
 }
 
+#system-overview {
+    height: 650px !important;
+    margin-left: 15px;
+    margin-bottom: 15px;
+    display: none;
+    overflow: hidden;
+    text-align: center;
+}
+
 .search-results-container .search-result-item {
 padding: 0 10px;
 white-space: nowrap;
