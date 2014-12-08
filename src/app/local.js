@@ -1,3 +1,5 @@
+"use strict";
+
 var cur_angle = 0;
 var angle = 90;
 var sun = 0;
@@ -5,111 +7,65 @@ var manangle = 0;
 
 var API="https://apollo.open-resource.org/flight-control/metrics/graphite/series?u=grafana&p=KjLHxTnhwe12w&q=";
 
-window.onload = function ()
+
+function svgSetAtt (ele,sid,att,val)
 {
-    setInterval(function () {updatePanels();}, 10000);
-};
-
-function updatePanels ()
-{
-
-    if(document.getElementById('system-overview').style.display == "none")
-    {
-        return;
-    }
-
-    //console.log("(x)");
-
-    // Keep this ordered, influxdb returns ascending by NAME!
-    var Q   = "select+value+from+"
-            + "%22aquarius.env.outdoor.pyrano%22,"
-            + "%22aquarius.ucsspm.rso%22,"
-            + "%22aquarius.ucsspm.sza%22,"
-            + "%22odyssey.ucsspm.rso%22,"
-            + "%22odyssey.ucsspm.sza%22"
-            + "+limit+1";
-
-    var req = new XMLHttpRequest();
-    req.open('GET', API + Q, true);
-
-    req.onload = function()
-    {
-        if (req.status >= 200 && req.status < 400)
-        {
-            var data = JSON.parse(req.responseText);
-            var timestamp = new Date(data[2]['points'][0][0]);
-            document.getElementById('svg-timestamp').innerHTML = timestamp.toISOString();
-            svgSetText("svg-energy-overlay", "O-RSO-Act", Math.round(parseFloat(data[0]['points'][0][2])*10)/10);
-            svgSetText("svg-energy-overlay", "O-RSO-Max", Math.round(parseFloat(data[3]['points'][0][2])*10)/10);
-            svgSetText("svg-energy-overlay", "O-SC-Text", Math.round(parseFloat(data[0]['points'][0][2])*1.67/100*20*0.98*1.01));
-            svgSetText("svg-energy-overlay", "A-RSO-Act", Math.round(parseFloat(data[0]['points'][0][2])*10)/10);
-            svgSetText("svg-energy-overlay", "A-RSO-Max", Math.round(parseFloat(data[1]['points'][0][2])*10)/10);
-            svgSetText("svg-energy-overlay", "A-SC-Text", Math.round(parseFloat(data[0]['points'][0][2])*5/100*19*0.98*1.01));
-
-            if (manangle == 0)
-            {
-                angle = Math.round(parseFloat(data[2]['points'][0][2])*10)/10;
-            }
-            else
-            {
-                angle=manangle;
-            }
-
-            if (angle >= 90)
-            {
-                angle = 0;
-                sun = 0;
-            }
-            else if (angle > 50)
-            {
-                angle = 50;
-            }
-
-            angle=35;
-
-            if (cur_angle != angle)
-            {
-                if (sun == 0 && angle > 0)
-                {
-                    svgSetAtt ("svg-energy-overlay","sun","opacity",1);
-                    svgSetAtt ("svg-energy-overlay","moon","opacity",0);
-                    sun = 1;
-                }
-                else if (sun == 1 && angle == 0)
-                {
-                    svgSetAtt ("svg-energy-overlay","sun","opacity",0);
-                    svgSetAtt ("svg-energy-overlay","moon","opacity",0.35);
-                    sun = 0;
-                }
-                movePanels();
-            }
-        }
-        else
-        {
-            console.log('data error');
-        }
-    };
-
-    req.onerror = function()
-    {
-        console.log('connection error');
-    };
-
-    req.send();
+    document.getElementById(ele).contentDocument.getElementById(sid).setAttributeNS(null, att, val);
 }
+
+function svgSetText (ele,sid,text)
+{
+    document.getElementById(ele).contentDocument.getElementById(sid).textContent=text;
+}
+
+if (!Date.prototype.toISOString) {
+    (function() {
+
+        function pad(number) {
+            if (number < 10) {
+                return '0' + number;
+            }
+            return number;
+        }
+
+        Date.prototype.toISOString = function() {
+            return this.getUTCFullYear() +
+            '-' + pad(this.getUTCMonth() + 1) +
+            '-' + pad(this.getUTCDate()) +
+            'T' + pad(this.getUTCHours()) +
+            ':' + pad(this.getUTCMinutes()) +
+            ':' + pad(this.getUTCSeconds()) +
+            '.' + (this.getUTCMilliseconds() / 1000).toFixed(3).slice(2, 5) +
+            'Z';
+        };
+
+    }());
+}
+
 
 function setOdysseyPanel (deg)
 {
-	shift=deg/1.9;
-    svgSetAtt("svg-energy-overlay","O-PV-Panel-1","transform","translate(0) rotate(" + deg*-1 + " 235 427)");
-    svgSetAtt("svg-energy-overlay","O-PV-Panel-1-Connection","d","M245," + (431-(shift/4)) + " L245,445 Q245,450 250,450 L390,450 Q395,450 395,455 L395,462");
-    svgSetAtt("svg-energy-overlay","O-PV-Panel-1-Animation","path","M245," + (431-(shift/4)) + " L245,445 Q245,450 250,450 L390,450 Q395,450 395,455 L395,462");
+	var shift=deg/1.9;
+    svgSetAtt("svg-energy-overlay","O-PV-Panel-1",
+              "transform","translate(0) rotate(" + deg*-1 + " 235 427)");
+    svgSetAtt("svg-energy-overlay","O-PV-Panel-1-Connection",
+              "d","M245," + (431-(shift/4)) +
+              " L245,445 Q245,450 250,450 L390,450 Q395,450 395,455 L395,462");
+    svgSetAtt("svg-energy-overlay","O-PV-Panel-1-Animation",
+              "path","M245," + (431-(shift/4)) +
+              " L245,445 Q245,450 250,450 L390,450 Q395,450 395,455 L395,462");
     svgSetAtt("svg-energy-overlay","Sun-Ray-O-1-Connection","d","M170,207 L" + (256-(shift/4)) + "," + (427-(shift/2)));
     svgSetAtt("svg-energy-overlay","Sun-Ray-O-1-Animation","path","M170,207 L" + (256-(shift/4)) + "," + (427-(shift/2)));
 
     svgSetAtt("svg-energy-overlay","O-PV-Panel-2","transform","translate(" + shift + ") rotate(" + deg*-1 + " 275 427)");
-    svgSetAtt("svg-energy-overlay","O-PV-Panel-2-Connection","d","M" + (285+shift) + "," + (431-(shift/4)) + " L" + (285+shift) + ",442 Q" + (285+shift) + ",447 " + (290+shift) + ",447 L390,447 Q398,447 398,455 L398,462");
-    svgSetAtt("svg-energy-overlay","O-PV-Panel-2-Animation","path","M" + (285+shift) + "," + (431-(shift/4)) + " L" + (285+shift) + ",442 Q" + (285+shift) + ",447 " + (290+shift) + ",447 L390,447 Q398,447 398,455 L398,462");
+    svgSetAtt("svg-energy-overlay","O-PV-Panel-2-Connection",
+              "d","M" + (285+shift) + "," + (431-(shift/4)) +
+              " L" + (285+shift) + ",442 Q" + (285+shift) + ",447 " + (290+shift) +
+              ",447 L390,447 Q398,447 398,455 L398,462");
+    svgSetAtt("svg-energy-overlay","O-PV-Panel-2-Animation",
+              "path","M" + (285+shift) + "," + (431-(shift/4)) +
+              " L" + (285+shift) + ",442 Q" + (285+shift) + ",447 " + (290+shift) +
+              ",447 L390,447 Q398,447 398,455 L398,462");
     svgSetAtt("svg-energy-overlay","Sun-Ray-O-2-Connection","d","M176,204 L" + (296+(shift*0.75)) + "," + (427-(shift/2)));
     svgSetAtt("svg-energy-overlay","Sun-Ray-O-2-Animation","path","M176,204 L" + (296+(shift*0.75)) + "," + (427-(shift/2)));
 	shift=shift*2;
@@ -150,7 +106,7 @@ function setAquariusPanel (deg)
 
 function movePanels ()
 {
-    if(cur_angle != angle)
+    if(cur_angle !== angle)
 	{
 		if   ( cur_angle < angle )
 			 { cur_angle=Math.round((cur_angle+0.1)*10)/10; }
@@ -162,36 +118,110 @@ function movePanels ()
     }
 }
 
-function svgSetAtt (ele,sid,att,val)
+
+
+function updatePanels ()
 {
-    document.getElementById(ele).contentDocument.getElementById(sid).setAttributeNS(null, att, val);
-}
 
-function svgSetText (ele,sid,text)
-{
-    document.getElementById(ele).contentDocument.getElementById(sid).textContent=text;
-}
+    if(document.getElementById('system-overview').style.display === "none")
+    {
+        return;
+    }
 
-if (!Date.prototype.toISOString) {
-    (function() {
+    //console.log("(x)");
 
-        function pad(number) {
-            if (number < 10) {
-                return '0' + number;
+    // Keep this ordered, influxdb returns ascending by NAME!
+    var Q   = "select+value+from+"
+            + "%22aquarius.env.outdoor.pyrano%22,"
+            + "%22aquarius.ucsspm.rso%22,"
+            + "%22aquarius.ucsspm.sza%22,"
+            + "%22odyssey.ucsspm.rso%22,"
+            + "%22odyssey.ucsspm.sza%22"
+            + "+limit+1";
+
+    var req = new XMLHttpRequest();
+    req.open('GET', API + Q, true);
+
+    req.onload = function()
+    {
+        if (req.status >= 200 && req.status < 400)
+        {
+            var data = JSON.parse(req.responseText);
+            var timestamp = new Date(data[2]['points'][0][0]);
+            document.getElementById('svg-timestamp').innerHTML = timestamp.toISOString();
+
+            var o_rso_act = Math.round(parseFloat(data[0]['points'][0][2])*10)/10;
+            if ( o_rso_act >= 100) { o_rso_act = Math.round(o_rso_act); }
+
+            var o_rso_max = Math.round(parseFloat(data[3]['points'][0][2])*10)/10;
+            if ( o_rso_max >= 100) { o_rso_max = Math.round(o_rso_max); }
+
+            var a_rso_act = Math.round(parseFloat(data[0]['points'][0][2])*10)/10;
+            if ( a_rso_act >= 100) { a_rso_act = Math.round(a_rso_act); }
+
+            var a_rso_max = Math.round(parseFloat(data[1]['points'][0][2])*10)/10;
+            if ( a_rso_max >= 100) { a_rso_max = Math.round(a_rso_max); }
+
+            svgSetText("svg-energy-overlay", "O-RSO-Act", o_rso_act);
+            svgSetText("svg-energy-overlay", "O-RSO-Max", o_rso_max);
+            svgSetText("svg-energy-overlay", "O-SC-Text", Math.round(parseFloat(data[0]['points'][0][2])*1.67/100*20*0.98*1.01));
+            svgSetText("svg-energy-overlay", "A-RSO-Act", a_rso_act);
+            svgSetText("svg-energy-overlay", "A-RSO-Max", a_rso_max);
+            svgSetText("svg-energy-overlay", "A-SC-Text", Math.round(parseFloat(data[0]['points'][0][2])*5/100*19*0.98*1.01));
+
+            if (manangle === 0)
+            {
+                angle = Math.round(parseFloat(data[2]['points'][0][2])*10)/10;
             }
-            return number;
+            else
+            {
+                angle=manangle;
+            }
+
+            if (angle >= 90)
+            {
+                angle = 0;
+                //sun = 0;
+            }
+            else if (angle > 50)
+            {
+                angle = 50;
+            }
+
+            angle=35;
+
+            if (cur_angle !== angle)
+            {
+                if (sun === 0 && angle > 0)
+                {
+                    svgSetAtt ("svg-energy-overlay","sun","opacity",1);
+                    svgSetAtt ("svg-energy-overlay","moon","opacity",0);
+                    sun = 1;
+                }
+                else if (sun === 1 && angle === 0)
+                {
+                    svgSetAtt ("svg-energy-overlay","sun","opacity",0);
+                    svgSetAtt ("svg-energy-overlay","moon","opacity",0.35);
+                    sun = 0;
+                }
+                movePanels();
+            }
         }
+        else
+        {
+            console.log('data error');
+        }
+    };
 
-        Date.prototype.toISOString = function() {
-            return this.getUTCFullYear() +
-            '-' + pad(this.getUTCMonth() + 1) +
-            '-' + pad(this.getUTCDate()) +
-            'T' + pad(this.getUTCHours()) +
-            ':' + pad(this.getUTCMinutes()) +
-            ':' + pad(this.getUTCSeconds()) +
-            '.' + (this.getUTCMilliseconds() / 1000).toFixed(3).slice(2, 5) +
-            'Z';
-        };
+    req.onerror = function()
+    {
+        console.log('connection error');
+    };
 
-    }());
+    req.send();
 }
+
+window.onload = function ()
+{
+    setInterval(function () {updatePanels();}, 10000);
+};
