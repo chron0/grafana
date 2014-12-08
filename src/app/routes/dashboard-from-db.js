@@ -39,6 +39,7 @@ function (angular) {
     db.getDashboard($routeParams.id, isTemp)
     .then(function(dashboard) {
       $scope.initDashboard(dashboard, $scope);
+      document.getElementById('system-overview').style.display = "none";
     }).then(null, function(error) {
       $scope.initDashboard({ title: 'Grafana'}, $scope);
       $scope.appEvent('alert-error', ['Dashboard load failed', error]);
