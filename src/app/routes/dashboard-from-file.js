@@ -54,6 +54,8 @@ function (angular, $, config, _) {
     file_load($routeParams.jsonFile).then(function(result) {
       $scope.initDashboard(result, $scope);
        document.getElementById('system-overview').style.display = "block";
+       document.getElementById('svg-timestamp').style.display = "inline-block";
+       sun = 0;
     });
 
   });

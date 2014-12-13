@@ -57,8 +57,15 @@
 					</ul>
 				</li>
 
-				<li class="dropdown grafana-menu-load">
-					<a bs-tooltip="'Search'" ng-click="openSearch()">
+				<li>
+					<input type="range" min="0" max="1440" value="1440" step="10" id="svg-timeoffset" class="range-input" onchange="setTimeOffset(value)">
+					<span id="svg-timestamp">0</span>
+				</li>
+
+				<li class="grafana-menu-zoom-out"><a bs-tooltip="'Zoom Out'" data-placement="bottom" ng-click='zoom(2)'><i class='icon-zoom-out'></i></a></li>
+
+				<li class="dropdown grafana-menu-load" bs-tooltip="'Open another Dashboard'">
+					<a ng-click="openSearch()">
 						<i class='icon-folder-open'></i>
 					</a>
 				</li>
@@ -77,4 +84,3 @@
 		</div>
 	</div>
 </div>
-
