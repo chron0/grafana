@@ -47,7 +47,7 @@ Date.prototype.toISOString = function()
 
 function setTimeOffset (position)
 {
-    t_offset = 60*(1440-position);
+    t_offset = 600*(144-position);
     var timestamp = +new Date();
     timestamp = timestamp - t_offset;
     document.getElementById('svg-timestamp').innerHTML = timestamp;
@@ -311,26 +311,10 @@ function updateSolarLive ()
 
             console.log("Angle: "+angle+" - Current Angle: " + cur_angle + " - Sun: "+ sun);
 
-            if (angle > 0 && sun === 0)
+            if (angle >= 90 && sun !== 0)
             {
-                sun = 1;
-                svgSetAtt ("svg-energy-overlay","sun","opacity",1);
-                svgSetAtt ("svg-energy-overlay","moon","opacity",0);
-                svgSetAtt ("svg-energy-overlay","O-PV-Panel-1","style","fill:#0f0e0a; stroke:#ffad09; stroke-width: 0.6;");
-                svgSetAtt ("svg-energy-overlay","O-PV-Panel-2","style","fill:#0f0e0a; stroke:#ffad09; stroke-width: 0.6;");
-                svgSetAtt ("svg-energy-overlay","O-PV-Panel-3","style","fill:#0f0e0a; stroke:#ffad09; stroke-width: 0.6;");
-                svgSetAtt ("svg-energy-overlay","A-PV-Panel-1","style","fill:#0f0e0a; stroke:#ffad09; stroke-width: 0.6;");
-                svgSetAtt ("svg-energy-overlay","A-PV-Panel-2","style","fill:#0f0e0a; stroke:#ffad09; stroke-width: 0.6;");
-                svgSetAtt ("svg-energy-overlay","A-PV-Panel-3","style","fill:#0f0e0a; stroke:#ffad09; stroke-width: 0.6;");
-                svgSetAtt ("svg-energy-overlay","A-PV-Panel-4","style","fill:#0f0e0a; stroke:#ffad09; stroke-width: 0.6;");
-
-            }
-
-            if (angle >= 90 && sun === 1)
-            {
-                angle = 0;
                 sun = 0;
-                svgSetAtt ("svg-energy-overlay","sun","opacity",0);
+                document.getElementById("svg-energy-overlay").contentDocument.getElementById("SunSet").beginElement();
                 svgSetAtt ("svg-energy-overlay","moon","opacity",0.35);
                 svgSetAtt ("svg-energy-overlay","O-PV-Panel-1","style","fill:#0f0e0a; stroke:#888385; stroke-width: 0.6;");
                 svgSetAtt ("svg-energy-overlay","O-PV-Panel-2","style","fill:#0f0e0a; stroke:#888385; stroke-width: 0.6;");
@@ -339,6 +323,24 @@ function updateSolarLive ()
                 svgSetAtt ("svg-energy-overlay","A-PV-Panel-2","style","fill:#0f0e0a; stroke:#888385; stroke-width: 0.6;");
                 svgSetAtt ("svg-energy-overlay","A-PV-Panel-3","style","fill:#0f0e0a; stroke:#888385; stroke-width: 0.6;");
                 svgSetAtt ("svg-energy-overlay","A-PV-Panel-4","style","fill:#0f0e0a; stroke:#888385; stroke-width: 0.6;");
+            }
+            else if (angle < 90 && sun === 0)
+            {
+                sun = 1;
+                document.getElementById("svg-energy-overlay").contentDocument.getElementById("SunRise").beginElement();
+                svgSetAtt ("svg-energy-overlay","moon","opacity",0);
+                svgSetAtt ("svg-energy-overlay","O-PV-Panel-1","style","fill:#0f0e0a; stroke:#ffad09; stroke-width: 0.6;");
+                svgSetAtt ("svg-energy-overlay","O-PV-Panel-2","style","fill:#0f0e0a; stroke:#ffad09; stroke-width: 0.6;");
+                svgSetAtt ("svg-energy-overlay","O-PV-Panel-3","style","fill:#0f0e0a; stroke:#ffad09; stroke-width: 0.6;");
+                svgSetAtt ("svg-energy-overlay","A-PV-Panel-1","style","fill:#0f0e0a; stroke:#ffad09; stroke-width: 0.6;");
+                svgSetAtt ("svg-energy-overlay","A-PV-Panel-2","style","fill:#0f0e0a; stroke:#ffad09; stroke-width: 0.6;");
+                svgSetAtt ("svg-energy-overlay","A-PV-Panel-3","style","fill:#0f0e0a; stroke:#ffad09; stroke-width: 0.6;");
+                svgSetAtt ("svg-energy-overlay","A-PV-Panel-4","style","fill:#0f0e0a; stroke:#ffad09; stroke-width: 0.6;");
+            }
+
+            if (angle >= 90)
+            {
+                angle = 0;
             }
             else if (angle > 50)
             {
@@ -349,9 +351,10 @@ function updateSolarLive ()
 
             if (cur_angle !== angle)
             {
-                console.log("angle changed");
+                console.log("-- Angle changed");
                 movePanels();
             }
+
         }
         else
         {
@@ -391,9 +394,9 @@ function updateSolarHarvest ()
             var data = JSON.parse(req.responseText);
             console.log(data);
             console.log("Harvest Odyssey: " + Math.round((data[0]['points'][0][1]/360)*1.67*0.2));
-            console.log("Sunshine Odyssey: " + Math.round(data[0]['points'][0][2]/360));
+            console.log("Sunshine Odyssey: " + Math.round((data[0]['points'][0][2]/360)*10)/10);
             console.log("Harvest Aquarius: " + Math.round((data[0]['points'][0][1]/360)*5*0.19));
-            console.log("Sunshine Aquarius: " + Math.round(data[0]['points'][0][2]/360));
+            console.log("Sunshine Aquarius: " + Math.round((data[0]['points'][0][2]/360)*10)/10);
 
         }
         else
@@ -425,5 +428,6 @@ function updateView ()
 
 window.onload = function ()
 {
+    updateView();
     setInterval(function () {updateView();}, 10000);
 };

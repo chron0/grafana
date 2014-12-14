@@ -122,7 +122,9 @@
       <animateMotion id="Sun-Ray-A-4-Animation" path="M209,150 L1005,374" begin="0s" dur="3s" repeatCount="indefinite" />
     </circle>
 
-    <circle fill="rgba(255, 173, 9, 0.4)" stroke="#ffad09" stroke-width="2" cx="150" cy="150" r="60" opacity="0.9" />
+    <circle fill="rgba(255, 173, 9, 0.4)" stroke="#ffad09" stroke-width="2" cx="150" cy="150" r="60" opacity="0.7">
+      <animate id="Sun-Stroke-Animation" attributeName="stroke" from="#3f3e3a" to="#ffad09" begin="0s" dur="3s" fill="freeze" repeatCount="indefinite" />
+    </circle>
 
     <g id="O-RSO" transform="translate(140,280)" onclick='console.log(evt)' class="button">
       <rect x="-1" y="-1" height="44" width="218" rx="4" ry="4" style="stroke:none; fill:#ffad09;" opacity="0.4" />
@@ -265,7 +267,8 @@
             <animate id="ARMDA4" attributeName="opacity" from="1" to="0" begin="ARMDA3.end" dur="2s" fill="freeze" />
         </path>
     </g>
-
+    <animate id="SunRise" attributeName="opacity" from="0" to="1" begin="indefinite" dur="5s" fill="freeze" />
+    <animate id="SunSet" attributeName="opacity" from="1" to="0" begin="indefinite" dur="5s" fill="freeze" />
   </g>
 
 
