@@ -57,9 +57,9 @@
 					</ul>
 				</li>
 
-				<li>
-					<input type="range" min="0" max="1440" value="1440" step="10" id="svg-timeoffset" class="range-input" onchange="setTimeOffset(value)">
+				<li id="svg-timerange">
 					<span id="svg-timestamp">0</span>
+					<input type="range" min="0" max="144" value="144" step="10" id="svg-timeoffset" class="range-input" onchange="setTimeOffset(value)">
 				</li>
 
 				<li class="grafana-menu-zoom-out"><a bs-tooltip="'Zoom Out'" data-placement="bottom" ng-click='zoom(2)'><i class='icon-zoom-out'></i></a></li>

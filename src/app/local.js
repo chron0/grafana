@@ -2,7 +2,7 @@
 
 var cur_angle = 0;
 var angle = 90;
-var sun = 0;
+var sun = -1;
 var t_offset = 0;
 
 var o_rso_dir = 0;
@@ -51,8 +51,38 @@ function setTimeOffset (position)
     var timestamp = +new Date();
     timestamp = timestamp - t_offset;
     document.getElementById('svg-timestamp').innerHTML = timestamp;
+    updateView();
 }
 
+function jDay(year, month, day)
+{
+    if (year < 0) { year ++; }
+    var jy = parseInt(year);
+    var jm = parseInt(month) +1;
+    if (month <= 2) {jy--;	jm += 12;}
+    var jul = Math.floor(365.25 *jy) + Math.floor(30.6001 * jm) + parseInt(day) + 1720995;
+    if (day+31*(month+12*year) >= (15+31*(10+12*1582))) {
+        var ja = Math.floor(0.01 * jy);
+        jul = jul + 2 - ja + Math.floor(0.25 * ja);
+    }
+    return jul;
+}
+
+function moonPhase(year,month,day)
+{
+    var n = Math.floor(12.37 * (year -1900 + ((1.0 * month - 0.5)/12.0)));
+    var RAD = 3.14159265/180.0;
+    var t = n / 1236.85;
+    var t2 = t * t;
+    var as = 359.2242 + 29.105356 * n;
+    var am = 306.0253 + 385.816918 * n + 0.010730 * t2;
+    var xtra = 0.75933 + 1.53058868 * n + ((1.178e-4) - (1.55e-7) * t) * t2;
+    xtra += (0.1734 - 3.93e-4 * t) * Math.sin(RAD * as) - 0.4068 * Math.sin(RAD * am);
+    var i = (xtra > 0.0 ? Math.floor(xtra) :  Math.ceil(xtra - 1.0));
+    var j1 = jDay(year,month,day);
+    var jd = (2415020 + 28 * n) + i;
+    return (j1-jd + 30)%30;
+}
 
 function setOdysseyPanel (deg)
 {
@@ -314,11 +344,12 @@ function updateSolarLive ()
             if (angle >= 90 && sun !== 0)
             {
                 sun = 0;
+                console.log("Update Moonphase: " + moonPhase(timestamp.getUTCFullYear(),(timestamp.getUTCMonth()+1),timestamp.getUTCDate()));
                 document.getElementById("svg-energy-overlay").contentDocument.getElementById("SunSet").beginElement();
                 svgSetAtt ("svg-energy-overlay","moon","opacity",0.35);
-                svgSetAtt ("svg-energy-overlay","O-PV-Panel-1","style","fill:#0f0e0a; stroke:#888385; stroke-width: 0.6;");
-                svgSetAtt ("svg-energy-overlay","O-PV-Panel-2","style","fill:#0f0e0a; stroke:#888385; stroke-width: 0.6;");
-                svgSetAtt ("svg-energy-overlay","O-PV-Panel-3","style","fill:#0f0e0a; stroke:#888385; stroke-width: 0.6;");
+                document.getElementById("svg-energy-overlay").contentDocument.getElementById("O-PV-Panel-1-SA").endElement();
+                document.getElementById("svg-energy-overlay").contentDocument.getElementById("O-PV-Panel-2-SA").endElement();
+                document.getElementById("svg-energy-overlay").contentDocument.getElementById("O-PV-Panel-3-SA").endElement();
                 svgSetAtt ("svg-energy-overlay","A-PV-Panel-1","style","fill:#0f0e0a; stroke:#888385; stroke-width: 0.6;");
                 svgSetAtt ("svg-energy-overlay","A-PV-Panel-2","style","fill:#0f0e0a; stroke:#888385; stroke-width: 0.6;");
                 svgSetAtt ("svg-energy-overlay","A-PV-Panel-3","style","fill:#0f0e0a; stroke:#888385; stroke-width: 0.6;");
@@ -329,9 +360,9 @@ function updateSolarLive ()
                 sun = 1;
                 document.getElementById("svg-energy-overlay").contentDocument.getElementById("SunRise").beginElement();
                 svgSetAtt ("svg-energy-overlay","moon","opacity",0);
-                svgSetAtt ("svg-energy-overlay","O-PV-Panel-1","style","fill:#0f0e0a; stroke:#ffad09; stroke-width: 0.6;");
-                svgSetAtt ("svg-energy-overlay","O-PV-Panel-2","style","fill:#0f0e0a; stroke:#ffad09; stroke-width: 0.6;");
-                svgSetAtt ("svg-energy-overlay","O-PV-Panel-3","style","fill:#0f0e0a; stroke:#ffad09; stroke-width: 0.6;");
+                document.getElementById("svg-energy-overlay").contentDocument.getElementById("O-PV-Panel-1-SA").beginElement();
+                document.getElementById("svg-energy-overlay").contentDocument.getElementById("O-PV-Panel-2-SA").beginElement();
+                document.getElementById("svg-energy-overlay").contentDocument.getElementById("O-PV-Panel-3-SA").beginElement();
                 svgSetAtt ("svg-energy-overlay","A-PV-Panel-1","style","fill:#0f0e0a; stroke:#ffad09; stroke-width: 0.6;");
                 svgSetAtt ("svg-energy-overlay","A-PV-Panel-2","style","fill:#0f0e0a; stroke:#ffad09; stroke-width: 0.6;");
                 svgSetAtt ("svg-energy-overlay","A-PV-Panel-3","style","fill:#0f0e0a; stroke:#ffad09; stroke-width: 0.6;");
@@ -418,16 +449,14 @@ function updateView ()
 {
     if(document.getElementById('system-overview').style.display === "none")
     {
-            return;
+        return;
     }
 
     updateSolarLive();
     updateSolarHarvest();
 }
 
-
 window.onload = function ()
 {
-    updateView();
     setInterval(function () {updateView();}, 10000);
 };
