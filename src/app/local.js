@@ -1,8 +1,9 @@
 "use strict";
 
+var init = 1;
 var cur_angle = 0;
-var angle = 90;
-var sun = -1;
+var angle = 0;
+var sun = 0;
 var t_offset = 0;
 
 var o_rso_dir = 0;
@@ -87,89 +88,89 @@ function moonPhase(year,month,day)
 function setOdysseyPanel (deg)
 {
 	var shift=deg/1.9;
-    svgSetAtt("svg-energy-overlay","O-PV-Panel-1",
+    svgSetAtt("svg-energy-overlay","OPVP1",
               "transform","translate(0) rotate(" + deg*-1 + " 235 427)");
-    svgSetAtt("svg-energy-overlay","O-PV-Panel-1-Connection",
+    svgSetAtt("svg-energy-overlay","OPVP1C",
               "d","M245," + (431-(shift/4)) +
               " L245,445 Q245,450 250,450 L390,450 Q395,450 395,455 L395,462");
-    svgSetAtt("svg-energy-overlay","O-PV-Panel-1-Animation",
+    svgSetAtt("svg-energy-overlay","OPVP1CA",
               "path","M245," + (431-(shift/4)) +
               " L245,445 Q245,450 250,450 L390,450 Q395,450 395,455 L395,462");
-    svgSetAtt("svg-energy-overlay","Sun-Ray-O-1-Connection","d","M170,207 L" + (256-(shift/4)) + "," + (427-(shift/2)));
-    svgSetAtt("svg-energy-overlay","Sun-Ray-O-1-Animation","path","M170,207 L" + (256-(shift/4)) + "," + (427-(shift/2)));
+    svgSetAtt("svg-energy-overlay","SunRayO1C","d","M170,207 L" + (256-(shift/4)) + "," + (427-(shift/2)));
+    svgSetAtt("svg-energy-overlay","SunRayO1CA","path","M170,207 L" + (256-(shift/4)) + "," + (427-(shift/2)));
 
-    svgSetAtt("svg-energy-overlay","O-PV-Panel-2","transform","translate(" + shift + ") rotate(" + deg*-1 + " 275 427)");
-    svgSetAtt("svg-energy-overlay","O-PV-Panel-2-Connection",
+    svgSetAtt("svg-energy-overlay","OPVP2","transform","translate(" + shift + ") rotate(" + deg*-1 + " 275 427)");
+    svgSetAtt("svg-energy-overlay","OPVP2C",
               "d","M" + (285+shift) + "," + (431-(shift/4)) +
               " L" + (285+shift) + ",442 Q" + (285+shift) + ",447 " + (290+shift) +
               ",447 L390,447 Q398,447 398,455 L398,462");
-    svgSetAtt("svg-energy-overlay","O-PV-Panel-2-Animation",
+    svgSetAtt("svg-energy-overlay","OPVP2CA",
               "path","M" + (285+shift) + "," + (431-(shift/4)) +
               " L" + (285+shift) + ",442 Q" + (285+shift) + ",447 " + (290+shift) +
               ",447 L390,447 Q398,447 398,455 L398,462");
-    svgSetAtt("svg-energy-overlay","Sun-Ray-O-2-Connection","d","M176,204 L" + (296+(shift*0.75)) + "," + (427-(shift/2)));
-    svgSetAtt("svg-energy-overlay","Sun-Ray-O-2-Animation","path","M176,204 L" + (296+(shift*0.75)) + "," + (427-(shift/2)));
+    svgSetAtt("svg-energy-overlay","SunRayO2C","d","M176,204 L" + (296+(shift*0.75)) + "," + (427-(shift/2)));
+    svgSetAtt("svg-energy-overlay","SunRayO2CA","path","M176,204 L" + (296+(shift*0.75)) + "," + (427-(shift/2)));
 	shift=shift*2;
-    svgSetAtt("svg-energy-overlay","O-PV-Panel-3","transform", "translate(" + shift + ") rotate(" + deg*-1 + " 315 427)");
-    svgSetAtt("svg-energy-overlay","O-PV-Panel-3-Connection",
+    svgSetAtt("svg-energy-overlay","OPVP3","transform", "translate(" + shift + ") rotate(" + deg*-1 + " 315 427)");
+    svgSetAtt("svg-energy-overlay","OPVP3C",
               "d", "M" + (326+(shift-1)) + "," + (431-(shift/8))
               + " L" + (326+(shift-1)) + ",439 Q" + (326+(shift-1)) + ",444 " + (331+(shift-1))
               + ",444 L390,444 Q401,444 401,455 L401,462");
-    svgSetAtt("svg-energy-overlay","O-PV-Panel-3-Animation",
-    "path", "M" + (326+(shift-1)) + "," + (431-(shift/8))
-    + " L" + (326+(shift-1)) + ",439 Q" + (326+(shift-1)) + ",444 " + (331+(shift-1))
-    + ",444 L390,444 Q401,444 401,455 L401,462");
-	svgSetAtt("svg-energy-overlay","Sun-Ray-O-3-Connection","d", "M182,201 L" + (335+(shift*0.9)) + "," + (427-(shift/4)));
-    svgSetAtt("svg-energy-overlay","Sun-Ray-O-3-Animation","path", "M182,201 L" + (335+(shift*0.9)) + "," + (427-(shift/4)));
+    svgSetAtt("svg-energy-overlay","OPVP3CA",
+              "path", "M" + (326+(shift-1)) + "," + (431-(shift/8))
+              + " L" + (326+(shift-1)) + ",439 Q" + (326+(shift-1)) + ",444 " + (331+(shift-1))
+              + ",444 L390,444 Q401,444 401,455 L401,462");
+	svgSetAtt("svg-energy-overlay","SunRayO3C","d", "M182,201 L" + (335+(shift*0.9)) + "," + (427-(shift/4)));
+    svgSetAtt("svg-energy-overlay","SunRayO3CA","path", "M182,201 L" + (335+(shift*0.9)) + "," + (427-(shift/4)));
 }
 
 function setAquariusPanel (deg)
 {
 	var shift = deg/3.1415;
-    svgSetAtt("svg-energy-overlay","A-PV-Panel-1","transform", "translate(0) rotate(" + deg*-1 + " 85 68)");
-    svgSetAtt("svg-energy-overlay","A-PV-Panel-1-Connection",
+    svgSetAtt("svg-energy-overlay","APVP1","transform", "translate(0) rotate(" + deg*-1 + " 85 68)");
+    svgSetAtt("svg-energy-overlay","APVP1C",
     "d", "M105," + (75-(shift*1.2))
     + " L105,82 Q105,87 110,87 L180,87 Q185,87 185,92 L185,100");
-    svgSetAtt("svg-energy-overlay","A-PV-Panel-1-Animation",
+    svgSetAtt("svg-energy-overlay","APVP1CA",
     "path", "M105," + (75-(shift*1.2)) + " L105,82 Q105,87 110,87 L180,87 Q185,87 185,92 L185,100");
-    svgSetAtt("svg-energy-overlay","Sun-Ray-A-1-Connection","d", "M208,164 L" + (719-(shift/2.2)) + "," + (376-(shift*2.1)));
-    svgSetAtt("svg-energy-overlay","Sun-Ray-A-1-Animation","path", "M208,164 L" + (719-(shift/2.2)) + "," + (376-(shift*2.1)));
+    svgSetAtt("svg-energy-overlay","SunRayA1C","d", "M208,164 L" + (719-(shift/2.2)) + "," + (376-(shift*2.1)));
+    svgSetAtt("svg-energy-overlay","SunRayA1CA","path", "M208,164 L" + (719-(shift/2.2)) + "," + (376-(shift*2.1)));
 
-    svgSetAtt("svg-energy-overlay","A-PV-Panel-2","transform", "translate(" + shift*1.1 + ") rotate(" + deg*-1 + " 180 68)");
-    svgSetAtt("svg-energy-overlay","A-PV-Panel-2-Connection",
+    svgSetAtt("svg-energy-overlay","APVP2","transform", "translate(" + shift*1.1 + ") rotate(" + deg*-1 + " 180 68)");
+    svgSetAtt("svg-energy-overlay","APVP2C",
     "d", "M" + (202+(shift*0.9)) + "," + (75-(shift*1.2))
     + " L" + (202+(shift*0.9)) + ",80 Q" + (202+(shift*0.9)) + ",84 " + (197+(shift*0.9))
     + ",84 L197,84 Q188,84 188,95 L188,100");
-    svgSetAtt("svg-energy-overlay","A-PV-Panel-2-Animation",
+    svgSetAtt("svg-energy-overlay","APVP2CA",
     "path", "M" + (202+(shift*0.9)) + "," + (75-(shift*1.2))
     + " L" + (202+(shift*0.9)) + ",80 Q" + (202+(shift*0.9)) + ",84 " + (197+(shift*0.9))
      + ",84 L197,84 Q188,84 188,95 L188,100");
-    svgSetAtt("svg-energy-overlay","Sun-Ray-A-2-Connection","d", "M209,160 L" + (815+(shift/1.7)) + "," + (376-(shift*2)));
-    svgSetAtt("svg-energy-overlay","Sun-Ray-A-2-Animation","path", "M209,160 L" + (815+(shift/1.7)) + "," + (376-(shift*2)));
+    svgSetAtt("svg-energy-overlay","SunRayA2C","d", "M209,160 L" + (815+(shift/1.7)) + "," + (376-(shift*2)));
+    svgSetAtt("svg-energy-overlay","SunRayA2CA","path", "M209,160 L" + (815+(shift/1.7)) + "," + (376-(shift*2)));
 
-    svgSetAtt("svg-energy-overlay","A-PV-Panel-3","transform", "translate(" + shift*2.3 + ") rotate(" + deg*-1 + " 275 68)");
-    svgSetAtt("svg-energy-overlay","A-PV-Panel-3-Connection",
+    svgSetAtt("svg-energy-overlay","APVP3","transform", "translate(" + shift*2.3 + ") rotate(" + deg*-1 + " 275 68)");
+    svgSetAtt("svg-energy-overlay","APVP3C",
     "d", "M" + (295+(shift*2.3)) + "," + (75-(shift*1.2))
     + " L" + (295+(shift*2.3)) + ",82 Q" + (295+(shift*2.3)) + ",87 " + (290+(shift*2.3))
     + ",87 L198,87 Q191,87 191,95 L191,100");
-    svgSetAtt("svg-energy-overlay","A-PV-Panel-3-Animation",
+    svgSetAtt("svg-energy-overlay","APVP3CA",
     "path", "M" + (295+(shift*2.3)) + "," + (75-(shift*1.2))
     + " L" + (295+(shift*2.3)) + ",82 Q" + (295+(shift*2.3)) + ",87 " + (290+(shift*2.3))
      + ",87 L198,87 Q191,87 191,95 L191,100");
-    svgSetAtt("svg-energy-overlay","Sun-Ray-A-3-Connection","d", "M209,155 L" + (910+(shift*1.8)) + "," + (376-(shift*2)));
-    svgSetAtt("svg-energy-overlay","Sun-Ray-A-3-Animation","path", "M209,155 L" + (910+(shift*1.8)) + "," + (376-(shift*2)));
+    svgSetAtt("svg-energy-overlay","SunRayA3C","d", "M209,155 L" + (910+(shift*1.8)) + "," + (376-(shift*2)));
+    svgSetAtt("svg-energy-overlay","SunRayA3CA","path", "M209,155 L" + (910+(shift*1.8)) + "," + (376-(shift*2)));
 
-    svgSetAtt("svg-energy-overlay","A-PV-Panel-4","transform", "translate(" + shift*3.5 + ") rotate(" + deg*-1 + " 370 68)");
-    svgSetAtt("svg-energy-overlay","A-PV-Panel-4-Connection",
+    svgSetAtt("svg-energy-overlay","APVP4","transform", "translate(" + shift*3.5 + ") rotate(" + deg*-1 + " 370 68)");
+    svgSetAtt("svg-energy-overlay","APVP4C",
     "d", "M" + (390+(shift*3.5)) + "," + (75-(shift*1.2))
     + " L" + (390+(shift*3.5)) + ",85 Q" + (390+(shift*3.5)) + ",90 " + (385+(shift*3.5))
     + ",90 L199,90 Q194,90 194,95 L194,100");
-    svgSetAtt("svg-energy-overlay","A-PV-Panel-4-Animation",
+    svgSetAtt("svg-energy-overlay","APVP4CA",
     "path", "M" + (390+(shift*3.5)) + "," + (75-(shift*1.2))
     + " L" + (390+(shift*3.5)) + ",85 Q" + (390+(shift*3.5)) + ",90 " + (385+(shift*3.5))
      + ",90 L199,90 Q194,90 194,95 L194,100");
-    svgSetAtt("svg-energy-overlay","Sun-Ray-A-4-Connection","d", "M209,150 L" + (1005+(shift*3)) + "," + (376-(shift*2.1)));
-    svgSetAtt("svg-energy-overlay","Sun-Ray-A-4-Animation","path", "M209,150 L" + (1005+(shift*3)) + "," + (376-(shift*2.1)));
+    svgSetAtt("svg-energy-overlay","SunRayA4C","d", "M209,150 L" + (1005+(shift*3)) + "," + (376-(shift*2.1)));
+    svgSetAtt("svg-energy-overlay","SunRayA4CA","path", "M209,150 L" + (1005+(shift*3)) + "," + (376-(shift*2.1)));
 }
 
 function movePanels ()
@@ -189,7 +190,7 @@ function movePanels ()
 function updateSolarLive ()
 {
 
-    console.log("(x)");
+    //console.log("(x)");
 
     // Query the latest datapoints of each relevant timeseries
     // Keep this ordered, influxdb returns ascending by NAME!
@@ -339,50 +340,87 @@ function updateSolarLive ()
 
             angle = Math.round(parseFloat(data[2]['points'][0][2])*10)/10;
 
-            console.log("Angle: "+angle+" - Current Angle: " + cur_angle + " - Sun: "+ sun);
+            //console.log("Angle: "+angle+" - Current Angle: " + cur_angle + " - Sun: "+ sun);
+
+            if (init === 1)
+            {
+                document.getElementById("svg-energy-overlay").contentDocument.getElementById("initComplete").beginElement();
+
+                if (angle >= 90)
+                {
+                    document.getElementById("svg-energy-overlay").contentDocument.getElementById("moonRise").beginElement();
+                }
+            }
 
             if (angle >= 90 && sun !== 0)
             {
                 sun = 0;
                 console.log("Update Moonphase: " + moonPhase(timestamp.getUTCFullYear(),(timestamp.getUTCMonth()+1),timestamp.getUTCDate()));
                 document.getElementById("svg-energy-overlay").contentDocument.getElementById("SunSet").beginElement();
-                svgSetAtt ("svg-energy-overlay","moon","opacity",0.35);
-                document.getElementById("svg-energy-overlay").contentDocument.getElementById("O-PV-Panel-1-SA").endElement();
-                document.getElementById("svg-energy-overlay").contentDocument.getElementById("O-PV-Panel-2-SA").endElement();
-                document.getElementById("svg-energy-overlay").contentDocument.getElementById("O-PV-Panel-3-SA").endElement();
-                svgSetAtt ("svg-energy-overlay","A-PV-Panel-1","style","fill:#0f0e0a; stroke:#888385; stroke-width: 0.6;");
-                svgSetAtt ("svg-energy-overlay","A-PV-Panel-2","style","fill:#0f0e0a; stroke:#888385; stroke-width: 0.6;");
-                svgSetAtt ("svg-energy-overlay","A-PV-Panel-3","style","fill:#0f0e0a; stroke:#888385; stroke-width: 0.6;");
-                svgSetAtt ("svg-energy-overlay","A-PV-Panel-4","style","fill:#0f0e0a; stroke:#888385; stroke-width: 0.6;");
+                document.getElementById("svg-energy-overlay").contentDocument.getElementById("moonRise").beginElement();
+                document.getElementById("svg-energy-overlay").contentDocument.getElementById("SunRayO1CA").endElement();
+                document.getElementById("svg-energy-overlay").contentDocument.getElementById("SunRayO2CA").endElement();
+                document.getElementById("svg-energy-overlay").contentDocument.getElementById("SunRayO3CA").endElement();
+                document.getElementById("svg-energy-overlay").contentDocument.getElementById("OPVP1SA").endElement();
+                document.getElementById("svg-energy-overlay").contentDocument.getElementById("OPVP2SA").endElement();
+                document.getElementById("svg-energy-overlay").contentDocument.getElementById("OPVP3SA").endElement();
+                document.getElementById("svg-energy-overlay").contentDocument.getElementById("OPVP1CA").endElement();
+                document.getElementById("svg-energy-overlay").contentDocument.getElementById("OPVP2CA").endElement();
+                document.getElementById("svg-energy-overlay").contentDocument.getElementById("OPVP3CA").endElement();
+                document.getElementById("svg-energy-overlay").contentDocument.getElementById("OSCBatACA").endElement();
+                document.getElementById("svg-energy-overlay").contentDocument.getElementById("OSCBatBCA").endElement();
+                document.getElementById("svg-energy-overlay").contentDocument.getElementById("SunRayA1CA").endElement();
+                document.getElementById("svg-energy-overlay").contentDocument.getElementById("SunRayA2CA").endElement();
+                document.getElementById("svg-energy-overlay").contentDocument.getElementById("SunRayA3CA").endElement();
+                document.getElementById("svg-energy-overlay").contentDocument.getElementById("SunRayA4CA").endElement();
+                document.getElementById("svg-energy-overlay").contentDocument.getElementById("APVP1SA").endElement();
+                document.getElementById("svg-energy-overlay").contentDocument.getElementById("APVP2SA").endElement();
+                document.getElementById("svg-energy-overlay").contentDocument.getElementById("APVP3SA").endElement();
+                document.getElementById("svg-energy-overlay").contentDocument.getElementById("APVP4SA").endElement();
+                document.getElementById("svg-energy-overlay").contentDocument.getElementById("APVP1CA").endElement();
+                document.getElementById("svg-energy-overlay").contentDocument.getElementById("APVP2CA").endElement();
+                document.getElementById("svg-energy-overlay").contentDocument.getElementById("APVP3CA").endElement();
+                document.getElementById("svg-energy-overlay").contentDocument.getElementById("APVP4CA").endElement();
             }
             else if (angle < 90 && sun === 0)
             {
                 sun = 1;
                 document.getElementById("svg-energy-overlay").contentDocument.getElementById("SunRise").beginElement();
-                svgSetAtt ("svg-energy-overlay","moon","opacity",0);
-                document.getElementById("svg-energy-overlay").contentDocument.getElementById("O-PV-Panel-1-SA").beginElement();
-                document.getElementById("svg-energy-overlay").contentDocument.getElementById("O-PV-Panel-2-SA").beginElement();
-                document.getElementById("svg-energy-overlay").contentDocument.getElementById("O-PV-Panel-3-SA").beginElement();
-                svgSetAtt ("svg-energy-overlay","A-PV-Panel-1","style","fill:#0f0e0a; stroke:#ffad09; stroke-width: 0.6;");
-                svgSetAtt ("svg-energy-overlay","A-PV-Panel-2","style","fill:#0f0e0a; stroke:#ffad09; stroke-width: 0.6;");
-                svgSetAtt ("svg-energy-overlay","A-PV-Panel-3","style","fill:#0f0e0a; stroke:#ffad09; stroke-width: 0.6;");
-                svgSetAtt ("svg-energy-overlay","A-PV-Panel-4","style","fill:#0f0e0a; stroke:#ffad09; stroke-width: 0.6;");
+                if (init !== 1) { document.getElementById("svg-energy-overlay").contentDocument.getElementById("moonSet").beginElement(); }
+                document.getElementById("svg-energy-overlay").contentDocument.getElementById("SunRayO1CA").beginElement();
+                document.getElementById("svg-energy-overlay").contentDocument.getElementById("SunRayO2CA").beginElementAt(0.5);
+                document.getElementById("svg-energy-overlay").contentDocument.getElementById("SunRayO3CA").beginElementAt(1.0);
+                document.getElementById("svg-energy-overlay").contentDocument.getElementById("OPVP1SA").beginElement();
+                document.getElementById("svg-energy-overlay").contentDocument.getElementById("OPVP2SA").beginElementAt(0.5);
+                document.getElementById("svg-energy-overlay").contentDocument.getElementById("OPVP3SA").beginElementAt(1.0);
+                document.getElementById("svg-energy-overlay").contentDocument.getElementById("OPVP1CA").beginElement();
+                document.getElementById("svg-energy-overlay").contentDocument.getElementById("OPVP2CA").beginElementAt(0.5);
+                document.getElementById("svg-energy-overlay").contentDocument.getElementById("OPVP3CA").beginElementAt(1.0);
+                document.getElementById("svg-energy-overlay").contentDocument.getElementById("OSCBatACA").beginElement();
+                document.getElementById("svg-energy-overlay").contentDocument.getElementById("OSCBatBCA").beginElement();
+                document.getElementById("svg-energy-overlay").contentDocument.getElementById("SunRayA1CA").beginElement();
+                document.getElementById("svg-energy-overlay").contentDocument.getElementById("SunRayA2CA").beginElementAt(0.5);
+                document.getElementById("svg-energy-overlay").contentDocument.getElementById("SunRayA3CA").beginElementAt(1.0);
+                document.getElementById("svg-energy-overlay").contentDocument.getElementById("SunRayA4CA").beginElementAt(1.5);
+                document.getElementById("svg-energy-overlay").contentDocument.getElementById("APVP1SA").beginElement();
+                document.getElementById("svg-energy-overlay").contentDocument.getElementById("APVP2SA").beginElementAt(0.5);
+                document.getElementById("svg-energy-overlay").contentDocument.getElementById("APVP3SA").beginElementAt(1.0);
+                document.getElementById("svg-energy-overlay").contentDocument.getElementById("APVP4SA").beginElementAt(1.5);
+                document.getElementById("svg-energy-overlay").contentDocument.getElementById("APVP1CA").beginElement();
+                document.getElementById("svg-energy-overlay").contentDocument.getElementById("APVP2CA").beginElementAt(0.5);
+                document.getElementById("svg-energy-overlay").contentDocument.getElementById("APVP3CA").beginElementAt(1.0);
+                document.getElementById("svg-energy-overlay").contentDocument.getElementById("APVP4CA").beginElementAt(1.5);
             }
 
-            if (angle >= 90)
-            {
-                angle = 0;
-            }
-            else if (angle > 50)
-            {
-                angle = 50;
-            }
+            if (init !== 0)         { init  = 0;  }
+            if (angle >= 90)        { angle = 0;  }
+            else if (angle > 50)    { angle = 50; }
 
-            console.log("Angle: "+angle+" - Current Angle: " + cur_angle + " - Sun: "+ sun);
+            //console.log("Angle: "+angle+" - Current Angle: " + cur_angle + " - Sun: "+ sun);
 
             if (cur_angle !== angle)
             {
-                console.log("-- Angle changed");
+                //console.log("-- Angle changed");
                 movePanels();
             }
 
@@ -404,7 +442,7 @@ function updateSolarLive ()
 function updateSolarHarvest ()
 {
 
-    console.log("(y)");
+    //console.log("(y)");
 
     var timestamp = new Date();
     var qtimestamp = timestamp.getUTCFullYear() + "-" + (timestamp.getUTCMonth()+1) + "-" + timestamp.getUTCDate();
@@ -423,12 +461,11 @@ function updateSolarHarvest ()
         if (req.status >= 200 && req.status < 400)
         {
             var data = JSON.parse(req.responseText);
-            console.log(data);
+            //console.log(data);
             console.log("Harvest Odyssey: " + Math.round((data[0]['points'][0][1]/360)*1.67*0.2));
             console.log("Sunshine Odyssey: " + Math.round((data[0]['points'][0][2]/360)*10)/10);
             console.log("Harvest Aquarius: " + Math.round((data[0]['points'][0][1]/360)*5*0.19));
             console.log("Sunshine Aquarius: " + Math.round((data[0]['points'][0][2]/360)*10)/10);
-
         }
         else
         {
