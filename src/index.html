@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="css/local.css">
     <link rel="icon" type="image/png" href="img/fav32.png">
 
+    <script src="app/local.js"></script>
+
     <!-- build:js app/app.js -->
     <script src="vendor/require/require.js"></script>
     <script src="app/components/require.config.js"></script>
@@ -19,7 +21,7 @@
 
     <script>require(['app'], function (app) { app.boot(); })</script>
     <script src="app/components/require.config.js"></script>
-    <script src="app/local.js"></script>
+
   </head>
 
   <body ng-cloak ng-controller="GrafanaCtrl">

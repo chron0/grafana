@@ -41,6 +41,8 @@ function (angular) {
       $scope.initDashboard(dashboard, $scope);
       document.getElementById('system-overview').style.display = "none";
       document.getElementById('svg-timestamp').style.display = "none";
+      clearInterval(intervallId);
+      console.log("Intervall terminated")
     }).then(null, function(error) {
       $scope.initDashboard({ title: 'Grafana'}, $scope);
       $scope.appEvent('alert-error', ['Dashboard load failed', error]);

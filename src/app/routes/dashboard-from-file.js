@@ -53,9 +53,15 @@ function (angular, $, config, _) {
 
     file_load($routeParams.jsonFile).then(function(result) {
       $scope.initDashboard(result, $scope);
-       document.getElementById('system-overview').style.display = "block";
-       document.getElementById('svg-timestamp').style.display = "inline-block";
+
+       //sun = 0;
+       init = 1;
+       angle = 0;
        sun = 0;
+       intervallId = setInterval(function () {updateView();}, 10000);
+       console.log("Intervall started with ID:");
+       console.log(intervallId)
+       document.getElementById('system-overview').style.display = "block";
     });
 
   });

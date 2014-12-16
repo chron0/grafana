@@ -5,6 +5,7 @@ var cur_angle = 0;
 var angle = 0;
 var sun = 0;
 var t_offset = 0;
+var intervallId;
 
 var o_rso_dir = 0;
 var o_rso_dif = 0;
@@ -82,7 +83,48 @@ function moonPhase(year,month,day)
     var i = (xtra > 0.0 ? Math.floor(xtra) :  Math.ceil(xtra - 1.0));
     var j1 = jDay(year,month,day);
     var jd = (2415020 + 28 * n) + i;
-    return (j1-jd + 30)%30;
+
+    var phase = (j1-jd + 30)%30;
+    console.log(phase);
+    if (phase === 0)
+    {
+        return "New Moon";
+    }
+
+    if (phase > 0 && phase < 7)
+    {
+        return "Wanning Crescent Moon";
+    }
+
+    if (phase === 7)
+    {
+        return "Third Quarter";
+    }
+
+    if (phase > 7 && phase < 15)
+    {
+        return "Wanning Gibeous Moon";
+    }
+
+    if (phase === 15)
+    {
+        return "Full Moon";
+    }
+
+    if (phase > 15 && phase < 21)
+    {
+        return "Waxing Gibeous Moon";
+    }
+
+    if (phase === 21)
+    {
+        return "First Quarter";
+    }
+
+    if (phase > 21 && phase < 29)
+    {
+        return "Waxing Crescent Moon";
+    }
 }
 
 function setOdysseyPanel (deg)
@@ -344,6 +386,7 @@ function updateSolarLive ()
 
             if (init === 1)
             {
+                console.log("Init fired");
                 document.getElementById("svg-energy-overlay").contentDocument.getElementById("initComplete").beginElement();
 
                 if (angle >= 90)
@@ -484,16 +527,14 @@ function updateSolarHarvest ()
 
 function updateView ()
 {
-    if(document.getElementById('system-overview').style.display === "none")
+    console.log("Update View");
+    if( document.getElementById('system-overview').style.display !== "block" )
     {
-        return;
+        console.log("Display SysOverview now!!!");
+        document.getElementById('system-overview').style.display = "block";
+        //return;
     }
 
     updateSolarLive();
     updateSolarHarvest();
 }
-
-window.onload = function ()
-{
-    setInterval(function () {updateView();}, 10000);
-};
