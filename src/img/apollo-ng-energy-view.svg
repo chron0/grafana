@@ -6,7 +6,6 @@
       src: url('../font/DIN.woff');
       font-weight: normal;
     }
-
     .button {
       -webkit-touch-callout: none;
       -webkit-user-select: none;
@@ -15,7 +14,6 @@
       -ms-user-select: none;
       user-select: none;
     }
-
     .button:hover {
       cursor: pointer;
     }
@@ -87,25 +85,25 @@
   </defs>
 
   <g id="splash" opacity="0.85">
-      <circle cx="150" cy="150" r="60" fill="#75890c"/>
-      <g transform="matrix(0.866, -0.5, 0.25, 0.433, 150, 150)">
-          <path d="M 0,70 A 65,70 0 0,0 65,0 5,5 0 0,1 75,0 75,70 0 0,1 0,70Z" fill="#D8D3C5">
-              <animateTransform attributeName="transform" type="rotate" from="360 0 0" to="0 0 0" dur="1s" repeatCount="indefinite" />
-          </path>
-      </g>
-      <path d="M 60,0 A 60,60 0 0,0 -60,0Z" transform="matrix(0.866, -0.5, 0.5, 0.866, 150, 150)" fill="#75890c" />
-      <text x="270" y="160" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 50;">
-          Collecting Data - Please stand by...
-      </text>
-      <animate id="initComplete" attributeName="opacity" from="0.85" to="0" begin="indefinite" dur="1.2s" fill="freeze" />
+    <circle cx="150" cy="150" r="60" fill="#75890c" />
+    <g transform="matrix(0.866, -0.5, 0.25, 0.433, 150, 150)">
+      <path d="M 0,70 A 65,70 0 0,0 65,0 5,5 0 0,1 75,0 75,70 0 0,1 0,70Z" fill="#D8D3C5">
+        <animateTransform attributeName="transform" type="rotate" from="360 0 0" to="0 0 0" dur="1.5s" repeatCount="indefinite" />
+      </path>
+    </g>
+    <path d="M 60,0 A 60,60 0 0,0 -60,0Z" transform="matrix(0.866, -0.5, 0.5, 0.866, 150, 150)" fill="#75890c" />
+    <text x="270" y="160" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 45;">
+      Collecting Data - Please stand by...
+    </text>
+    <animate id="initComplete" attributeName="opacity" from="0.85" to="0" begin="indefinite" dur="1.2s" fill="freeze" />
   </g>
 
 
   <g id="moon" opacity="0">
-      <circle cx="150" cy="150" r="60" fill="#D8D3C5" stroke="#ffffff" stroke-width="" />
-      <path id="moonMask" d="M150,90, A 60,60 10 0,1 150,210 Q110,150 150,90" fill="#1f1e1a" stroke="#0f0e0a" stroke-width="2"/>
-      <animate id="moonRise" attributeName="opacity" from="0" to="0.35" begin="indefinite" dur="4s" fill="freeze" restart="whenNotActive" />
-      <animate id="moonSet" attributeName="opacity" from="0.35" to="0" begin="indefinite" dur="4s" fill="freeze" restart="whenNotActive" />
+    <circle cx="150" cy="150" r="60" fill="#D8D3C5" stroke="#ffffff" stroke-width="" />
+    <path id="moonMask" d="M150,90, A 60,60 10 0,1 150,210 Q110,150 150,90" fill="#1f1e1a" stroke="#0f0e0a" stroke-width="2" />
+    <animate id="moonRise" attributeName="opacity" from="0" to="0.35" begin="indefinite" dur="4s" fill="freeze" restart="whenNotActive" />
+    <animate id="moonSet" attributeName="opacity" from="0.35" to="0" begin="indefinite" dur="4s" fill="freeze" restart="whenNotActive" />
   </g>
 
   <g id="sun" opacity="0">
@@ -156,17 +154,17 @@
       <text x="30" y="37" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 10; letter-spacing:0; text-anchor: middle;">
         Direct
       </text>
-      <path id="O-RSO-Dir-INC" d="M20,-0.5 L30,-8 L40,-0.5" style="stroke:#ffad09; stroke-width: 0.5; fill:rgba(255, 173, 9, 0.8);" opacity="0">
-          <animate id="ORDIIA1" attributeName="opacity" from="0" to="1" begin="0s" dur="0.5s" fill="freeze" />
-          <animate id="ORDIIA2" attributeName="opacity" from="1" to="0" begin="ORDIIA1.end" dur="2s" fill="freeze" />
-          <animate id="ORDIIA3" attributeName="opacity" from="0" to="1" begin="ORDIIA2.end" dur="0.5s" fill="freeze" />
-          <animate id="ORDIIA4" attributeName="opacity" from="1" to="0" begin="ORDIIA3.end" dur="2s" fill="freeze" />
+      <path id="O-RSO-Dir-INC" d="M20,-0.5 L30,-8 L40,-0.5" style="stroke:#ffad09; stroke-width: 0.5; fill:rgba(255, 173, 9, 0.9);" opacity="0">
+        <animate id="ORDIIA1" attributeName="opacity" from="0" to="1" begin="0s" dur="0.5s" fill="freeze" />
+        <animate id="ORDIIA2" attributeName="opacity" from="1" to="0" begin="ORDIIA1.end" dur="2s" fill="freeze" />
+        <animate id="ORDIIA3" attributeName="opacity" from="0" to="1" begin="ORDIIA2.end" dur="0.5s" fill="freeze" />
+        <animate id="ORDIIA4" attributeName="opacity" from="1" to="0" begin="ORDIIA3.end" dur="2s" fill="freeze" />
       </path>
-      <path id="O-RSO-Dir-DEC" d="M20,42 L30,50 L40,42" style="stroke:#ffad09; stroke-width: 0.5; fill:rgba(255, 173, 9, 0.8);" opacity="0">
-          <animate id="ORDIDA1" attributeName="opacity" from="0" to="1" begin="0s" dur="0.5s" fill="freeze" />
-          <animate id="ORDIDA2" attributeName="opacity" from="1" to="0" begin="ORDIDA1.end" dur="2s" fill="freeze" />
-          <animate id="ORDIDA3" attributeName="opacity" from="0" to="1" begin="ORDIDA2.end" dur="0.5s" fill="freeze" />
-          <animate id="ORDIDA4" attributeName="opacity" from="1" to="0" begin="ORDIDA3.end" dur="2s" fill="freeze" />
+      <path id="O-RSO-Dir-DEC" d="M20,42 L30,50 L40,42" style="stroke:#ffad09; stroke-width: 0.5; fill:rgba(255, 173, 9, 0.9);" opacity="0">
+        <animate id="ORDIDA1" attributeName="opacity" from="0" to="1" begin="0s" dur="0.5s" fill="freeze" />
+        <animate id="ORDIDA2" attributeName="opacity" from="1" to="0" begin="ORDIDA1.end" dur="2s" fill="freeze" />
+        <animate id="ORDIDA3" attributeName="opacity" from="0" to="1" begin="ORDIDA2.end" dur="0.5s" fill="freeze" />
+        <animate id="ORDIDA4" attributeName="opacity" from="1" to="0" begin="ORDIDA3.end" dur="2s" fill="freeze" />
       </path>
       <text id="O-RSO-Dif" x="92" y="23" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: #E8E3E5; stroke-width: 0.2; font-size: 22; letter-spacing:0; text-anchor: middle;">
         0000
@@ -174,17 +172,17 @@
       <text x="92" y="37" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 10; letter-spacing:0.1; text-anchor: middle;">
         Diffuse
       </text>
-      <path id="O-RSO-Dif-INC" d="M82,-0.5 L92,-8 L102,-0.5" style="stroke:#ffad09; stroke-width: 0.5; fill:rgba(255, 173, 9, 0.8);" opacity="0">
-          <animate id="ORDFIA1" attributeName="opacity" from="0" to="1" begin="0s" dur="0.5s" fill="freeze" />
-          <animate id="ORDFIA2" attributeName="opacity" from="1" to="0" begin="ORDFIA1.end" dur="2s" fill="freeze" />
-          <animate id="ORDFIA3" attributeName="opacity" from="0" to="1" begin="ORDFIA2.end" dur="0.5s" fill="freeze" />
-          <animate id="ORDFIA4" attributeName="opacity" from="1" to="0" begin="ORDFIA3.end" dur="2s" fill="freeze" />
+      <path id="O-RSO-Dif-INC" d="M82,-0.5 L92,-8 L102,-0.5" style="stroke:#ffad09; stroke-width: 0.5; fill:rgba(255, 173, 9, 0.9);" opacity="0">
+        <animate id="ORDFIA1" attributeName="opacity" from="0" to="1" begin="0s" dur="0.5s" fill="freeze" />
+        <animate id="ORDFIA2" attributeName="opacity" from="1" to="0" begin="ORDFIA1.end" dur="2s" fill="freeze" />
+        <animate id="ORDFIA3" attributeName="opacity" from="0" to="1" begin="ORDFIA2.end" dur="0.5s" fill="freeze" />
+        <animate id="ORDFIA4" attributeName="opacity" from="1" to="0" begin="ORDFIA3.end" dur="2s" fill="freeze" />
       </path>
-      <path id="O-RSO-Dif-DEC" d="M82,42 L92,50 L102,42" style="stroke:#ffad09; stroke-width: 0.5; fill:rgba(255, 173, 9, 0.8);" opacity="0">
-          <animate id="ORDFDA1" attributeName="opacity" from="0" to="1" begin="0s" dur="0.5s" fill="freeze" />
-          <animate id="ORDFDA2" attributeName="opacity" from="1" to="0" begin="ORDFDA1.end" dur="2s" fill="freeze" />
-          <animate id="ORDFDA3" attributeName="opacity" from="0" to="1" begin="ORDFDA2.end" dur="0.5s" fill="freeze" />
-          <animate id="ORDFDA4" attributeName="opacity" from="1" to="0" begin="ORDFDA3.end" dur="2s" fill="freeze" />
+      <path id="O-RSO-Dif-DEC" d="M82,42 L92,50 L102,42" style="stroke:#ffad09; stroke-width: 0.5; fill:rgba(255, 173, 9, 0.9);" opacity="0">
+        <animate id="ORDFDA1" attributeName="opacity" from="0" to="1" begin="0s" dur="0.5s" fill="freeze" />
+        <animate id="ORDFDA2" attributeName="opacity" from="1" to="0" begin="ORDFDA1.end" dur="2s" fill="freeze" />
+        <animate id="ORDFDA3" attributeName="opacity" from="0" to="1" begin="ORDFDA2.end" dur="0.5s" fill="freeze" />
+        <animate id="ORDFDA4" attributeName="opacity" from="1" to="0" begin="ORDFDA3.end" dur="2s" fill="freeze" />
       </path>
       <text x="131" y="19" font-family="'DIN',sans-serif" style="fill: #ffffff; stroke: #D8D3C5; stroke-width: 0.5; font-size: 18;">
         W
@@ -199,89 +197,89 @@
       <text x="186" y="37" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 10; letter-spacing:0.1; text-anchor: middle;">
         UCSSPM
       </text>
-      <path id="O-RSO-Max-INC" d="M176,-0.5 L186,-8 L196,-0.5" style="stroke:#ffad09; stroke-width: 0.5; fill:rgba(255, 173, 9, 0.8);" opacity="0">
-          <animate id="ORMIA1" attributeName="opacity" from="0" to="1" begin="0s" dur="0.5s" fill="freeze" />
-          <animate id="ORMIA2" attributeName="opacity" from="1" to="0" begin="ORMIA1.end" dur="2s" fill="freeze" />
-          <animate id="ORMIA3" attributeName="opacity" from="0" to="1" begin="ORMIA2.end" dur="0.5s" fill="freeze" />
-          <animate id="ORMIA4" attributeName="opacity" from="1" to="0" begin="ORMIA3.end" dur="2s" fill="freeze" />
+      <path id="O-RSO-Max-INC" d="M176,-0.5 L186,-8 L196,-0.5" style="stroke:#ffad09; stroke-width: 0.5; fill:rgba(255, 173, 9, 0.9);" opacity="0">
+        <animate id="ORMIA1" attributeName="opacity" from="0" to="1" begin="0s" dur="0.5s" fill="freeze" />
+        <animate id="ORMIA2" attributeName="opacity" from="1" to="0" begin="ORMIA1.end" dur="2s" fill="freeze" />
+        <animate id="ORMIA3" attributeName="opacity" from="0" to="1" begin="ORMIA2.end" dur="0.5s" fill="freeze" />
+        <animate id="ORMIA4" attributeName="opacity" from="1" to="0" begin="ORMIA3.end" dur="2s" fill="freeze" />
       </path>
-      <path id="O-RSO-Max-DEC" d="M176,42 L186,50 L196,42" style="stroke:#ffad09; stroke-width: 0.5; fill:rgba(255, 173, 9, 0.8);" opacity="0">
-          <animate id="ORMDA1" attributeName="opacity" from="0" to="1" begin="0s" dur="0.5s" fill="freeze" />
-          <animate id="ORMDA2" attributeName="opacity" from="1" to="0" begin="ORMDA1.end" dur="2s" fill="freeze" />
-          <animate id="ORMDA3" attributeName="opacity" from="0" to="1" begin="ORMDA2.end" dur="0.5s" fill="freeze" />
-          <animate id="ORMDA4" attributeName="opacity" from="1" to="0" begin="ORMDA3.end" dur="2s" fill="freeze" />
+      <path id="O-RSO-Max-DEC" d="M176,42 L186,50 L196,42" style="stroke:#ffad09; stroke-width: 0.5; fill:rgba(255, 173, 9, 0.9);" opacity="0">
+        <animate id="ORMDA1" attributeName="opacity" from="0" to="1" begin="0s" dur="0.5s" fill="freeze" />
+        <animate id="ORMDA2" attributeName="opacity" from="1" to="0" begin="ORMDA1.end" dur="2s" fill="freeze" />
+        <animate id="ORMDA3" attributeName="opacity" from="0" to="1" begin="ORMDA2.end" dur="0.5s" fill="freeze" />
+        <animate id="ORMDA4" attributeName="opacity" from="1" to="0" begin="ORMDA3.end" dur="2s" fill="freeze" />
       </path>
     </g>
 
     <g id="A-RSO" transform="translate(430,225)" onclick='console.log(evt)' class="button">
-        <rect x="-1" y="-1" height="44" width="218" rx="4" ry="4" style="stroke:none; fill:#ffad09;" opacity="0.4" />
-        <rect x="0" y="0" height="42" width="60" rx="4" ry="4" style="stroke:url(#buttonStrokeGradient); fill: url(#buttonPattern); stroke-width: 1.5;" opacity="0.6" />
-        <rect x="0" y="0" height="42" width="60" rx="4" ry="4" style="stroke: none; fill:url(#buttonDisplayGradient);" opacity="0.7" />
-        <rect x="61" y="0" height="42" width="60" rx="4" ry="4" style="stroke:url(#buttonStrokeGradient); fill: url(#buttonPattern); stroke-width: 1.5;" opacity="0.6" />
-        <rect x="61" y="0" height="42" width="60" rx="4" ry="4" style="stroke: none; fill:url(#buttonDisplayGradient);" opacity="0.7" />
-        <rect x="156" y="0" height="42" width="60" rx="4" ry="4" style="stroke:url(#buttonStrokeGradient); fill: url(#buttonPattern); stroke-width: 1.5;" opacity="0.6" />
-        <rect x="156" y="0" height="42" width="60" rx="4" ry="4" style="stroke: none; fill:url(#buttonDisplayGradient);" opacity="0.7" />
-        <text id="A-RSO-Dir" x="30" y="23" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: #E8E3E5; stroke-width: 0.2; font-size: 22; letter-spacing:0; text-anchor: middle;">
-            0000
-        </text>
-        <text x="30" y="37" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 10; letter-spacing:0; text-anchor: middle;">
-            Direct
-        </text>
-        <path id="A-RSO-Dir-INC" d="M20,-0.5 L30,-8 L40,-0.5" style="stroke:#ffad09; stroke-width: 0.5; fill:rgba(255, 173, 9, 0.8);" opacity="0">
-            <animate id="ARDIIA1" attributeName="opacity" from="0" to="1" begin="0s" dur="0.5s" fill="freeze" />
-            <animate id="ARDIIA2" attributeName="opacity" from="1" to="0" begin="ARDIIA1.end" dur="2s" fill="freeze" />
-            <animate id="ARDIIA3" attributeName="opacity" from="0" to="1" begin="ARDIIA2.end" dur="0.5s" fill="freeze" />
-            <animate id="ARDIIA4" attributeName="opacity" from="1" to="0" begin="ARDIIA3.end" dur="2s" fill="freeze" />
-        </path>
-        <path id="A-RSO-Dir-DEC" d="M20,42 L30,50 L40,42" style="stroke:#ffad09; stroke-width: 0.5; fill:rgba(255, 173, 9, 0.8);" opacity="0">
-            <animate id="ARDIDA1" attributeName="opacity" from="0" to="1" begin="0s" dur="0.5s" fill="freeze" />
-            <animate id="ARDIDA2" attributeName="opacity" from="1" to="0" begin="ARDIDA1.end" dur="2s" fill="freeze" />
-            <animate id="ARDIDA3" attributeName="opacity" from="0" to="1" begin="ARDIDA2.end" dur="0.5s" fill="freeze" />
-            <animate id="ARDIDA4" attributeName="opacity" from="1" to="0" begin="ARDIDA3.end" dur="2s" fill="freeze" />
-        </path>
-        <text id="A-RSO-Dif" x="92" y="23" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: #E8E3E5; stroke-width: 0.2; font-size: 22; letter-spacing:0; text-anchor: middle;">
-            0000
-        </text>
-        <text x="92" y="37" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 10; letter-spacing:0.1; text-anchor: middle;">
-            Diffuse
-        </text>
-        <path id="A-RSO-Dif-INC" d="M82,-0.5 L92,-8 L102,-0.5" style="stroke:#ffad09; stroke-width: 0.5; fill:rgba(255, 173, 9, 0.8);" opacity="0">
-            <animate id="ARDFIA1" attributeName="opacity" from="0" to="1" begin="0s" dur="0.5s" fill="freeze" />
-            <animate id="ARDFIA2" attributeName="opacity" from="1" to="0" begin="ARDFIA1.end" dur="2s" fill="freeze" />
-            <animate id="ARDFIA3" attributeName="opacity" from="0" to="1" begin="ARDFIA2.end" dur="0.5s" fill="freeze" />
-            <animate id="ARDFIA4" attributeName="opacity" from="1" to="0" begin="ARDFIA3.end" dur="2s" fill="freeze" />
-        </path>
-        <path id="A-RSO-Dif-DEC" d="M82,42 L92,50 L102,42" style="stroke:#ffad09; stroke-width: 0.5; fill:rgba(255, 173, 9, 0.8);" opacity="0">
-            <animate id="ARDFDA1" attributeName="opacity" from="0" to="1" begin="0s" dur="0.5s" fill="freeze" />
-            <animate id="ARDFDA2" attributeName="opacity" from="1" to="0" begin="ARDFDA1.end" dur="2s" fill="freeze" />
-            <animate id="ARDFDA3" attributeName="opacity" from="0" to="1" begin="ARDFDA2.end" dur="0.5s" fill="freeze" />
-            <animate id="ARDFDA4" attributeName="opacity" from="1" to="0" begin="ARDFDA3.end" dur="2s" fill="freeze" />
-        </path>
-        <text x="131" y="19" font-family="'DIN',sans-serif" style="fill: #ffffff; stroke: #D8D3C5; stroke-width: 0.5; font-size: 18;">
-            W
-        </text>
-        <path d="M128,24 L150,24" style="stroke:#ffffff; stroke-width: 1; fill:none;" />
-        <text x="130" y="37" font-family="'DIN',sans-serif" style="fill: #ffffff; stroke: #D8D3C5; stroke-width: 0.5; font-size: 14; letter-spacing:0;">
-            m²
-        </text>
-        <text id="A-RSO-Max" x="186" y="23" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: #E8E3E5; stroke-width: 0.2; font-size: 22; letter-spacing:0; text-anchor: middle;">
-            0000
-        </text>
-        <text x="186" y="37" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 10; letter-spacing:0.1; text-anchor: middle;">
-            UCSSPM
-        </text>
-        <path id="A-RSO-Max-INC" d="M176,-0.5 L186,-8 L196,-0.5" style="stroke:#ffad09; stroke-width: 0.5; fill:rgba(255, 173, 9, 0.8);" opacity="0">
-            <animate id="ARMIA1" attributeName="opacity" from="0" to="1" begin="0s" dur="0.5s" fill="freeze" />
-            <animate id="ARMIA2" attributeName="opacity" from="1" to="0" begin="ARMIA1.end" dur="2s" fill="freeze" />
-            <animate id="ARMIA3" attributeName="opacity" from="0" to="1" begin="ARMIA2.end" dur="0.5s" fill="freeze" />
-            <animate id="ARMIA4" attributeName="opacity" from="1" to="0" begin="ARMIA3.end" dur="2s" fill="freeze" />
-        </path>
-        <path id="A-RSO-Max-DEC" d="M176,42 L186,50 L196,42" style="stroke:#ffad09; stroke-width: 0.5; fill:rgba(255, 173, 9, 0.8);" opacity="0">
-            <animate id="ARMDA1" attributeName="opacity" from="0" to="1" begin="0s" dur="0.5s" fill="freeze" />
-            <animate id="ARMDA2" attributeName="opacity" from="1" to="0" begin="ARMDA1.end" dur="2s" fill="freeze" />
-            <animate id="ARMDA3" attributeName="opacity" from="0" to="1" begin="ARMDA2.end" dur="0.5s" fill="freeze" />
-            <animate id="ARMDA4" attributeName="opacity" from="1" to="0" begin="ARMDA3.end" dur="2s" fill="freeze" />
-        </path>
+      <rect x="-1" y="-1" height="44" width="218" rx="4" ry="4" style="stroke:none; fill:#ffad09;" opacity="0.4" />
+      <rect x="0" y="0" height="42" width="60" rx="4" ry="4" style="stroke:url(#buttonStrokeGradient); fill: url(#buttonPattern); stroke-width: 1.5;" opacity="0.6" />
+      <rect x="0" y="0" height="42" width="60" rx="4" ry="4" style="stroke: none; fill:url(#buttonDisplayGradient);" opacity="0.7" />
+      <rect x="61" y="0" height="42" width="60" rx="4" ry="4" style="stroke:url(#buttonStrokeGradient); fill: url(#buttonPattern); stroke-width: 1.5;" opacity="0.6" />
+      <rect x="61" y="0" height="42" width="60" rx="4" ry="4" style="stroke: none; fill:url(#buttonDisplayGradient);" opacity="0.7" />
+      <rect x="156" y="0" height="42" width="60" rx="4" ry="4" style="stroke:url(#buttonStrokeGradient); fill: url(#buttonPattern); stroke-width: 1.5;" opacity="0.6" />
+      <rect x="156" y="0" height="42" width="60" rx="4" ry="4" style="stroke: none; fill:url(#buttonDisplayGradient);" opacity="0.7" />
+      <text id="A-RSO-Dir" x="30" y="23" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: #E8E3E5; stroke-width: 0.2; font-size: 22; letter-spacing:0; text-anchor: middle;">
+        0000
+      </text>
+      <text x="30" y="37" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 10; letter-spacing:0; text-anchor: middle;">
+        Direct
+      </text>
+      <path id="A-RSO-Dir-INC" d="M20,-0.5 L30,-8 L40,-0.5" style="stroke:#ffad09; stroke-width: 0.5; fill:rgba(255, 173, 9, 0.99);" opacity="0">
+        <animate id="ARDIIA1" attributeName="opacity" from="0" to="1" begin="0s" dur="0.5s" fill="freeze" />
+        <animate id="ARDIIA2" attributeName="opacity" from="1" to="0" begin="ARDIIA1.end" dur="2s" fill="freeze" />
+        <animate id="ARDIIA3" attributeName="opacity" from="0" to="1" begin="ARDIIA2.end" dur="0.5s" fill="freeze" />
+        <animate id="ARDIIA4" attributeName="opacity" from="1" to="0" begin="ARDIIA3.end" dur="2s" fill="freeze" />
+      </path>
+      <path id="A-RSO-Dir-DEC" d="M20,42 L30,50 L40,42" style="stroke:#ffad09; stroke-width: 0.5; fill:rgba(255, 173, 9, 0.9);" opacity="0">
+        <animate id="ARDIDA1" attributeName="opacity" from="0" to="1" begin="0s" dur="0.5s" fill="freeze" />
+        <animate id="ARDIDA2" attributeName="opacity" from="1" to="0" begin="ARDIDA1.end" dur="2s" fill="freeze" />
+        <animate id="ARDIDA3" attributeName="opacity" from="0" to="1" begin="ARDIDA2.end" dur="0.5s" fill="freeze" />
+        <animate id="ARDIDA4" attributeName="opacity" from="1" to="0" begin="ARDIDA3.end" dur="2s" fill="freeze" />
+      </path>
+      <text id="A-RSO-Dif" x="92" y="23" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: #E8E3E5; stroke-width: 0.2; font-size: 22; letter-spacing:0; text-anchor: middle;">
+        0000
+      </text>
+      <text x="92" y="37" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 10; letter-spacing:0.1; text-anchor: middle;">
+        Diffuse
+      </text>
+      <path id="A-RSO-Dif-INC" d="M82,-0.5 L92,-8 L102,-0.5" style="stroke:#ffad09; stroke-width: 0.5; fill:rgba(255, 173, 9, 0.9);" opacity="0">
+        <animate id="ARDFIA1" attributeName="opacity" from="0" to="1" begin="0s" dur="0.5s" fill="freeze" />
+        <animate id="ARDFIA2" attributeName="opacity" from="1" to="0" begin="ARDFIA1.end" dur="2s" fill="freeze" />
+        <animate id="ARDFIA3" attributeName="opacity" from="0" to="1" begin="ARDFIA2.end" dur="0.5s" fill="freeze" />
+        <animate id="ARDFIA4" attributeName="opacity" from="1" to="0" begin="ARDFIA3.end" dur="2s" fill="freeze" />
+      </path>
+      <path id="A-RSO-Dif-DEC" d="M82,42 L92,50 L102,42" style="stroke:#ffad09; stroke-width: 0.5; fill:rgba(255, 173, 9, 0.9);" opacity="0">
+        <animate id="ARDFDA1" attributeName="opacity" from="0" to="1" begin="0s" dur="0.5s" fill="freeze" />
+        <animate id="ARDFDA2" attributeName="opacity" from="1" to="0" begin="ARDFDA1.end" dur="2s" fill="freeze" />
+        <animate id="ARDFDA3" attributeName="opacity" from="0" to="1" begin="ARDFDA2.end" dur="0.5s" fill="freeze" />
+        <animate id="ARDFDA4" attributeName="opacity" from="1" to="0" begin="ARDFDA3.end" dur="2s" fill="freeze" />
+      </path>
+      <text x="131" y="19" font-family="'DIN',sans-serif" style="fill: #ffffff; stroke: #D8D3C5; stroke-width: 0.5; font-size: 18;">
+        W
+      </text>
+      <path d="M128,24 L150,24" style="stroke:#ffffff; stroke-width: 1; fill:none;" />
+      <text x="130" y="37" font-family="'DIN',sans-serif" style="fill: #ffffff; stroke: #D8D3C5; stroke-width: 0.5; font-size: 14; letter-spacing:0;">
+        m²
+      </text>
+      <text id="A-RSO-Max" x="186" y="23" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: #E8E3E5; stroke-width: 0.2; font-size: 22; letter-spacing:0; text-anchor: middle;">
+        0000
+      </text>
+      <text x="186" y="37" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 10; letter-spacing:0.1; text-anchor: middle;">
+        UCSSPM
+      </text>
+      <path id="A-RSO-Max-INC" d="M176,-0.5 L186,-8 L196,-0.5" style="stroke:#ffad09; stroke-width: 0.5; fill:rgba(255, 173, 9, 0.9);" opacity="0">
+        <animate id="ARMIA1" attributeName="opacity" from="0" to="1" begin="0s" dur="0.5s" fill="freeze" />
+        <animate id="ARMIA2" attributeName="opacity" from="1" to="0" begin="ARMIA1.end" dur="2s" fill="freeze" />
+        <animate id="ARMIA3" attributeName="opacity" from="0" to="1" begin="ARMIA2.end" dur="0.5s" fill="freeze" />
+        <animate id="ARMIA4" attributeName="opacity" from="1" to="0" begin="ARMIA3.end" dur="2s" fill="freeze" />
+      </path>
+      <path id="A-RSO-Max-DEC" d="M176,42 L186,50 L196,42" style="stroke:#ffad09; stroke-width: 0.5; fill:rgba(255, 173, 9, 0.9);" opacity="0">
+        <animate id="ARMDA1" attributeName="opacity" from="0" to="1" begin="0s" dur="0.5s" fill="freeze" />
+        <animate id="ARMDA2" attributeName="opacity" from="1" to="0" begin="ARMDA1.end" dur="2s" fill="freeze" />
+        <animate id="ARMDA3" attributeName="opacity" from="0" to="1" begin="ARMDA2.end" dur="0.5s" fill="freeze" />
+        <animate id="ARMDA4" attributeName="opacity" from="1" to="0" begin="ARMDA3.end" dur="2s" fill="freeze" />
+      </path>
     </g>
     <animate id="SunRise" attributeName="opacity" from="0" to="1" begin="indefinite" dur="4s" fill="freeze" />
     <animate id="SunSet" attributeName="opacity" from="1" to="0" begin="indefinite" dur="4s" fill="freeze" />
@@ -481,9 +479,9 @@
 
   <g id="Aquarius-Overlay-Container" transform="translate(600,306)">
 
-      <text x="260" y="310" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: #E8E3E5; stroke-width: 0.2; font-size: 25; letter-spacing:0.1; text-anchor: middle;">
-          Aquarius
-      </text>
+    <text x="260" y="310" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: #E8E3E5; stroke-width: 0.2; font-size: 25; letter-spacing:0.1; text-anchor: middle;">
+      Aquarius
+    </text>
 
     <g id="APVP">
       <rect id="APVP1" x="85" y="68" width="65" height="7" style="fill:#0f0e0a; stroke:#888385; stroke-width: 0.6;" onclick='console.log(evt)'>
@@ -511,13 +509,12 @@
       </circle>
 
       <rect id="APVP4" x="370" y="68" width="65" height="7" style="fill:#0f0e0a; stroke:#888385; stroke-width: 0.6;" onclick='console.log(evt)'>
-          <animate id="APVP4SA" attributeName="stroke" from="#ffad09" to="#5abde6" begin="indefinite" end="indefinite" restart="whenNotActive" dur="3s" fill="remove" repeatCount="indefinite" />
+        <animate id="APVP4SA" attributeName="stroke" from="#ffad09" to="#5abde6" begin="indefinite" end="indefinite" restart="whenNotActive" dur="3s" fill="remove" repeatCount="indefinite" />
       </rect>
       <path id="APVP4C" d="M390,75 L390,85 Q390,90 385,90 L199,90 Q194,90 194,95 L194,100" style="stroke:#5abde6; stroke-width: 1.5; fill:none;" />
       <circle cx="0" cy="0" r="1.5" style="stroke: #5abde6; fill: #ffffff; ">
-        <animateMotion id="APVP4CA" path="M390,75 L390,85 Q390,90 385,90 L199,90 Q194,90 194,95 L194,100" begin="indefinite" end="indefinite" restart="whenNotActive" dur="3s"  repeatCount="indefinite" />
+        <animateMotion id="APVP4CA" path="M390,75 L390,85 Q390,90 385,90 L199,90 Q194,90 194,95 L194,100" begin="indefinite" end="indefinite" restart="whenNotActive" dur="3s" repeatCount="indefinite" />
       </circle>
-
     </g>
 
 
@@ -547,10 +544,10 @@
       </circle>
     </g>
 
-    <g id="A-SC-BatA-C">
+    <g id="ASCBatAC">
       <path d="M209,172 L227,172" style="stroke:#75890c; stroke-width: 2; fill:none;" />
       <circle cx="0" cy="0" r="1.5" style="stroke: #E0F47A; fill: #F6FFC5; ">
-        <animateMotion path="M209,172 L227,172" begin="0s" dur="3s" repeatCount="indefinite" />
+        <animateMotion id="ASCBatACA" path="M209,172 L227,172" begin="indefinite" end="indefinite" restart="whenNotActive" dur="3s" repeatCount="indefinite" />
       </circle>
     </g>
     <g id="BatA-PDU-C">

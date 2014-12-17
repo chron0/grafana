@@ -53,15 +53,17 @@ function (angular, $, config, _) {
 
     file_load($routeParams.jsonFile).then(function(result) {
       $scope.initDashboard(result, $scope);
-
-       //sun = 0;
        init = 1;
+       cur_angle = 0;
        angle = 0;
        sun = 0;
+       t_offset = 0;
        intervallId = setInterval(function () {updateView();}, 10000);
        console.log("Intervall started with ID:");
        console.log(intervallId)
        document.getElementById('system-overview').style.display = "block";
+       document.getElementById('svg-timerange').style.display = "list-item";
+       document.getElementById('grafana-menu-zoom-out').style.display = "none";
     });
 
   });

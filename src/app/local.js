@@ -424,6 +424,7 @@ function updateSolarLive ()
                 document.getElementById("svg-energy-overlay").contentDocument.getElementById("APVP2CA").endElement();
                 document.getElementById("svg-energy-overlay").contentDocument.getElementById("APVP3CA").endElement();
                 document.getElementById("svg-energy-overlay").contentDocument.getElementById("APVP4CA").endElement();
+                document.getElementById("svg-energy-overlay").contentDocument.getElementById("ASCBatACA").endElement();
             }
             else if (angle < 90 && sun === 0)
             {
@@ -453,6 +454,7 @@ function updateSolarLive ()
                 document.getElementById("svg-energy-overlay").contentDocument.getElementById("APVP2CA").beginElementAt(0.5);
                 document.getElementById("svg-energy-overlay").contentDocument.getElementById("APVP3CA").beginElementAt(1.0);
                 document.getElementById("svg-energy-overlay").contentDocument.getElementById("APVP4CA").beginElementAt(1.5);
+                document.getElementById("svg-energy-overlay").contentDocument.getElementById("ASCBatACA").beginElement();
             }
 
             if (init !== 0)         { init  = 0;  }

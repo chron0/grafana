@@ -40,7 +40,8 @@ function (angular) {
     .then(function(dashboard) {
       $scope.initDashboard(dashboard, $scope);
       document.getElementById('system-overview').style.display = "none";
-      document.getElementById('svg-timestamp').style.display = "none";
+      document.getElementById('svg-timerange').style.display = "none";
+      document.getElementById('grafana-menu-zoom-out').style.display = "list-item";
       clearInterval(intervallId);
       console.log("Intervall terminated")
     }).then(null, function(error) {
