@@ -38,8 +38,13 @@
     <div ng-view></div>
 
     <div id="system-overview" class="apollo-panel">
-      <object data="img/apollo-ng-full-system-view.svg" type="image/svg+xml" height="600" width="1150" style="z-index: 9; position: relative; top: 260px; left: 0px;"></object>
+      <object data="img/apollo-ng-full-system-view.svg" type="image/svg+xml" height="600" width="1150" style="z-index: 99; position: relative; top: 260px; left: 0px;"></object>
       <object id="svg-energy-overlay" data="img/apollo-ng-energy-view.svg" type="image/svg+xml" height="630" width="1150" class="svg-overlay" style="z-index: 99; position: relative; top: -645px; left: 0px;"></object>
+      <div id="energy-quickstats" style="z-index: 9; position: absolute; top: 160px; right: 50px;">
+        <div><span>&nbsp;</span><span>Harvest</span><span>Light</span></div>
+        <div><span>Odyssey</span><span id="OPVHT">00000 Wh</span><span id="OSolT">00</span></div>
+        <div><span>Aquarius</span><span id="APVHT">00000 Wh</span><span id="ASolT">00</span></div>
+      </div>
     </div>
 
   </body>

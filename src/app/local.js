@@ -49,7 +49,7 @@ Date.prototype.toISOString = function()
 
 function setTimeOffset (position)
 {
-    t_offset = 600*(144-position);
+    t_offset = (86400/360)*(360-position);
     var timestamp = +new Date();
     timestamp = timestamp - t_offset;
     document.getElementById('svg-timestamp').innerHTML = timestamp;
@@ -507,10 +507,10 @@ function updateSolarHarvest ()
         {
             var data = JSON.parse(req.responseText);
             //console.log(data);
-            console.log("Harvest Odyssey: " + Math.round((data[0]['points'][0][1]/360)*1.67*0.2));
-            console.log("Sunshine Odyssey: " + Math.round((data[0]['points'][0][2]/360)*10)/10);
-            console.log("Harvest Aquarius: " + Math.round((data[0]['points'][0][1]/360)*5*0.19));
-            console.log("Sunshine Aquarius: " + Math.round((data[0]['points'][0][2]/360)*10)/10);
+            document.getElementById('OPVHT').innerHTML = Math.round((data[0]['points'][0][1]/360)*1.67*0.2);
+            document.getElementById('APVHT').innerHTML = Math.round((data[0]['points'][0][1]/360)*5*0.19);
+            document.getElementById('OSolT').innerHTML = Math.round((data[0]['points'][0][2]/360)*10)/10;
+            document.getElementById('ASolT').innerHTML = Math.round((data[0]['points'][0][2]/360)*10)/10;
         }
         else
         {
