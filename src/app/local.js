@@ -52,17 +52,18 @@ function setTimeOffset (position)
     t_offset = (86400/360)*(360-position);
     var timestamp = +new Date();
     timestamp = timestamp - t_offset;
-    document.getElementById('svg-timestamp').innerHTML = timestamp;
+    timestamp = +new Date(timestamp);
+    svgSetText("svg-energy-overlay", "svg-timestamp", timestamp.toISOString);
     updateView();
 }
 
 function jDay(year, month, day)
 {
     if (year < 0) { year ++; }
-    var jy = parseInt(year);
-    var jm = parseInt(month) +1;
+    var jy = parseInt(year,10);
+    var jm = parseInt(month,10) +1;
     if (month <= 2) {jy--;	jm += 12;}
-    var jul = Math.floor(365.25 *jy) + Math.floor(30.6001 * jm) + parseInt(day) + 1720995;
+    var jul = Math.floor(365.25 *jy) + Math.floor(30.6001 * jm) + parseInt(day,10) + 1720995;
     if (day+31*(month+12*year) >= (15+31*(10+12*1582))) {
         var ja = Math.floor(0.01 * jy);
         jul = jul + 2 - ja + Math.floor(0.25 * ja);
@@ -225,15 +226,12 @@ function movePanels ()
 
 		setOdysseyPanel(cur_angle);
 		setAquariusPanel(cur_angle);
-        setTimeout(movePanels, 40);
+        setTimeout(movePanels, 35);
     }
 }
 
 function updateSolarLive ()
 {
-
-    //console.log("(x)");
-
     // Query the latest datapoints of each relevant timeseries
     // Keep this ordered, influxdb returns ascending by NAME!
     var Q   = "select+value+from+"
@@ -253,11 +251,15 @@ function updateSolarLive ()
         if (req.status >= 200 && req.status < 400)
         {
             var data = JSON.parse(req.responseText);
-            //console.log(data);
-            var timestamp = new Date(data[2]['points'][0][0]);
-            document.getElementById('svg-timestamp').innerHTML = timestamp.toISOString();
 
-            //console.log("Diffuse:" + data[0]['points'][0][2] + " - Direct: " + data[0]['points'][1][2]);
+            if (data.length === 0)
+            {
+                console.log("no data");
+                return;
+            }
+
+            var timestamp = new Date(data[2]['points'][0][0]);
+            svgSetText("svg-energy-overlay", "svg-timestamp", timestamp.toISOString());
 
             var new_o_rso_dif = Math.round(parseFloat(data[0]['points'][0][2])*10)/10;
             if ( new_o_rso_dif >= 100) { new_o_rso_dif = Math.round(new_o_rso_dif); }
@@ -382,11 +384,8 @@ function updateSolarLive ()
 
             angle = Math.round(parseFloat(data[2]['points'][0][2])*10)/10;
 
-            //console.log("Angle: "+angle+" - Current Angle: " + cur_angle + " - Sun: "+ sun);
-
             if (init === 1)
             {
-                console.log("Init fired");
                 document.getElementById("svg-energy-overlay").contentDocument.getElementById("initComplete").beginElement();
 
                 if (angle >= 90)
@@ -461,11 +460,8 @@ function updateSolarLive ()
             if (angle >= 90)        { angle = 0;  }
             else if (angle > 50)    { angle = 50; }
 
-            //console.log("Angle: "+angle+" - Current Angle: " + cur_angle + " - Sun: "+ sun);
-
             if (cur_angle !== angle)
             {
-                //console.log("-- Angle changed");
                 movePanels();
             }
 
@@ -486,17 +482,31 @@ function updateSolarLive ()
 
 function updateSolarHarvest ()
 {
+    var timestamp = +new Date();
 
-    //console.log("(y)");
+    var today  = new Date(timestamp);
+    var tday   = today.getUTCFullYear() + "-" + (today.getUTCMonth()+1) + "-" + today.getUTCDate();
+    var jtday  = jDay(today.getUTCFullYear(),(today.getUTCMonth()+1),today.getUTCDate());
 
-    var timestamp = new Date();
-    var qtimestamp = timestamp.getUTCFullYear() + "-" + (timestamp.getUTCMonth()+1) + "-" + timestamp.getUTCDate();
+    var offday = new Date((timestamp-(t_offset*1000)));
+    var oday   = offday.getUTCFullYear() + "-" + (offday.getUTCMonth()+1) + "-" + offday.getUTCDate();
+    var joday  = jDay(offday.getUTCFullYear(),(offday.getUTCMonth()+1),offday.getUTCDate());
 
-    var Q   = "select+sum(value),count(value)+from+"
-    + "%22aquarius.env.outdoor.pyrano%22+"
-    + "+where+time+>+'" + qtimestamp
-    + "'+and+type+=+'direct'+"
-    + "+and+value+>+0";
+    var otime  = offday.getUTCFullYear() + "-" + pad((offday.getUTCMonth()+1)) + "-" + pad(offday.getUTCDate()) + " "
+               + pad(offday.getUTCHours()) + ":" + pad(offday.getUTCMinutes()) + ":" + pad(offday.getUTCSeconds());
+
+    var Q = "select+*+from+%22aquarius.env.outdoor.pyrano%22,%22aquarius.ucsspm.out%22+where+value+>0+";
+
+    if (jtday !== joday)
+    {
+        Q += "and+time+>+'" + oday + " 00:00:00'+and+time+<+'" + otime + "'";
+        document.getElementById('qsday').innerHTML = "Yesterday";
+    }
+    else
+    {
+        Q += "and+time+>+'" + tday + " 00:00:00'+and+time+<+'" + otime + "'";
+        document.getElementById('qsday').innerHTML = "Today";
+    }
 
     var req = new XMLHttpRequest();
     req.open('GET', API + Q, true);
@@ -506,11 +516,79 @@ function updateSolarHarvest ()
         if (req.status >= 200 && req.status < 400)
         {
             var data = JSON.parse(req.responseText);
-            //console.log(data);
-            document.getElementById('OPVHT').innerHTML = Math.round((data[0]['points'][0][1]/360)*1.67*0.2);
-            document.getElementById('APVHT').innerHTML = Math.round((data[0]['points'][0][1]/360)*5*0.19);
-            document.getElementById('OSolT').innerHTML = Math.round((data[0]['points'][0][2]/360)*10)/10;
-            document.getElementById('ASolT').innerHTML = Math.round((data[0]['points'][0][2]/360)*10)/10;
+
+            if( document.getElementById('energy-quickstats').style.display !== "block" )
+            {
+                document.getElementById('energy-quickstats').style.display = "block";
+            }
+
+            if (data.length === 0)
+            {
+                console.log("no data");
+                document.getElementById('OPVHT').innerHTML = "0000 Wh";
+                document.getElementById('APVHT').innerHTML = "0000 Wh";
+                document.getElementById('OPVUT').innerHTML = "0000 Wh";
+                document.getElementById('APVUT').innerHTML = "0000 Wh";
+                document.getElementById('OSolT').innerHTML = "0.0 h";
+                document.getElementById('ASolT').innerHTML = "0.0 h";
+                return;
+            }
+
+            var pyrano = 0;
+            var p = 0;
+            for( var i = 0; i < data[0]['columns'].length; i++ ){
+                if (data[0]['columns'][i] === "value")
+                {
+                    var pc = i;
+                    break;
+                }
+            }
+
+            for( var i = 0; i < data[0]['columns'].length; i++ ){
+                if (data[0]['columns'][i] === "type")
+                {
+                    var pt = i;
+                    break;
+                }
+            }
+
+            for( var i = 0; i < data[0]['points'].length; i++ ){
+                if (data[0]['points'][i][pt] === "direct")
+                {
+                    pyrano += parseInt( data[0]['points'][i][pc], 10 );
+                    p++;
+                }
+            }
+
+            var ucsspm = 0;
+            var u = 0;
+            for( var i = 0; i < data[1]['columns'].length; i++ ){
+                if (data[1]['columns'][i] === "value")
+                {
+                    var uc = i;
+                    break;
+                }
+            }
+
+            for( var i = 0; i < data[1]['points'].length; i++ ){
+                if (data[1]['points'][i][uc] > 0)
+                {
+                    ucsspm += parseInt( data[1]['points'][i][uc], 10 );
+                    u++;
+                }
+            }
+
+            var harvesto = Math.round((pyrano/p)*(((p/360)*10)/10)*1.67*0.2);
+            var harvesta = Math.round((pyrano/p)*(((p/360)*10)/10)*5*0.19);
+            var ucsspmo = Math.round((ucsspm/u)*(((u/360)*10)/10)*1.67*0.2);
+            var ucsspma = Math.round((ucsspm/u)*(((u/360)*10)/10)*5*0.19);
+
+            document.getElementById('OPVHT').innerHTML = harvesto + " Wh";
+            document.getElementById('APVHT').innerHTML = harvesta + " Wh";
+            document.getElementById('OPVUT').innerHTML = ucsspmo + " Wh";
+            document.getElementById('APVUT').innerHTML = ucsspma + " Wh";
+            document.getElementById('OSolT').innerHTML = Math.round((p/360)*10)/10 + " h";
+            document.getElementById('ASolT').innerHTML = Math.round((p/360)*10)/10 + " h";
         }
         else
         {
@@ -529,12 +607,9 @@ function updateSolarHarvest ()
 
 function updateView ()
 {
-    console.log("Update View");
     if( document.getElementById('system-overview').style.display !== "block" )
     {
-        console.log("Display SysOverview now!!!");
         document.getElementById('system-overview').style.display = "block";
-        //return;
     }
 
     updateSolarLive();

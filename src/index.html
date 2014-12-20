@@ -40,12 +40,13 @@
     <div id="system-overview" class="apollo-panel">
       <object data="img/apollo-ng-full-system-view.svg" type="image/svg+xml" height="600" width="1150" style="z-index: 99; position: relative; top: 260px; left: 0px;"></object>
       <object id="svg-energy-overlay" data="img/apollo-ng-energy-view.svg" type="image/svg+xml" height="630" width="1150" class="svg-overlay" style="z-index: 99; position: relative; top: -645px; left: 0px;"></object>
-      <div id="energy-quickstats" style="z-index: 9; position: absolute; top: 160px; right: 50px;">
-        <div><span>&nbsp;</span><span>Harvest</span><span>Light</span></div>
-        <div><span>Odyssey</span><span id="OPVHT">00000 Wh</span><span id="OSolT">00</span></div>
-        <div><span>Aquarius</span><span id="APVHT">00000 Wh</span><span id="ASolT">00</span></div>
-      </div>
+      <div id="energy-quickstats">
+        <div><span id="qsday">Today</span><span class="title">Odyssey</span><span class="title">Aquarius</span></div>
+        <div><span class="ltitle">Light</span><span id="OSolT" class="value">0.0 h</span><span id="ASolT" class="value">0.0 h</span></div>
+        <div><span class="ltitle">Harvest</span><span id="OPVHT" class="value">0000 Wh</span><span id="APVHT" class="value">0000 Wh</span></div>
+        <div><span class="ltitle">UCSSPM</span><span id="OPVUT" class="value">0000 Wh</span><span id="APVUT" class="value">0000 Wh</span></div>
     </div>
-
+    </div>
+    <script type="text/javascript">var _paq = _paq || []; _paq.push(["trackPageView"]); _paq.push(["enableLinkTracking"]); (function() { var u="https://apollo.open-resource.org/flight-control/stats/"; _paq.push(["setTrackerUrl", u+"piwik.php"]); _paq.push(["setSiteId", "1"]); var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript"; g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s); })();</script><noscript><img src="https://apollo.open-resource.org/flight-control/stats/piwik.php?idsite=1" style="border:0" width="0" height="0" alt="" border="0" /></noscript>
   </body>
 </html>

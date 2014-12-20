@@ -84,7 +84,7 @@
 
   </defs>
 
-  <g id="splash" opacity="0.85">
+  <g id="splash" opacity="0.7">
     <circle cx="150" cy="150" r="60" fill="#75890c" />
     <g transform="matrix(0.866, -0.5, 0.25, 0.433, 150, 150)">
       <path d="M 0,70 A 65,70 0 0,0 65,0 5,5 0 0,1 75,0 75,70 0 0,1 0,70Z" fill="#D8D3C5">
@@ -92,14 +92,17 @@
       </path>
     </g>
     <path d="M 60,0 A 60,60 0 0,0 -60,0Z" transform="matrix(0.866, -0.5, 0.5, 0.866, 150, 150)" fill="#75890c" />
-    <text x="270" y="160" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 45;">
-      Collecting Data - Please stand by...
+    <text x="273" y="163" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 42;">
+      Collecting Data
     </text>
-    <animate id="initComplete" attributeName="opacity" from="0.85" to="0" begin="indefinite" dur="1.2s" fill="freeze" />
+    <text x="273" y="185" font-family="'DIN',sans-serif" style="fill: #fffefa; stroke: none; font-size: 23;">
+      Please stand by...
+    </text>
+    <animate id="initComplete" attributeName="opacity" from="0.7" to="0" begin="indefinite" dur="1s" fill="freeze" />
   </g>
 
 
-  <g id="moon" opacity="0">
+  <g id="moon" opacity="0" transform="translate(-10,20) rotate(-15 75 75)">
     <circle cx="150" cy="150" r="60" fill="#D8D3C5" stroke="#ffffff" stroke-width="" />
     <path id="moonMask" d="M150,90, A 60,60 10 0,1 150,210 Q110,150 150,90" fill="#1f1e1a" stroke="#0f0e0a" stroke-width="2" />
     <animate id="moonRise" attributeName="opacity" from="0" to="0.35" begin="indefinite" dur="4s" fill="freeze" restart="whenNotActive" />
@@ -670,5 +673,9 @@
     </g>
 
   </g>
+
+  <text id="svg-timestamp" x="530" y="615" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: #E8E3E5; stroke-width: 0.2; font-size: 16; text-anchor: middle;">
+      0000-00-00T00:00:00Z
+  </text>
 
 </svg>

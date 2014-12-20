@@ -2,7 +2,7 @@
 	<div class="navbar-inner">
 		<div class="container-fluid">
 			<span class="brand">
-				<img class="logo-icon" src="img/fav32.png" bs-tooltip="'Grafana'" data-placement="bottom"></img>
+				<a href="https://apollo.open-resource.org"><img class="logo-icon" src="img/fav32.png" bs-tooltip="'Goto Apollo-NG Website'" data-placement="bottom"></img></a>
 				<span class="page-title">{{dashboard.title}}</span>
 			</span>
 			<ul class="nav pull-right" ng-controller='DashboardNavCtrl' ng-init="init()">
@@ -58,19 +58,22 @@
 				</li>
 
 				<li id="svg-timerange">
-					<span id="svg-timestamp">0</span>
 					<input type="range" min="0" max="360" value="360" step="10" id="svg-timeoffset" class="range-input" onchange="setTimeOffset(value)">
+				</li>
+
+				<li id="svg-refresh" class="grafana-menu-refresh">
+					<a><i class="icon-refresh"></i></a>
 				</li>
 
 				<li id="grafana-menu-zoom-out" class="grafana-menu-zoom-out"><a bs-tooltip="'Zoom Out'" data-placement="bottom" ng-click='zoom(2)'><i class='icon-zoom-out'></i></a></li>
 
-				<li class="dropdown grafana-menu-load" bs-tooltip="'Open another Dashboard'">
-					<a ng-click="openSearch()">
+				<li class="dropdown grafana-menu-load">
+					<a ng-click="openSearch()" bs-tooltip="'Goto System Overview'">
 						<i class='icon-folder-open'></i>
 					</a>
 				</li>
 
-				<li class="grafana-menu-home"><a bs-tooltip="'Goto System Overview'" data-placement="bottom" href='#/'><i class='icon-home'></i></a></li>
+				<li id="grafana-menu-home" class="grafana-menu-home"><a bs-tooltip="'Goto System Overview'" data-placement="bottom" href='#/'><i class='icon-home'></i></a></li>
 
 				<li class="grafana-menu-edit" ng-show="dashboard.editable" bs-tooltip="'Configure dashboard'" data-placement="bottom"><a class="link" dash-editor-link="app/partials/dasheditor.html"><i class='icon-cog pointer'></i></a></li>
 

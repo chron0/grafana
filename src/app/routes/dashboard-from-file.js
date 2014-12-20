@@ -59,11 +59,14 @@ function (angular, $, config, _) {
        sun = 0;
        t_offset = 0;
        intervallId = setInterval(function () {updateView();}, 10000);
-       console.log("Intervall started with ID:");
-       console.log(intervallId)
-       document.getElementById('system-overview').style.display = "block";
-       document.getElementById('svg-timerange').style.display = "list-item";
-       document.getElementById('grafana-menu-zoom-out').style.display = "none";
+       setTimeout(function ()
+       {
+           document.getElementById('system-overview').style.display = "block";
+           document.getElementById('svg-timerange').style.display = "list-item";
+           document.getElementById('svg-refresh').style.display = "list-item";
+           document.getElementById('grafana-menu-zoom-out').style.display = "none";
+           document.getElementById('grafana-menu-home').style.display = "none";
+       }, 2000)
     });
 
   });

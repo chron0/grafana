@@ -41,7 +41,9 @@ function (angular) {
       $scope.initDashboard(dashboard, $scope);
       document.getElementById('system-overview').style.display = "none";
       document.getElementById('svg-timerange').style.display = "none";
+      document.getElementById('svg-refresh').style.display = "none";
       document.getElementById('grafana-menu-zoom-out').style.display = "list-item";
+      document.getElementById('grafana-menu-home').style.display = "list-item";
       clearInterval(intervallId);
       console.log("Intervall terminated")
     }).then(null, function(error) {
