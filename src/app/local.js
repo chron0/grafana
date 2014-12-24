@@ -215,21 +215,21 @@ function setOdysseyPanel (deg)
     svgSetAtt("svg-energy-overlay","OPVP1",
               "transform","translate(0) rotate(" + deg*-1 + " 235 427)");
     svgSetAtt("svg-energy-overlay","OPVP1C",
-              "d","M245," + (431-(shift/4)) +
+              "d","M245," + (432-(shift/3)) +
               " L245,445 Q245,450 250,450 L390,450 Q395,450 395,455 L395,462");
     svgSetAtt("svg-energy-overlay","OPVP1CA",
-              "path","M245," + (431-(shift/4)) +
+              "path","M245," + (432-(shift/3)) +
               " L245,445 Q245,450 250,450 L390,450 Q395,450 395,455 L395,462");
     svgSetAtt("svg-energy-overlay","SunRayO1C","d","M170,207 L" + (256-(shift/4)) + "," + (427-(shift/2)));
     svgSetAtt("svg-energy-overlay","SunRayO1CA","path","M170,207 L" + (256-(shift/4)) + "," + (427-(shift/2)));
 
     svgSetAtt("svg-energy-overlay","OPVP2","transform","translate(" + shift + ") rotate(" + deg*-1 + " 275 427)");
     svgSetAtt("svg-energy-overlay","OPVP2C",
-              "d","M" + (285+shift) + "," + (431-(shift/4)) +
+              "d","M" + (285+shift) + "," + (432-(shift/3)) +
               " L" + (285+shift) + ",442 Q" + (285+shift) + ",447 " + (290+shift) +
               ",447 L390,447 Q398,447 398,455 L398,462");
     svgSetAtt("svg-energy-overlay","OPVP2CA",
-              "path","M" + (285+shift) + "," + (431-(shift/4)) +
+              "path","M" + (285+shift) + "," + (432-(shift/3)) +
               " L" + (285+shift) + ",442 Q" + (285+shift) + ",447 " + (290+shift) +
               ",447 L390,447 Q398,447 398,455 L398,462");
     svgSetAtt("svg-energy-overlay","SunRayO2C","d","M176,204 L" + (296+(shift*0.75)) + "," + (427-(shift/2)));
@@ -237,11 +237,11 @@ function setOdysseyPanel (deg)
 	shift=shift*2;
     svgSetAtt("svg-energy-overlay","OPVP3","transform", "translate(" + shift + ") rotate(" + deg*-1 + " 315 427)");
     svgSetAtt("svg-energy-overlay","OPVP3C",
-              "d", "M" + (326+(shift-1)) + "," + (431-(shift/8))
+              "d", "M" + (326+(shift-1)) + "," + (432-(shift/6.2))
               + " L" + (326+(shift-1)) + ",439 Q" + (326+(shift-1)) + ",444 " + (331+(shift-1))
               + ",444 L390,444 Q401,444 401,455 L401,462");
     svgSetAtt("svg-energy-overlay","OPVP3CA",
-              "path", "M" + (326+(shift-1)) + "," + (431-(shift/8))
+              "path", "M" + (326+(shift-1)) + "," + (432-(shift/6.2))
               + " L" + (326+(shift-1)) + ",439 Q" + (326+(shift-1)) + ",444 " + (331+(shift-1))
               + ",444 L390,444 Q401,444 401,455 L401,462");
 	svgSetAtt("svg-energy-overlay","SunRayO3C","d", "M182,201 L" + (335+(shift*0.9)) + "," + (427-(shift/4)));
