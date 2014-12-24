@@ -191,6 +191,8 @@ function setSolarAnim (module,speed)
         svgSetAtt("svg-energy-overlay","OPVP1SA","dur",speed);
         svgSetAtt("svg-energy-overlay","OPVP2SA","dur",speed);
         svgSetAtt("svg-energy-overlay","OPVP3SA","dur",speed);
+        svgSetAtt("svg-energy-overlay","OSCCBatACA","dur",speed);
+        svgSetAtt("svg-energy-overlay","OSCCBatBCA","dur",speed);
     }
     else
     {
@@ -206,6 +208,7 @@ function setSolarAnim (module,speed)
         svgSetAtt("svg-energy-overlay","APVP2SA","dur",speed);
         svgSetAtt("svg-energy-overlay","APVP3SA","dur",speed);
         svgSetAtt("svg-energy-overlay","APVP4SA","dur",speed);
+        svgSetAtt("svg-energy-overlay","ASCCBatACA","dur",speed);
     }
 }
 
@@ -487,11 +490,11 @@ function updateSolarLive ()
 
             if (o_rso_dir > o_rso_dif)
             {
-                var o_rso = Math.round(o_rso_dir*1.67/100*20*0.98*1.01);
+                var o_rso = Math.round(o_rso_dir*1.825*0.2*0.98*1.01);
             }
             else
             {
-                var o_rso = Math.round(o_rso_dif*1.67/100*20*0.98*1.01);
+                var o_rso = Math.round(o_rso_dif*1.825*0.2*0.98*1.01);
             }
 
             svgSetText("svg-energy-overlay", "OSCCText",o_rso);
@@ -582,10 +585,9 @@ function updateSolarLive ()
                 startAnim("APVP2C",0.5);
                 startAnim("APVP3C",1.0);
                 startAnim("APVP4C",1.5);
-                startAnim("OSCCBatAC");
-                startAnim("OSCCBatBC");
-                startAnim("ASCCBatAC");
-
+                startAnim("OSCCBatAC",1.0);
+                startAnim("OSCCBatBC",1.0);
+                startAnim("ASCCBatAC",1.5);
                 document.getElementById("svg-energy-overlay").contentDocument.getElementById("OPVP1SA").beginElement();
                 document.getElementById("svg-energy-overlay").contentDocument.getElementById("OPVP2SA").beginElementAt(0.5);
                 document.getElementById("svg-energy-overlay").contentDocument.getElementById("OPVP3SA").beginElementAt(1.0);
@@ -726,9 +728,9 @@ function updateSolarHarvest ()
                 }
             }
 
-            var harvesto = Math.round((pyrano/p)*(((p/360)*10)/10)*1.67*0.2);
+            var harvesto = Math.round((pyrano/p)*(((p/360)*10)/10)*1.825*0.2);
             var harvesta = Math.round((pyrano/p)*(((p/360)*10)/10)*5*0.19);
-            var ucsspmo = Math.round((ucsspm/u)*(((u/360)*10)/10)*1.67*0.2);
+            var ucsspmo = Math.round((ucsspm/u)*(((u/360)*10)/10)*1.825*0.2);
             var ucsspma = Math.round((ucsspm/u)*(((u/360)*10)/10)*5*0.19);
 
             document.getElementById('OPVHT').innerHTML = harvesto + " Wh";
