@@ -408,7 +408,7 @@
         </circle>
       </g>
 
-      <g transform="translate(135,518)" onclick='console.log(evt)' class="button">
+      <g transform="translate(135,518)" onclick="window.parent.popModal('md-OBatA');" class="button">
         <use xlink:href="#button_sqt" />
         <text x="9" y="16.5" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 12;">
           BAT
@@ -418,14 +418,14 @@
         </text>
       </g>
 
-      <g transform="translate(181,518)" onclick='console.log(evt)' class="button">
+      <g transform="translate(181,518)" onclick="window.parent.popModal('md-OBCC');" class="button">
         <use xlink:href="#button_sq" />
         <text x="7.5" y="24.5" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 14;">
           BCC
         </text>
       </g>
 
-      <g transform="translate(234,518)" onclick='console.log(evt)' class="button">
+      <g transform="translate(234,518)" onclick="window.parent.popModal('md-OBatB');" class="button">
         <use xlink:href="#button_sqt" />
         <text x="9" y="16.5" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 12;">
           BAT
@@ -435,35 +435,35 @@
         </text>
       </g>
 
-      <g transform="translate(280,518)" onclick='console.log(evt)' class="button">
+      <g transform="translate(280,518)" onclick="window.parent.popModal('md-OPDU');" class="button">
         <use xlink:href="#button_sq" />
         <text x="7.5" y="24" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 13;">
           PDU
         </text>
       </g>
 
-      <g transform="translate(234,472)" onclick='console.log(evt)' class="button">
+      <g transform="translate(234,472)" onclick="window.parent.popModal('md-OSKU');" class="button">
         <use xlink:href="#button_sq" />
         <text x="7.5" y="24" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 13; ">
           SKU
         </text>
       </g>
 
-      <g transform="translate(280,472)" onclick='console.log(evt)' class="button">
+      <g transform="translate(280,472)" onclick="window.parent.popModal('md-OMCU');" class="button">
         <use xlink:href="#button_sq" />
         <text x="6.5" y="24" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 13; letter-spacing:0.15;">
           MCU
         </text>
       </g>
 
-      <g transform="translate(332,472)" onclick='console.log(evt)' class="button">
+      <g transform="translate(332,472)" onclick="window.parent.popModal('md-OLOAD');" class="button">
         <use xlink:href="#button_ru" />
         <text x="6" y="24" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 13; letter-spacing:0.15;">
           Load
         </text>
       </g>
 
-      <g transform="translate(378,472)" onclick='console.log(evt)' class="button">
+      <g transform="translate(378,472)" onclick="window.parent.popModal('md-OSCC');" class="button">
         <use xlink:href="#button_ru" />
         <text x="7.5" y="24" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 14; ">
           SCC
@@ -618,56 +618,56 @@
     </g>
 
 
-    <g transform="translate(32,204)" onclick='console.log(evt)' class="button">
+    <g transform="translate(32,204)" onclick="window.parent.popModal('md-AAPU');" class="button">
       <use xlink:href="#button_sq" />
       <text x="7.5" y="24" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 13;">
         APU
       </text>
     </g>
 
-    <g transform="translate(170,204)" onclick='console.log(evt)' class="button">
+    <g transform="translate(170,204)" onclick="window.parent.popModal('md-AGCC');" class="button">
       <use xlink:href="#button_sq" />
       <text x="7" y="24" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 14; ">
         GCC
       </text>
     </g>
 
-    <g transform="translate(330,204)" onclick='console.log(evt)' class="button">
+    <g transform="translate(330,204)" onclick="window.parent.popModal('md-AGI');" class="button">
       <use xlink:href="#button_sq" />
       <text x="12" y="24" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 14; ">
         GI
       </text>
     </g>
 
-    <g transform="translate(227,102)" onclick='console.log(evt)' class="button">
+    <g transform="translate(227,102)" onclick="window.parent.popModal('md-ASKU');" class="button">
       <use xlink:href="#button_sq" />
       <text x="7.5" y="24" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 13; ">
         SKU
       </text>
     </g>
 
-    <g transform="translate(273,102)" onclick='console.log(evt)' class="button">
+    <g transform="translate(273,102)" onclick="window.parent.popModal('md-AMCU');" class="button">
       <use xlink:href="#button_sq" />
       <text x="6.5" y="24" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 13; letter-spacing:0.15;">
         MCU
       </text>
     </g>
 
-    <g transform="translate(426,204)" onclick='console.log(evt)' class="button">
+    <g transform="translate(426,204)" onclick="window.parent.popModal('md-AGRID');" class="button">
       <use xlink:href="#button_sq" />
       <text x="7" y="24" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 13; ">
         Grid
       </text>
     </g>
 
-    <g transform="translate(330,102)" onclick='console.log(evt)' class="button">
+    <g transform="translate(330,102)" onclick="window.parent.popModal('md-APDU');" class="button">
       <use xlink:href="#button_ru" />
       <text x="7" y="24" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 13; ">
         PDU
       </text>
     </g>
 
-    <g transform="translate(170,102)" onclick='console.log(evt)' class="button">
+    <g transform="translate(170,102)" onclick="window.parent.popModal('md-ASCC');" class="button">
       <use xlink:href="#button_ru" />
       <text x="7.5" y="24" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 14; ">
         SCC
@@ -680,14 +680,14 @@
       </text>
     </g>
 
-    <g transform="translate(227,158)" onclick="window.parent.popModal('md-ABat');" class="button">
+    <g transform="translate(227,158)" onclick="window.parent.popModal('md-ABatA');" class="button">
       <use xlink:href="#button_bsq" />
       <text x="17" y="24" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 13; ">
         Battery A
       </text>
     </g>
 
-    <g transform="translate(379,102)" onclick='console.log(evt)' class="button">
+    <g transform="translate(379,102)" onclick="window.parent.popModal('md-ALOAD');" class="button">
       <use xlink:href="#button_bsq" />
       <text x="27.5" y="24" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 13; ">
         Load

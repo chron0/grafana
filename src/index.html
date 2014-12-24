@@ -1,223 +1,389 @@
 <!DOCTYPE html>
-  <!--[if IE 8]>         <html class="no-js lt-ie9" lang="en"> <![endif]-->
-  <!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content="width=device-width">
-    <meta name="google" value="notranslate">
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
 
-    <title>Virtual Flight Control Center</title>
-    <link rel="stylesheet" href="css/grafana.dark.min.css" title="Dark">
-    <link rel="stylesheet" href="css/local.css">
-    <link rel="icon" type="image/png" href="img/fav32.png">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width">
+  <meta name="google" value="notranslate">
 
-    <script src="app/local.js"></script>
+  <title>Virtual Flight Control Center</title>
+  <link rel="stylesheet" href="css/grafana.dark.min.css" title="Dark">
+  <link rel="stylesheet" href="css/local.css">
+  <link rel="icon" type="image/png" href="img/fav32.png">
 
-    <!-- build:js app/app.js -->
-    <script src="vendor/require/require.js"></script>
-    <script src="app/components/require.config.js"></script>
-    <!-- endbuild -->
+  <script src="app/local.js"></script>
 
-    <script>require(['app'], function (app) { app.boot(); })</script>
-    <script src="app/components/require.config.js"></script>
+  <!-- build:js app/app.js -->
+  <script src="vendor/require/require.js"></script>
+  <script src="app/components/require.config.js"></script>
+  <!-- endbuild -->
 
-  </head>
+  <script>
+    require(['app'], function(app) {
+      app.boot();
+    })
+  </script>
+  <script src="app/components/require.config.js"></script>
 
-  <body ng-cloak ng-controller="GrafanaCtrl">
-    <div class="page-alert-list">
-      <div ng-repeat='alert in dashAlerts.list' class="alert-{{alert.severity}} alert">
-        <button type="button" class="alert-close" ng-click="dashAlerts.clear(alert)">
-          <i class="icon-remove-sign"></i>
-        </button>
-        <div class="alert-title">{{alert.title}}</div>
-        <div ng-bind-html='alert.text'></div>
+</head>
+
+<body ng-cloak ng-controller="GrafanaCtrl">
+  <div class="page-alert-list">
+    <div ng-repeat='alert in dashAlerts.list' class="alert-{{alert.severity}} alert">
+      <button type="button" class="alert-close" ng-click="dashAlerts.clear(alert)">
+        <i class="icon-remove-sign"></i>
+      </button>
+      <div class="alert-title">{{alert.title}}</div>
+      <div ng-bind-html='alert.text'></div>
+    </div>
+  </div>
+
+  <div ng-view></div>
+
+  <div id="system-overview" class="apollo-panel">
+    <object data="img/apollo-ng-system-view-basedrop.svg" type="image/svg+xml" height="600" width="1150" style="z-index: 99; position: relative; top: 260px; left: 0px;"></object>
+    <object id="svg-energy-overlay" data="img/apollo-ng-energy-view.svg" type="image/svg+xml" height="630" width="1150" class="svg-overlay" style="z-index: 99; position: relative; top: -645px; left: 0px;"></object>
+    <div id="energy-quickstats">
+      <div><span id="qsday">Today</span><span class="title">Odyssey</span><span class="title">Aquarius</span>
+      </div>
+      <div><span class="ltitle">Sunlight</span><span id="OSolT" class="value">0.0 h</span><span id="ASolT" class="value">0.0 h</span>
+      </div>
+      <div><span class="ltitle">Harvest</span><span id="OPVHT" class="value">0000 Wh</span><span id="APVHT" class="value">0000 Wh</span>
+      </div>
+      <div><span class="ltitle">UCSSPM</span><span id="OPVUT" class="value">0000 Wh</span><span id="APVUT" class="value">0000 Wh</span>
       </div>
     </div>
+  </div>
 
-    <div ng-view></div>
-
-    <div id="system-overview" class="apollo-panel">
-      <object data="img/apollo-ng-system-view-basedrop.svg" type="image/svg+xml" height="600" width="1150" style="z-index: 99; position: relative; top: 260px; left: 0px;"></object>
-      <object id="svg-energy-overlay" data="img/apollo-ng-energy-view.svg" type="image/svg+xml" height="630" width="1150" class="svg-overlay" style="z-index: 99; position: relative; top: -645px; left: 0px;"></object>
-      <div id="energy-quickstats">
-        <div><span id="qsday">Today</span><span class="title">Odyssey</span><span class="title">Aquarius</span></div>
-        <div><span class="ltitle">Sunlight</span><span id="OSolT" class="value">0.0 h</span><span id="ASolT" class="value">0.0 h</span></div>
-        <div><span class="ltitle">Harvest</span><span id="OPVHT" class="value">0000 Wh</span><span id="APVHT" class="value">0000 Wh</span></div>
-        <div><span class="ltitle">UCSSPM</span><span id="OPVUT" class="value">0000 Wh</span><span id="APVUT" class="value">0000 Wh</span></div>
+  <div class="md-modal md-effect-1" id="md-OBatA">
+    <div class="md-content">
+      <h3>Odyssey - Battery A <span class="md-icon" onclick="hideModal('md-OBatA')"><i class="icon-remove"></i></h3>
+      <div>
+        <p>This is an empty modal window</p>
+      </div>
     </div>
+  </div>
+
+  <div class="md-modal md-effect-1" id="md-OBatB">
+      <div class="md-content">
+          <h3>Odyssey - Battery B <span class="md-icon" onclick="hideModal('md-OBatB')"><i class="icon-remove"></i></h3>
+              <div>
+                  <p>This is an empty modal window</p>
+              </div>
+          </div>
+      </div>
+
+  <div class="md-modal md-effect-1" id="md-OSKU">
+    <div class="md-content">
+      <h3>Odyssey - Station Keeping Unit (SKU) <span class="md-icon" onclick="hideModal('md-OSKU')"><i class="icon-remove"></i></h3>
+      <div>
+        <p>This is an empty modal window</p>
+      </div>
     </div>
+  </div>
 
-    <div class="md-modal md-effect-1" id="md-ABat">
-        <div class="md-content">
-            <h3>Aquarius Battery A <span class="md-icon" onclick="hideModal('md-ABat')"><i class="icon-remove"></i></h3>
-            <div>
-                <p>This is a modal window. You can do the following things with it:</p>
-                <ul>
-                    <li><strong>Read:</strong> Modal windows will probably tell you something important so don't forget to read what it says.</li>
-                    <li><strong>Look:</strong> modal windows enjoy a certain kind of attention; just look at it and appreciate its presence.</li>
-                    <li><strong>Close:</strong> click on the button below to close the modal.</li>
-                </ul>
-
-            </div>
-        </div>
+  <div class="md-modal md-effect-1" id="md-OPDU">
+    <div class="md-content">
+      <h3>Odyssey - Power Distribution Unit (PDU) <span class="md-icon" onclick="hideModal('md-OPDU')"><i class="icon-remove"></i></h3>
+      <div>
+        <p>This is an empty modal window</p>
+      </div>
     </div>
+  </div>
 
-    <div class="md-modal md-effect-1" id="md-OPVP">
-        <div class="md-content">
-            <h3>Odyssey Solar Array<span class="md-icon" onclick="hideModal('md-OPVP')"><i class="icon-remove"></i></h3>
-            <div>
-                <table class="md-table orange">
-                    <thead>
-                        <tr>
-                            <th scope="col" colspan="2"><b>Angle</b></th>
-                            <th scope="col" colspan="3"><b>Global Solar Radiation</b></th>
-                        </tr>
-                        <tr>
-                            <td scope="col">Sun</td>
-                            <td scope="col">Panels</td>
-                            <td scope="col">Direct</td>
-                            <td scope="col">Diffuse</td>
-                            <td scope="col">UCSSPM Max.</td>
-                        </tr>
-                    </thead>
-                    <tfoot>
-                        <tr>
-                            <td id="OSZA">0 °</td>
-                            <td id="OPVPA">0 °</td>
-                            <td id="ORSODIR">0 W/m²</td>
-                            <td id="ORSODIF">0 W/m²</td>
-                            <td id="ORSOMAX">0 W/m²</td>
-                        </tr>
-                    </tfoot>
-                </table>
-                <br />
-                <table class="md-table lightblue">
-                    <thead>
-                        <tr>
-                            <th></th>
-                            <th scope="col">Panel 1</th>
-                            <th scope="col">Panel 2</th>
-                            <th scope="col">Panel 3</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th>Temperature</th>
-                            <td class="OPVPT">25 °C</td>
-                            <td class="OPVPT">25 °C</td>
-                            <td class="OPVPT">25 °C</td>
-                        </tr>
-                        <tr>
-                            <th>Volt (U)</th>
-                            <td class="OPVPU">0 V</td>
-                            <td class="OPVPU">0 V</td>
-                            <td class="OPVPU">0 V</td>
-                        </tr>
-                        <tr>
-                            <th>Ampere (I)</th>
-                            <td class="OPVPI">0 A</td>
-                            <td class="OPVPI">0 A</td>
-                            <td class="OPVPI">0 A</td>
-                        </tr>
-                    </tbody>
-                    <tfoot>
-                        <tr>
-                            <th>Watt (P)</th>
-                            <td id="OPVP1P">0 W</td>
-                            <td id="OPVP2P">0 W</td>
-                            <td id="OPVP3P">0 W</td>
-                        </tr>
-                    </tfoot>
-                </table>
-            </div>
-            <div class="md-footer">
-             <a href="#/dashboard/db/odyssey-solar-power" onclick="hideModal('md-OPVP')">Show Metrics History</a>
-             <a href="/mission:tech:odyssey#" target="_new">Show Hardware Details</a>
-            </div>
-        </div>
+  <div class="md-modal md-effect-1" id="md-OMCU">
+    <div class="md-content">
+      <h3>Odyssey - Main Computing Unit (MCU) <span class="md-icon" onclick="hideModal('md-OMCU')"><i class="icon-remove"></i></h3>
+      <div>
+        <p>This is an empty modal window</p>
+      </div>
     </div>
+  </div>
 
-    <div class="md-modal md-effect-1" id="md-APVP">
-        <div class="md-content">
-            <h3>Aquarius Solar Array<span class="md-icon" onclick="hideModal('md-APVP')"><i class="icon-remove"></i></h3>
-            <div>
-                <table class="md-table orange">
-                    <thead>
-                        <tr>
-                            <th scope="col" colspan="2"><b>Angle</b></th>
-                            <th scope="col" colspan="3"><b>Global Solar Radiation</b></th>
-                        </tr>
-                        <tr>
-                            <td scope="col">Sun</td>
-                            <td scope="col">Panels</td>
-                            <td scope="col">Direct</td>
-                            <td scope="col">Diffuse</td>
-                            <td scope="col">UCSSPM Max.</td>
-                        </tr>
-                    </thead>
-                    <tfoot>
-                        <tr>
-                            <td id="ASZA">0 °</td>
-                            <td id="APVPA">0 °</td>
-                            <td id="ARSODIR">0 W/m²</td>
-                            <td id="ARSODIF">0 W/m²</td>
-                            <td id="ARSOMAX">0 W/m²</td>
-                        </tr>
-                    </tfoot>
-                </table>
-                <br />
-                <table class="md-table lightblue">
-                    <thead>
-                        <tr>
-                            <th></th>
-                            <th scope="col">Panel 1</th>
-                            <th scope="col">Panel 2</th>
-                            <th scope="col">Panel 3</th>
-                            <th scope="col">Panel 4</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th>Temperature</th>
-                            <td class="OPVPT">25 °C</td>
-                            <td class="OPVPT">25 °C</td>
-                            <td class="OPVPT">25 °C</td>
-                            <td class="OPVPT">25 °C</td>
-                        </tr>
-                        <tr>
-                            <th>Volt (U)</th>
-                            <td id="APVP1U">0 V</td>
-                            <td id="APVP2U">0 V</td>
-                            <td id="APVP3U">0 V</td>
-                            <td id="APVP4U">0 V</td>
-                        </tr>
-                        <tr>
-                            <th>Ampere (I)</th>
-                            <td id="APVP1I">0 A</td>
-                            <td id="APVP2I">0 A</td>
-                            <td id="APVP3I">0 A</td>
-                            <td id="APVP4I">0 A</td>
-                        </tr>
-                    </tbody>
-                    <tfoot>
-                        <tr>
-                            <th>Watt (P)</th>
-                            <td id="APVP1P">0 W</td>
-                            <td id="APVP2P">0 W</td>
-                            <td id="APVP3P">0 W</td>
-                            <td id="APVP4P">0 W</td>
-                        </tr>
-                    </tfoot>
-                </table>
-            </div>
-            <div class="md-footer">
-                <a href="#/dashboard/db/aquarius-solar-power" onclick="hideModal('md-APVP')">Show Metrics History</a>
-                <a href="/mission:tech:aquarius#" target="_new">Show Hardware Details</a>
-            </div>
-        </div>
+   <div class="md-modal md-effect-1" id="md-OBCC">
+    <div class="md-content">
+      <h3>Odyssey - Boost Charge Controller (BCC) <span class="md-icon" onclick="hideModal('md-OBCC')"><i class="icon-remove"></i></h3>
+      <div>
+        <p>This is an empty modal window</p>
+      </div>
     </div>
+  </div>
 
-    <div class="md-overlay"></div><script type="text/javascript">var _paq = _paq || []; _paq.push(["trackPageView"]); _paq.push(["enableLinkTracking"]); (function() { var u="https://apollo.open-resource.org/flight-control/stats/"; _paq.push(["setTrackerUrl", u+"piwik.php"]); _paq.push(["setSiteId", "1"]); var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript"; g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s); })();</script><noscript><img src="https://apollo.open-resource.org/flight-control/stats/piwik.php?idsite=1" style="border:0" width="0" height="0" alt="" border="0" /></noscript>
-  </body>
+  <div class="md-modal md-effect-1" id="md-OSCC">
+    <div class="md-content">
+      <h3>Odyssey - Solar Charge Controller (SCC) <span class="md-icon" onclick="hideModal('md-OSCC')"><i class="icon-remove"></i></h3>
+      <div>
+        <p>This is an empty modal window</p>
+      </div>
+    </div>
+  </div>
+
+   <div class="md-modal md-effect-1" id="md-OLOAD">
+    <div class="md-content">
+      <h3>Odyssey - Load (Power Consumers)<span class="md-icon" onclick="hideModal('md-OLOAD')"><i class="icon-remove"></i></h3>
+      <div>
+        <p>This is an empty modal window</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="md-modal md-effect-1" id="md-ABatA">
+    <div class="md-content">
+      <h3>Aquarius - Battery A <span class="md-icon" onclick="hideModal('md-ABatA')"><i class="icon-remove"></i></h3>
+      <div>
+        <p>This is an empty modal window</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="md-modal md-effect-1" id="md-ASKU">
+    <div class="md-content">
+      <h3>Aquarius - Station Keeping Unit (SKU) <span class="md-icon" onclick="hideModal('md-ASKU')"><i class="icon-remove"></i></h3>
+      <div>
+        <p>This is an empty modal window</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="md-modal md-effect-1" id="md-APDU">
+    <div class="md-content">
+      <h3>Aquarius - Power Distribution Unit (PDU) <span class="md-icon" onclick="hideModal('md-APDU')"><i class="icon-remove"></i></h3>
+      <div>
+        <p>This is an empty modal window</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="md-modal md-effect-1" id="md-AMCU">
+    <div class="md-content">
+      <h3>Aquarius - Main Computing Unit (MCU) <span class="md-icon" onclick="hideModal('md-AMCU')"><i class="icon-remove"></i></h3>
+      <div>
+        <p>This is an empty modal window</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="md-modal md-effect-1" id="md-AAPU">
+    <div class="md-content">
+      <h3>Aquarius - Auxiliary Power Unit (APU) <span class="md-icon" onclick="hideModal('md-AAPU')"><i class="icon-remove"></i></h3>
+      <div>
+        <p>This is an empty modal window</p>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="md-modal md-effect-1" id="md-AGCC">
+    <div class="md-content">
+      <h3>Aquarius - Grid Charge Controller (GCC) <span class="md-icon" onclick="hideModal('md-AGCC')"><i class="icon-remove"></i></h3>
+      <div>
+        <p>This is an empty modal window</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="md-modal md-effect-1" id="md-AGI">
+    <div class="md-content">
+      <h3>Aquarius - Grid Inverter (GI) <span class="md-icon" onclick="hideModal('md-AGI')"><i class="icon-remove"></i></h3>
+      <div>
+        <p>This is an empty modal window</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="md-modal md-effect-1" id="md-ASCC">
+    <div class="md-content">
+      <h3>Aquarius - Solar Charge Controller (SCC) <span class="md-icon" onclick="hideModal('md-ASCC')"><i class="icon-remove"></i></h3>
+      <div>
+        <p>This is an empty modal window</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="md-modal md-effect-1" id="md-AGRID">
+    <div class="md-content">
+      <h3>Aquarius - Grid Power<span class="md-icon" onclick="hideModal('md-AGRID')"><i class="icon-remove"></i></h3>
+      <div>
+        <p>This is an empty modal window</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="md-modal md-effect-1" id="md-ALOAD">
+    <div class="md-content">
+      <h3>Aquarius - Load (Power Consumers)<span class="md-icon" onclick="hideModal('md-ALOAD')"><i class="icon-remove"></i></h3>
+      <div>
+        <p>This is an empty modal window</p>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="md-modal md-effect-1" id="md-OPVP">
+    <div class="md-content">
+      <h3>Odyssey - Solar Array<span class="md-icon" onclick="hideModal('md-OPVP')"><i class="icon-remove"></i></h3>
+      <div>
+        <table class="md-table orange">
+          <thead>
+            <tr>
+              <th scope="col" colspan="2"><b>Angle</b>
+              </th>
+              <th scope="col" colspan="3"><b>Global Solar Radiation</b>
+              </th>
+            </tr>
+            <tr>
+              <td scope="col">Sun</td>
+              <td scope="col">Panels</td>
+              <td scope="col">Direct</td>
+              <td scope="col">Diffuse</td>
+              <td scope="col">UCSSPM Max.</td>
+            </tr>
+          </thead>
+          <tfoot>
+            <tr>
+              <td id="OSZA">0 °</td>
+              <td id="OPVPA">0 °</td>
+              <td id="ORSODIR">0 W/m²</td>
+              <td id="ORSODIF">0 W/m²</td>
+              <td id="ORSOMAX">0 W/m²</td>
+            </tr>
+          </tfoot>
+        </table>
+        <br />
+        <table class="md-table lightblue">
+          <thead>
+            <tr>
+              <th></th>
+              <th scope="col">Panel 1</th>
+              <th scope="col">Panel 2</th>
+              <th scope="col">Panel 3</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>Temperature</th>
+              <td class="OPVPT">25 °C</td>
+              <td class="OPVPT">25 °C</td>
+              <td class="OPVPT">25 °C</td>
+            </tr>
+            <tr>
+              <th>Volt (U)</th>
+              <td class="OPVPU">0 V</td>
+              <td class="OPVPU">0 V</td>
+              <td class="OPVPU">0 V</td>
+            </tr>
+            <tr>
+              <th>Ampere (I)</th>
+              <td class="OPVPI">0 A</td>
+              <td class="OPVPI">0 A</td>
+              <td class="OPVPI">0 A</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <th>Watt (P)</th>
+              <td id="OPVP1P">0 W</td>
+              <td id="OPVP2P">0 W</td>
+              <td id="OPVP3P">0 W</td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+      <div class="md-footer">
+        <a href="#/dashboard/db/odyssey-solar-power" onclick="hideModal('md-OPVP')">Show Metrics History</a>
+        <a href="/mission:tech:odyssey#" target="_new">Show Hardware Details</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="md-modal md-effect-1" id="md-APVP">
+    <div class="md-content">
+      <h3>Aquarius - Solar Array<span class="md-icon" onclick="hideModal('md-APVP')"><i class="icon-remove"></i></h3>
+      <div>
+        <table class="md-table orange">
+          <thead>
+            <tr>
+              <th scope="col" colspan="2"><b>Angle</b>
+              </th>
+              <th scope="col" colspan="3"><b>Global Solar Radiation</b>
+              </th>
+            </tr>
+            <tr>
+              <td scope="col">Sun</td>
+              <td scope="col">Panels</td>
+              <td scope="col">Direct</td>
+              <td scope="col">Diffuse</td>
+              <td scope="col">UCSSPM Max.</td>
+            </tr>
+          </thead>
+          <tfoot>
+            <tr>
+              <td id="ASZA">0 °</td>
+              <td id="APVPA">0 °</td>
+              <td id="ARSODIR">0 W/m²</td>
+              <td id="ARSODIF">0 W/m²</td>
+              <td id="ARSOMAX">0 W/m²</td>
+            </tr>
+          </tfoot>
+        </table>
+        <br />
+        <table class="md-table lightblue">
+          <thead>
+            <tr>
+              <th></th>
+              <th scope="col">Panel 1</th>
+              <th scope="col">Panel 2</th>
+              <th scope="col">Panel 3</th>
+              <th scope="col">Panel 4</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>Temperature</th>
+              <td class="OPVPT">25 °C</td>
+              <td class="OPVPT">25 °C</td>
+              <td class="OPVPT">25 °C</td>
+              <td class="OPVPT">25 °C</td>
+            </tr>
+            <tr>
+              <th>Volt (U)</th>
+              <td id="APVP1U">0 V</td>
+              <td id="APVP2U">0 V</td>
+              <td id="APVP3U">0 V</td>
+              <td id="APVP4U">0 V</td>
+            </tr>
+            <tr>
+              <th>Ampere (I)</th>
+              <td id="APVP1I">0 A</td>
+              <td id="APVP2I">0 A</td>
+              <td id="APVP3I">0 A</td>
+              <td id="APVP4I">0 A</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <th>Watt (P)</th>
+              <td id="APVP1P">0 W</td>
+              <td id="APVP2P">0 W</td>
+              <td id="APVP3P">0 W</td>
+              <td id="APVP4P">0 W</td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+      <div class="md-footer">
+        <a href="#/dashboard/db/aquarius-solar-power" onclick="hideModal('md-APVP')">Show Metrics History</a>
+        <a href="/mission:tech:aquarius#" target="_new">Show Hardware Details</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="md-overlay"></div>
+
+</body>
+
 </html>
