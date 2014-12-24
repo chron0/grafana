@@ -316,7 +316,7 @@
       <circle id="OPVP1CC" cx="0" cy="0" r="1.5" style="stroke: #5abde6; fill: #ffffff;" opacity="0">
         <animateMotion id="OPVP1CA" path="M245,432 L245,445 Q245,450 250,450 L390,450 Q395,450 395,455 L395,462" begin="indefinite" end="indefinite" restart="whenNotActive" dur="3s" repeatCount="indefinite" />
       </circle>
-      <rect id="OPVP1" x="235" y="427" width="40" height="5" fill="#0f0e0a" stroke="#888385" class="button">
+      <rect id="OPVP1" x="235" y="427" width="40" height="5" fill="#0f0e0a" stroke="#888385" stroke-width="0.6" class="button">
         <animate id="OPVP1SA" attributeName="stroke" attributeType="XML" from="#ffad09" to="#5abde6" begin="indefinite" end="indefinite" dur="3s" repeatCount="indefinite" restart="whenNotActive" fill="remove" />
         <animate attributeName="stroke" attributeType="XML" from="#888385" to="#888385" begin="OPVP1SA.end" end="indefinite" dur="1s" repeatCount="1" restart="whenNotActive" fill="remove" />
       </rect>
@@ -325,16 +325,18 @@
       <circle id="OPVP2CC" cx="0" cy="0" r="1.5" style="stroke: #5abde6; fill: #ffffff;" opacity="0">
         <animateMotion id="OPVP2CA" path="M285,432 L285,442 Q285,447 290,447 L390,447 Q398,447 398,455 L398,462" begin="indefinite" end="indefinite" restart="whenNotActive" dur="3s" repeatCount="indefinite" />
       </circle>
-      <rect id="OPVP2" x="275" y="427" width="40" height="5" style="fill:#0f0e0a; stroke:#888385; stroke-width: 0.6;" class="button">
-        <animate id="OPVP2SA" attributeName="stroke" from="#ffad09" to="#5abde6" begin="indefinite" end="indefinite" dur="3s" repeatCount="indefinite" fill="remove" />
+      <rect id="OPVP2" x="275" y="427" width="40" height="5" fill="#0f0e0a" stroke="#888385" stroke-width="0.6" class="button">
+        <animate id="OPVP2SA" attributeName="stroke" attributeType="XML" from="#ffad09" to="#5abde6" begin="indefinite" end="indefinite" dur="3s" repeatCount="indefinite" restart="whenNotActive" fill="remove" />
+        <animate attributeName="stroke" attributeType="XML" from="#888385" to="#888385" begin="OPVP2SA.end" end="indefinite" dur="1s" repeatCount="1" restart="whenNotActive" fill="remove" />
       </rect>
 
       <path id="OPVP3C" d="M326,432 L326,439 Q326,444 331,444 L390,444 Q401,444 401,455 L401,462" style="stroke:#5abde6; stroke-width: 1.5; fill:none;" />
       <circle id="OPVP3CC" cx="0" cy="0" r="1.5" style="stroke: #5abde6; fill: #ffffff;" opacity="0">
         <animateMotion id="OPVP3CA" path="M326,432 L326,439 Q326,444 331,444 L390,444 Q401,444 401,455 L401,462" begin="indefinite" end="indefinite" restart="whenNotActive" dur="3s" repeatCount="indefinite" />
       </circle>
-      <rect id="OPVP3" x="315" y="427" width="40" height="5" style="fill:#0f0e0a; stroke:#888385; stroke-width: 0.6;" class="button">
-        <animate id="OPVP3SA" attributeName="stroke" attributeType="CSS" from="#ffad09" to="#5abde6" begin="indefinite" end="indefinite" dur="3s" repeatCount="indefinite" fill="remove" />
+      <rect id="OPVP3" x="315" y="427" width="40" height="5" fill="#0f0e0a" stroke="#888385" stroke-width="0.6" class="button">
+        <animate id="OPVP3SA" attributeName="stroke" attributeType="XML" from="#ffad09" to="#5abde6" begin="indefinite" end="indefinite" dur="3s" repeatCount="indefinite" restart="whenNotActive" fill="remove" />
+        <animate attributeName="stroke" attributeType="XML" from="#888385" to="#888385" begin="OPVP3SA.end" end="indefinite" dur="1s" repeatCount="1" restart="whenNotActive" fill="remove" />
       </rect>
 
     </g>
@@ -500,32 +502,36 @@
       <circle id="APVP1CC" cx="0" cy="0" r="1.5" style="stroke: #5abde6; fill: #ffffff;" opacity="0">
         <animateMotion id="APVP1CA" path="M105,75 L105,82 Q105,87 110,87 L180,87 Q185,87 185,92 L185,100" begin="indefinite" end="indefinite" restart="whenNotActive" dur="3s" repeatCount="indefinite" />
       </circle>
-      <rect id="APVP1" x="85" y="68" width="65" height="7" style="fill:#0f0e0a; stroke:#888385; stroke-width: 0.6;" class="button">
-        <animate id="APVP1SA" attributeName="stroke" from="#ffad09" to="#5abde6" begin="indefinite" end="indefinite" restart="whenNotActive" dur="3s" repeatCount="indefinite" />
+      <rect id="APVP1" x="85" y="68" width="65" height="7" fill="#0f0e0a" stroke="#888385" stroke-width="0.6" class="button">
+        <animate id="APVP1SA" attributeName="stroke" attributeType="XML" from="#ffad09" to="#5abde6" begin="indefinite" end="indefinite" dur="3s" repeatCount="indefinite" restart="whenNotActive" fill="remove" />
+        <animate attributeName="stroke" attributeType="XML" from="#888385" to="#888385" begin="APVP1SA.end" end="indefinite" dur="1s" repeatCount="1" restart="whenNotActive" fill="remove" />
       </rect>
 
       <path id="APVP2C" d="M202,75 L202,80 Q202,84 197,84 L197,84 Q188,84 188,95 L188,100" style="stroke:#5abde6; stroke-width: 1.5; fill:none;" />
       <circle id="APVP2CC" cx="0" cy="0" r="1.5" style="stroke: #5abde6; fill: #ffffff;" opacity="0">
         <animateMotion id="APVP2CA" path="M202,75 L202,80 Q202,84 197,84 L197,84 Q188,84 188,95 L188,100" begin="indefinite" end="indefinite" restart="whenNotActive" dur="3s" repeatCount="indefinite" />
       </circle>
-      <rect id="APVP2" x="180" y="68" width="65" height="7" style="fill:#0f0e0a; stroke:#888385; stroke-width: 0.6;" class="button">
-        <animate id="APVP2SA" attributeName="stroke" from="#ffad09" to="#5abde6" begin="indefinite" end="indefinite" restart="whenNotActive" dur="3s" repeatCount="indefinite" />
+      <rect id="APVP2" x="180" y="68" width="65" height="7" fill="#0f0e0a" stroke="#888385" stroke-width="0.6" class="button">
+        <animate id="APVP2SA" attributeName="stroke" attributeType="XML" from="#ffad09" to="#5abde6" begin="indefinite" end="indefinite" dur="3s" repeatCount="indefinite" restart="whenNotActive" fill="remove" />
+        <animate attributeName="stroke" attributeType="XML" from="#888385" to="#888385" begin="APVP2SA.end" end="indefinite" dur="1s" repeatCount="1" restart="whenNotActive" fill="remove" />
       </rect>
 
       <path id="APVP3C" d="M295,75 L295,82 Q295,87 290,87 L198,87 Q191,87 191,95 L191,100" style="stroke:#5abde6; stroke-width: 1.5; fill:none;" />
       <circle id="APVP3CC" cx="0" cy="0" r="1.5" style="stroke: #5abde6; fill: #ffffff;" opacity="0">
         <animateMotion id="APVP3CA" path="M295,75 L295,82 Q295,87 290,87 L198,87 Q191,87 191,95 L191,100" begin="indefinite" end="indefinite" restart="whenNotActive" dur="3s" repeatCount="indefinite" />
       </circle>
-      <rect id="APVP3" x="275" y="68" width="65" height="7" style="fill:#0f0e0a; stroke:#888385; stroke-width: 0.6;" class="button">
-        <animate id="APVP3SA" attributeName="stroke" from="#ffad09" to="#5abde6" begin="indefinite" end="indefinite" restart="whenNotActive" dur="3s" repeatCount="indefinite" />
+      <rect id="APVP3" x="275" y="68" width="65" height="7" fill="#0f0e0a" stroke="#888385" stroke-width="0.6" class="button">
+        <animate id="APVP3SA" attributeName="stroke" attributeType="XML" from="#ffad09" to="#5abde6" begin="indefinite" end="indefinite" dur="3s" repeatCount="indefinite" restart="whenNotActive" fill="remove" />
+        <animate attributeName="stroke" attributeType="XML" from="#888385" to="#888385" begin="APVP3SA.end" end="indefinite" dur="1s" repeatCount="1" restart="whenNotActive" fill="remove" />
       </rect>
 
       <path id="APVP4C" d="M390,75 L390,85 Q390,90 385,90 L199,90 Q194,90 194,95 L194,100" style="stroke:#5abde6; stroke-width: 1.5; fill:none;" />
       <circle id="APVP4CC" cx="0" cy="0" r="1.5" style="stroke: #5abde6; fill: #ffffff;" opacity="0">
         <animateMotion id="APVP4CA" path="M390,75 L390,85 Q390,90 385,90 L199,90 Q194,90 194,95 L194,100" begin="indefinite" end="indefinite" restart="whenNotActive" dur="3s" repeatCount="indefinite" />
       </circle>
-      <rect id="APVP4" x="370" y="68" width="65" height="7" style="fill:#0f0e0a; stroke:#888385; stroke-width: 0.6;" class="button">
-        <animate id="APVP4SA" attributeName="stroke" from="#ffad09" to="#5abde6" begin="indefinite" end="indefinite" restart="whenNotActive" dur="3s" repeatCount="indefinite" />
+      <rect id="APVP4" x="370" y="68" width="65" height="7" fill="#0f0e0a" stroke="#888385" stroke-width="0.6" class="button">
+        <animate id="APVP4SA" attributeName="stroke" attributeType="XML" from="#ffad09" to="#5abde6" begin="indefinite" end="indefinite" dur="3s" repeatCount="indefinite" restart="whenNotActive" fill="remove" />
+        <animate attributeName="stroke" attributeType="XML" from="#888385" to="#888385" begin="APVP4SA.end" end="indefinite" dur="1s" repeatCount="1" restart="whenNotActive" fill="remove" />
       </rect>
 
     </g>
