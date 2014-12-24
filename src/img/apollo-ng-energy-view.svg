@@ -1,4 +1,4 @@
-<svg id="Apollo-NG-Visual-Dashboard" height="650" width="1150" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg id="Apollo-NG-Visual-Dashboard" height="100%" width="100%" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 
   <style>
     @font-face {
@@ -6,7 +6,7 @@
       src: url('../font/DIN.woff');
       font-weight: normal;
     }
-    .button {
+    * {
       -webkit-touch-callout: none;
       -webkit-user-select: none;
       -khtml-user-select: none;
@@ -102,7 +102,7 @@
   </g>
 
 
-  <g id="moon" opacity="0" transform="translate(-10,20) rotate(-15 75 75)">
+  <g id="moon" opacity="0" transform="translate(-17,21) rotate(-15 75 75)">
     <circle cx="150" cy="150" r="60" fill="#D8D3C5" stroke="#ffffff" stroke-width="" />
     <path id="moonMask" d="M150,90, A 60,60 10 0,1 150,210 Q110,150 150,90" fill="#1f1e1a" stroke="#0f0e0a" stroke-width="2" />
     <animate id="moonRise" attributeName="opacity" from="0" to="0.35" begin="indefinite" dur="4s" fill="freeze" restart="whenNotActive" />
@@ -111,31 +111,31 @@
 
   <g id="sun" opacity="0">
     <path id="SunRayO1C" d="M170,207 L256,427" style="stroke:#ffad09; stroke-width: 3; fill:none;" opacity="0.5" />
-    <circle cx="0" cy="0" r="2" style="stroke: #ffad09; fill: #ffffff; ">
+    <circle id="SunRayO1CC" cx="0" cy="0" r="2" style="stroke: #ffad09; fill: #ffffff;" opacity="0">
       <animateMotion id="SunRayO1CA" path="M170,208 L256,427" begin="indefinite" end="indefinite" dur="3s" restart="whenNotActive" repeatCount="indefinite" />
     </circle>
     <path id="SunRayO2C" d="M175,205 L296,427" style="stroke:#ffad09; stroke-width: 3; fill:none;" opacity="0.5" />
-    <circle cx="0" cy="0" r="2" style="stroke: #ffad09; fill: #ffffff; ">
+    <circle id="SunRayO2CC" cx="0" cy="0" r="2" style="stroke: #ffad09; fill: #ffffff;" opacity="0">
       <animateMotion id="SunRayO2CA" path="M175,205 L296,427" begin="indefinite" end="indefinite" dur="3s" restart="whenNotActive" repeatCount="indefinite" />
     </circle>
     <path id="SunRayO3C" d="M180,202 L335,427" style="stroke:#ffad09; stroke-width: 3; fill:none;" opacity="0.5" />
-    <circle cx="0" cy="0" r="2" style="stroke: #ffad09; fill: #ffffff; ">
+    <circle id="SunRayO3CC" cx="0" cy="0" r="2" style="stroke: #ffad09; fill: #ffffff;" opacity="0">
       <animateMotion id="SunRayO3CA" path="M181,203 L335,427" begin="indefinite" end="indefinite" dur="3s" restart="whenNotActive" repeatCount="indefinite" />
     </circle>
     <path id="SunRayA1C" d="M208,164 L719,376" style="stroke:#ffad09; stroke-width: 3; fill:none;" opacity="0.5" />
-    <circle cx="0" cy="0" r="2" style="stroke: #ffad09; fill: #ffffff; ">
+    <circle id="SunRayA1CC" cx="0" cy="0" r="2" style="stroke: #ffad09; fill: #ffffff;" opacity="0">
       <animateMotion id="SunRayA1CA" path="M208,164 L719,374" begin="indefinite" end="indefinite" dur="3s" restart="whenNotActive" repeatCount="indefinite" />
     </circle>
     <path id="SunRayA2C" d="M209,160 L815,376" style="stroke:#ffad09; stroke-width: 3; fill:none;" opacity="0.5" />
-    <circle cx="0" cy="0" r="2" style="stroke: #ffad09; fill: #ffffff; ">
+    <circle id="SunRayA2CC" cx="0" cy="0" r="2" style="stroke: #ffad09; fill: #ffffff;" opacity="0">
       <animateMotion id="SunRayA2CA" path="M209,160 L815,374" begin="indefinite" end="indefinite" dur="3s" restart="whenNotActive" repeatCount="indefinite" />
     </circle>
     <path id="SunRayA3C" d="M209,155 L910,376" style="stroke:#ffad09; stroke-width: 3; fill:none;" opacity="0.5" />
-    <circle cx="0" cy="0" r="2" style="stroke: #ffad09; fill: #ffffff; ">
+    <circle id="SunRayA3CC" cx="0" cy="0" r="2" style="stroke: #ffad09; fill: #ffffff;" opacity="0">
       <animateMotion id="SunRayA3CA" path="M209,155 L910,374" begin="indefinite" end="indefinite" dur="3s" restart="whenNotActive" repeatCount="indefinite" />
     </circle>
     <path id="SunRayA4C" d="M209,150 L1005,376" style="stroke:#ffad09; stroke-width: 3; fill:none;" opacity="0.5" />
-    <circle cx="0" cy="0" r="2" style="stroke: #ffad09; fill: #ffffff; ">
+    <circle id="SunRayA4CC" cx="0" cy="0" r="2" style="stroke: #ffad09; fill: #ffffff;" opacity="0">
       <animateMotion id="SunRayA4CA" path="M209,150 L1005,374" begin="indefinite" end="indefinite" dur="3s" restart="whenNotActive" repeatCount="indefinite" />
     </circle>
 
@@ -143,7 +143,7 @@
       <!-- <animate id="Sun-Stroke-CA" attributeName="stroke" from="#3f3e3a" to="#ffad09" begin="0s" dur="3s" fill="freeze" repeatCount="indefinite" /> -->
     </circle>
 
-    <g id="O-RSO" transform="translate(140,280)" onclick='console.log(evt)' class="button">
+    <g id="ORSO" transform="translate(140,280)" onclick="window.parent.popModal('md-OPVP');" class="button">
       <rect x="-1" y="-1" height="44" width="218" rx="4" ry="4" style="stroke:none; fill:#ffad09;" opacity="0.4" />
       <rect x="0" y="0" height="42" width="60" rx="4" ry="4" style="stroke:url(#buttonStrokeGradient); fill: url(#buttonPattern); stroke-width: 1.5;" opacity="0.6" />
       <rect x="0" y="0" height="42" width="60" rx="4" ry="4" style="stroke: none; fill:url(#buttonDisplayGradient);" opacity="0.7" />
@@ -172,7 +172,7 @@
       <text id="O-RSO-Dif" x="92" y="23" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: #E8E3E5; stroke-width: 0.2; font-size: 22; letter-spacing:0; text-anchor: middle;">
         0000
       </text>
-      <text x="92" y="37" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 10; letter-spacing:0.1; text-anchor: middle;">
+      <text x="92" y="37" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 10;  text-anchor: middle;">
         Diffuse
       </text>
       <path id="O-RSO-Dif-INC" d="M82,-0.5 L92,-8 L102,-0.5" style="stroke:#ffad09; stroke-width: 0.5; fill:rgba(255, 173, 9, 0.9);" opacity="0">
@@ -197,7 +197,7 @@
       <text id="O-RSO-Max" x="186" y="23" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: #E8E3E5; stroke-width: 0.2; font-size: 22; letter-spacing:0; text-anchor: middle;">
         0000
       </text>
-      <text x="186" y="37" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 10; letter-spacing:0.1; text-anchor: middle;">
+      <text x="186" y="37" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 10;  text-anchor: middle;">
         UCSSPM
       </text>
       <path id="O-RSO-Max-INC" d="M176,-0.5 L186,-8 L196,-0.5" style="stroke:#ffad09; stroke-width: 0.5; fill:rgba(255, 173, 9, 0.9);" opacity="0">
@@ -214,7 +214,7 @@
       </path>
     </g>
 
-    <g id="A-RSO" transform="translate(430,225)" onclick='console.log(evt)' class="button">
+    <g id="ARSO" transform="translate(430,225)" onclick="window.parent.popModal('md-APVP');" class="button">
       <rect x="-1" y="-1" height="44" width="218" rx="4" ry="4" style="stroke:none; fill:#ffad09;" opacity="0.4" />
       <rect x="0" y="0" height="42" width="60" rx="4" ry="4" style="stroke:url(#buttonStrokeGradient); fill: url(#buttonPattern); stroke-width: 1.5;" opacity="0.6" />
       <rect x="0" y="0" height="42" width="60" rx="4" ry="4" style="stroke: none; fill:url(#buttonDisplayGradient);" opacity="0.7" />
@@ -243,7 +243,7 @@
       <text id="A-RSO-Dif" x="92" y="23" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: #E8E3E5; stroke-width: 0.2; font-size: 22; letter-spacing:0; text-anchor: middle;">
         0000
       </text>
-      <text x="92" y="37" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 10; letter-spacing:0.1; text-anchor: middle;">
+      <text x="92" y="37" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 10;  text-anchor: middle;">
         Diffuse
       </text>
       <path id="A-RSO-Dif-INC" d="M82,-0.5 L92,-8 L102,-0.5" style="stroke:#ffad09; stroke-width: 0.5; fill:rgba(255, 173, 9, 0.9);" opacity="0">
@@ -268,7 +268,7 @@
       <text id="A-RSO-Max" x="186" y="23" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: #E8E3E5; stroke-width: 0.2; font-size: 22; letter-spacing:0; text-anchor: middle;">
         0000
       </text>
-      <text x="186" y="37" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 10; letter-spacing:0.1; text-anchor: middle;">
+      <text x="186" y="37" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 10;  text-anchor: middle;">
         UCSSPM
       </text>
       <path id="A-RSO-Max-INC" d="M176,-0.5 L186,-8 L196,-0.5" style="stroke:#ffad09; stroke-width: 0.5; fill:rgba(255, 173, 9, 0.9);" opacity="0">
@@ -291,7 +291,7 @@
 
   <g id="Odyssey-Overlay-Container">
 
-    <text x="250" y="615" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: #E8E3E5; stroke-width: 0.2; font-size: 25; letter-spacing:0.1; text-anchor: middle;">
+    <text x="250" y="615" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: #E8E3E5; stroke-width: 0.2; font-size: 25;  text-anchor: middle;">
       Odyssey
     </text>
 
@@ -310,29 +310,29 @@
       </text>
     </g>
 
-    <g id="Odyssey-PV-Panels">
+    <g id="Odyssey-PV-Panels" onclick="window.parent.popModal('md-OPVP');">
 
-      <rect id="OPVP1" x="235" y="427" width="40" height="5" style="fill:#0f0e0a; stroke:#888385; stroke-width: 0.6;" onclick='console.log(evt)'>
-        <animate id="OPVP1SA" attributeName="stroke" from="#ffad09" to="#5abde6" begin="indefinite" end="indefinite" restart="whenNotActive" dur="3s" fill="remove" repeatCount="indefinite" />
+      <rect id="OPVP1" x="235" y="427" width="40" height="5" style="fill:#0f0e0a; stroke:#888385; stroke-width: 0.6;" class="button">
+        <animate id="OPVP1SA" attributeName="stroke" from="#ffad09" to="#5abde6" begin="indefinite" end="indefinite"  dur="3s" repeatCount="indefinite" fill="remove"/>
       </rect>
       <path id="OPVP1C" d="M245,432 L245,445 Q245,450 250,450 L390,450 Q395,450 395,455 L395,462" style="stroke:#5abde6; stroke-width: 1.5; fill:none;" />
-      <circle cx="0" cy="0" r="1.5" style="stroke: #5abde6; fill: #ffffff; ">
+      <circle id="OPVP1CC" cx="0" cy="0" r="1.5" style="stroke: #5abde6; fill: #ffffff;" opacity="0">
         <animateMotion id="OPVP1CA" path="M245,432 L245,445 Q245,450 250,450 L390,450 Q395,450 395,455 L395,462" begin="indefinite" end="indefinite" restart="whenNotActive" dur="3s" repeatCount="indefinite" />
       </circle>
 
-      <rect id="OPVP2" x="275" y="427" width="40" height="5" style="fill:#0f0e0a; stroke:#888385; stroke-width: 0.6;" onclick='console.log(evt)'>
-        <animate id="OPVP2SA" attributeName="stroke" from="#ffad09" to="#5abde6" begin="indefinite" end="indefinite" restart="whenNotActive" dur="3s" fill="remove" repeatCount="indefinite" />
+      <rect id="OPVP2" x="275" y="427" width="40" height="5" style="fill:#0f0e0a; stroke:#888385; stroke-width: 0.6;" class="button">
+        <animate id="OPVP2SA" attributeName="stroke" from="#ffad09" to="#5abde6" begin="indefinite" end="indefinite" restart="whenNotActive" dur="3s" repeatCount="indefinite" fill="remove"/>
       </rect>
       <path id="OPVP2C" d="M285,432 L285,442 Q285,447 290,447 L390,447 Q398,447 398,455 L398,462" style="stroke:#5abde6; stroke-width: 1.5; fill:none;" />
-      <circle cx="0" cy="0" r="1.5" style="stroke: #5abde6; fill: #ffffff; ">
+      <circle id="OPVP2CC" cx="0" cy="0" r="1.5" style="stroke: #5abde6; fill: #ffffff;" opacity="0">
         <animateMotion id="OPVP2CA" path="M285,432 L285,442 Q285,447 290,447 L390,447 Q398,447 398,455 L398,462" begin="indefinite" end="indefinite" restart="whenNotActive" dur="3s" repeatCount="indefinite" />
       </circle>
 
-      <rect id="OPVP3" x="315" y="427" width="40" height="5" style="fill:#0f0e0a; stroke:#888385; stroke-width: 0.6;" onclick='console.log(evt)'>
-        <animate id="OPVP3SA" attributeName="stroke" from="#ffad09" to="#5abde6" begin="indefinite" end="indefinite" restart="whenNotActive" dur="3s" fill="remove" repeatCount="indefinite" />
+      <rect id="OPVP3" x="315" y="427" width="40" height="5" style="fill:#0f0e0a; stroke:#888385; stroke-width: 0.6;" class="button">
+        <animate id="OPVP3SA" attributeName="stroke" from="#ffad09" to="#5abde6" begin="indefinite" end="indefinite" restart="whenNotActive" dur="3s" repeatCount="indefinite" fill="remove"/>
       </rect>
       <path id="OPVP3C" d="M326,432 L326,439 Q326,444 331,444 L390,444 Q401,444 401,455 L401,462" style="stroke:#5abde6; stroke-width: 1.5; fill:none;" />
-      <circle cx="0" cy="0" r="1.5" style="stroke: #5abde6; fill: #ffffff; ">
+      <circle id="OPVP3CC" cx="0" cy="0" r="1.5" style="stroke: #5abde6; fill: #ffffff;" opacity="0">
         <animateMotion id="OPVP3CA" path="M326,432 L326,439 Q326,444 331,444 L390,444 Q401,444 401,455 L401,462" begin="indefinite" end="indefinite" restart="whenNotActive" dur="3s" repeatCount="indefinite" />
       </circle>
 
@@ -340,35 +340,35 @@
 
     <g transform="translate(-1,-9)">
 
-      <g id="OSCBatBC">
+      <g id="OSCCBatBC">
         <path d="M390,557 L390,560 Q390,565 385,565 L265,565 Q260,565 260,560 L260,557" style="stroke:#75890c; stroke-width: 2; fill:none;" />
-        <circle cx="0" cy="0" r="1.5" style="stroke: #E0F47A; fill: #F6FFC5; ">
-          <animateMotion id="OSCBatBCA" path="M392,557 L392,560 Q392,565 387,565 L265,565 Q260,565 260,560 L260,557" begin="indefinite" end="indefinite" restart="whenNotActive" dur="3s" repeatCount="indefinite" />
+        <circle id="OSCCBatBCC" cx="0" cy="0" r="1.5" style="stroke: #E0F47A; fill: #F6FFC5;" opacity="0">
+          <animateMotion id="OSCCBatBCA" path="M392,557 L392,560 Q392,565 387,565 L265,565 Q260,565 260,560 L260,557" begin="indefinite" end="indefinite" restart="whenNotActive" dur="3s" repeatCount="indefinite" />
         </circle>
       </g>
-      <g id="OSCBatAC">
+      <g id="OSCCBatAC">
         <path d="M405,557 L405,563 Q405,573 395,573 L205,573 L160,573 Q155,573 155,568 L155,557" style="stroke:#d0d0d0; stroke-width: 1.5; fill:none;" />
-        <circle cx="0" cy="0" r="1.5" style="stroke: #e0e0e0; fill: #ffffff; ">
-          <animateMotion id="OSCBatACA" path="M406,557 L406,563 Q406,573 396,573 L206,573 L160,573 Q155,573 155,568 L155,557" begin="indefinite" end="indefinite" restart="whenNotActive" dur="3s" repeatCount="indefinite" />
+        <circle id="OSCCBatACC" cx="0" cy="0" r="1.5" style="stroke: #e0e0e0; fill: #ffffff;" opacity="0">
+          <animateMotion id="OSCCBatACA" path="M406,557 L406,563 Q406,573 396,573 L206,573 L160,573 Q155,573 155,568 L155,557" begin="indefinite" end="indefinite" restart="whenNotActive" dur="3s" repeatCount="indefinite" />
         </circle>
       </g>
-      <g id="BC-BatB-C">
+      <g id="OBCCBatBC">
         <path d="M201,557 L201,560 Q201,565 207,565 L240,565 Q245,565 245,560 L245,557" style="stroke:#75890c; stroke-width: 1.5; fill:none;" />
-        <circle cx="0" cy="0" r="1.5" style="stroke: #E0F47A; fill: #F6FFC5; ">
-          <animateMotion path="M201,557 L201,560 Q201,565 207,565 L240,565 Q245,565 245,560 L245,557" begin="0s" dur="3s" repeatCount="indefinite" />
+        <circle cx="0" cy="0" r="1.5" style="stroke: #E0F47A; fill: #F6FFC5;">
+          <animateMotion id="OBCCBatBCA" path="M201,557 L201,560 Q201,565 207,565 L240,565 Q245,565 245,560 L245,557" begin="0s" dur="3s" repeatCount="indefinite" />
         </circle>
       </g>
 
-      <g id="Odyssey-Alternator-BC-C">
+      <g id="OAltBCCC">
         <path d="M109,531 L109,517 Q109,512 114,512 L196,512 Q201,512 201,517" style="stroke:#d0d0d0; stroke-width: 1.5; fill:none;" />
         <circle cx="0" cy="0" r="1.5" style="stroke: #e0e0e0; fill: #ffffff; ">
-          <animateMotion path="M109,532 L109,517 Q109,512 114,512 L196,512 Q201,512 201,517" begin="0s" dur="3s" repeatCount="indefinite" />
+          <animateMotion id="OAltBCCCA" path="M109,532 L109,517 Q109,512 114,512 L196,512 Q201,512 201,517" begin="0s" dur="3s" repeatCount="indefinite" />
         </circle>
       </g>
-      <g id="Odyssey-Alternator-BATA-C">
+      <g id="OAltBatAC">
         <path d="M155,512 L155,517" style="stroke:#d0d0d0; stroke-width: 1.5; fill:none;" />
         <circle cx="0" cy="0" r="1.5" style="stroke: #e0e0e0; fill: #ffffff; ">
-          <animateMotion path="M109,532 L109,517 Q109,512 114,512 L155,512 L155,517" begin="0s" dur="3s" repeatCount="indefinite" />
+          <animateMotion id="OAltBatACA" path="M109,532 L109,517 Q109,512 114,512 L155,512 L155,517" begin="0s" dur="3s" repeatCount="indefinite" />
         </circle>
       </g>
 
@@ -420,8 +420,8 @@
 
       <g transform="translate(181,518)" onclick='console.log(evt)' class="button">
         <use xlink:href="#button_sq" />
-        <text x="11" y="24.5" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 14; letter-spacing:0.1;">
-          BC
+        <text x="7.5" y="24.5" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 14;">
+          BCC
         </text>
       </g>
 
@@ -437,14 +437,14 @@
 
       <g transform="translate(280,518)" onclick='console.log(evt)' class="button">
         <use xlink:href="#button_sq" />
-        <text x="7.5" y="24" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 13; letter-spacing:0.1;">
+        <text x="7.5" y="24" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 13;">
           PDU
         </text>
       </g>
 
       <g transform="translate(234,472)" onclick='console.log(evt)' class="button">
         <use xlink:href="#button_sq" />
-        <text x="7.5" y="24" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 13; letter-spacing:0.1;">
+        <text x="7.5" y="24" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 13; ">
           SKU
         </text>
       </g>
@@ -465,10 +465,10 @@
 
       <g transform="translate(378,472)" onclick='console.log(evt)' class="button">
         <use xlink:href="#button_ru" />
-        <text x="11" y="24" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 14; letter-spacing:0.1;">
-          SC
+        <text x="7.5" y="24" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 14; ">
+          SCC
         </text>
-        <text id="O-SC-Text" x="19.5" y="57" font-family="'DIN',sans-serif" style="fill: #75890c; stroke: #D8D3C5; stroke-width: 0.2; font-size: 16; letter-spacing:0; text-anchor: middle;">
+        <text id="OSCCText" x="19.5" y="57" font-family="'DIN',sans-serif" style="fill: #75890c; stroke: #D8D3C5; stroke-width: 0.2; font-size: 16; letter-spacing:0; text-anchor: middle;">
           000
         </text>
         <text x="19.5" y="75" font-family="'DIN',sans-serif" style="fill: #75890c; stroke: none; font-size: 16; text-anchor: middle;">
@@ -482,40 +482,40 @@
 
   <g id="Aquarius-Overlay-Container" transform="translate(600,306)">
 
-    <text x="260" y="310" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: #E8E3E5; stroke-width: 0.2; font-size: 25; letter-spacing:0.1; text-anchor: middle;">
+    <text x="260" y="310" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: #E8E3E5; stroke-width: 0.2; font-size: 25;  text-anchor: middle;">
       Aquarius
     </text>
 
-    <g id="APVP">
-      <rect id="APVP1" x="85" y="68" width="65" height="7" style="fill:#0f0e0a; stroke:#888385; stroke-width: 0.6;" onclick='console.log(evt)'>
-        <animate id="APVP1SA" attributeName="stroke" from="#ffad09" to="#5abde6" begin="indefinite" end="indefinite" restart="whenNotActive" dur="3s" fill="remove" repeatCount="indefinite" />
+    <g id="APVP" onclick="window.parent.popModal('md-APVP');">
+      <rect id="APVP1" x="85" y="68" width="65" height="7" style="fill:#0f0e0a; stroke:#888385; stroke-width: 0.6;" class="button">
+        <animate id="APVP1SA" attributeName="stroke" from="#ffad09" to="#5abde6" begin="indefinite" end="indefinite" restart="whenNotActive" dur="3s" repeatCount="indefinite" />
       </rect>
       <path id="APVP1C" d="M105,75 L105,82 Q105,87 110,87 L180,87 Q185,87 185,92 L185,100" style="stroke:#5abde6; stroke-width: 1.5; fill:none;" />
-      <circle cx="0" cy="0" r="1.5" style="stroke: #5abde6; fill: #ffffff; ">
+      <circle id="APVP1CC" cx="0" cy="0" r="1.5" style="stroke: #5abde6; fill: #ffffff;" opacity="0">
         <animateMotion id="APVP1CA" path="M105,75 L105,82 Q105,87 110,87 L180,87 Q185,87 185,92 L185,100" begin="indefinite" end="indefinite" restart="whenNotActive" dur="3s" repeatCount="indefinite" />
       </circle>
 
-      <rect id="APVP2" x="180" y="68" width="65" height="7" style="fill:#0f0e0a; stroke:#888385; stroke-width: 0.6;" onclick='console.log(evt)'>
-        <animate id="APVP2SA" attributeName="stroke" from="#ffad09" to="#5abde6" begin="indefinite" end="indefinite" restart="whenNotActive" dur="3s" fill="remove" repeatCount="indefinite" />
+      <rect id="APVP2" x="180" y="68" width="65" height="7" style="fill:#0f0e0a; stroke:#888385; stroke-width: 0.6;" class="button">
+        <animate id="APVP2SA" attributeName="stroke" from="#ffad09" to="#5abde6" begin="indefinite" end="indefinite" restart="whenNotActive" dur="3s" repeatCount="indefinite" />
       </rect>
       <path id="APVP2C" d="M202,75 L202,80 Q202,84 197,84 L197,84 Q188,84 188,95 L188,100" style="stroke:#5abde6; stroke-width: 1.5; fill:none;" />
-      <circle cx="0" cy="0" r="1.5" style="stroke: #5abde6; fill: #ffffff; ">
+      <circle id="APVP2CC" cx="0" cy="0" r="1.5" style="stroke: #5abde6; fill: #ffffff;" opacity="0">
         <animateMotion id="APVP2CA" path="M202,75 L202,80 Q202,84 197,84 L197,84 Q188,84 188,95 L188,100" begin="indefinite" end="indefinite" restart="whenNotActive" dur="3s" repeatCount="indefinite" />
       </circle>
 
-      <rect id="APVP3" x="275" y="68" width="65" height="7" style="fill:#0f0e0a; stroke:#888385; stroke-width: 0.6;" onclick='console.log(evt)'>
-        <animate id="APVP3SA" attributeName="stroke" from="#ffad09" to="#5abde6" begin="indefinite" end="indefinite" restart="whenNotActive" dur="3s" fill="remove" repeatCount="indefinite" />
+      <rect id="APVP3" x="275" y="68" width="65" height="7" style="fill:#0f0e0a; stroke:#888385; stroke-width: 0.6;" class="button">
+        <animate id="APVP3SA" attributeName="stroke" from="#ffad09" to="#5abde6" begin="indefinite" end="indefinite" restart="whenNotActive" dur="3s" repeatCount="indefinite" />
       </rect>
       <path id="APVP3C" d="M295,75 L295,82 Q295,87 290,87 L198,87 Q191,87 191,95 L191,100" style="stroke:#5abde6; stroke-width: 1.5; fill:none;" />
-      <circle cx="0" cy="0" r="1.5" style="stroke: #5abde6; fill: #ffffff; ">
+      <circle id="APVP3CC" cx="0" cy="0" r="1.5" style="stroke: #5abde6; fill: #ffffff;" opacity="0">
         <animateMotion id="APVP3CA" path="M295,75 L295,82 Q295,87 290,87 L198,87 Q191,87 191,95 L191,100" begin="indefinite" end="indefinite" restart="whenNotActive" dur="3s" repeatCount="indefinite" />
       </circle>
 
-      <rect id="APVP4" x="370" y="68" width="65" height="7" style="fill:#0f0e0a; stroke:#888385; stroke-width: 0.6;" onclick='console.log(evt)'>
-        <animate id="APVP4SA" attributeName="stroke" from="#ffad09" to="#5abde6" begin="indefinite" end="indefinite" restart="whenNotActive" dur="3s" fill="remove" repeatCount="indefinite" />
+      <rect id="APVP4" x="370" y="68" width="65" height="7" style="fill:#0f0e0a; stroke:#888385; stroke-width: 0.6;" class="button">
+        <animate id="APVP4SA" attributeName="stroke" from="#ffad09" to="#5abde6" begin="indefinite" end="indefinite" restart="whenNotActive" dur="3s" repeatCount="indefinite" />
       </rect>
       <path id="APVP4C" d="M390,75 L390,85 Q390,90 385,90 L199,90 Q194,90 194,95 L194,100" style="stroke:#5abde6; stroke-width: 1.5; fill:none;" />
-      <circle cx="0" cy="0" r="1.5" style="stroke: #5abde6; fill: #ffffff; ">
+      <circle id="APVP4CC" cx="0" cy="0" r="1.5" style="stroke: #5abde6; fill: #ffffff;" opacity="0">
         <animateMotion id="APVP4CA" path="M390,75 L390,85 Q390,90 385,90 L199,90 Q194,90 194,95 L194,100" begin="indefinite" end="indefinite" restart="whenNotActive" dur="3s" repeatCount="indefinite" />
       </circle>
     </g>
@@ -528,10 +528,10 @@
       </circle>
     </g>
 
-    <g id="Grid-GC-C">
+    <g id="AGridGCCC">
       <path d="M445,244 L445,250 Q445,255 440,255 L194,255 Q189,255 189,250 L189,244" style="stroke:#83652E; stroke-width: 1.5; fill:none;" />
       <circle cx="0" cy="0" r="1.5" style="stroke: #DFC479; fill: #DAB782; ">
-        <animateMotion path="M445,244 L445,250 Q445,255 440,255 L194,255 Q189,255 189,250 L189,244" begin="0s" dur="3s" repeatCount="indefinite" />
+        <animateMotion id="AGridGCCCA" path="M445,244 L445,250 Q445,255 440,255 L194,255 Q189,255 189,250 L189,244" begin="0s" dur="3s" repeatCount="indefinite" />
       </circle>
     </g>
     <g id="Grid-GI-C">
@@ -547,44 +547,66 @@
       </circle>
     </g>
 
-    <g id="ASCBatAC">
+    <g id="ASCCBatAC">
       <path d="M209,172 L227,172" style="stroke:#75890c; stroke-width: 2; fill:none;" />
-      <circle cx="0" cy="0" r="1.5" style="stroke: #E0F47A; fill: #F6FFC5; ">
-        <animateMotion id="ASCBatACA" path="M209,172 L227,172" begin="indefinite" end="indefinite" restart="whenNotActive" dur="3s" repeatCount="indefinite" />
+      <circle id="ASCCBatACC" cx="0" cy="0" r="1.5" style="stroke: #E0F47A; fill: #F6FFC5;" opacity="0">
+        <animateMotion id="ASCCBatACA" path="M209,172 L227,172" begin="indefinite" end="indefinite" restart="whenNotActive" dur="3s" repeatCount="indefinite" />
       </circle>
     </g>
-    <g id="BatA-PDU-C">
+
+    <g id="A-PDU-MCU-C">
+      <path d="M329,121 L313,121" style="stroke:#ffff00; stroke-width: 1.5; fill:none;" />
+      <circle cx="0" cy="0" r="1.5" style="stroke: #e0e0e0; fill: #ffffff; ">
+        <animateMotion path="M329,121 L313,121" begin="0s" dur="3s" repeatCount="indefinite" />
+      </circle>
+    </g>
+
+    <g id="APDULoad12C">
+      <path d="M369,121, L381,121" style="stroke:#ffff00; stroke-width: 1.5; fill:none;" />
+      <circle cx="0" cy="0" r="1.5" style="stroke: #ffff00; fill: #ffffff; ">
+        <animateMotion path="M369,121, L381,121" begin="0s" dur="3s" repeatCount="indefinite" />
+      </circle>
+    </g>
+
+    <g id="APDULoad5C">
+      <path d="M369,146.5, L381,146.5" style="stroke:#ff0000; stroke-width: 1.5; fill:none;" />
+      <circle cx="0" cy="0" r="1.5" style="stroke: #ff0000; fill: #ffffff; ">
+        <animateMotion path="M369,146.5, L381,146.5" begin="0.5s" dur="3.5s" repeatCount="indefinite" />
+      </circle>
+    </g>
+
+    <g id="APDULoad33C">
+      <path d="M369,172, L381,172" style="stroke:#ff6f00; stroke-width: 1.5; fill:none;" />
+      <circle cx="0" cy="0" r="1.5" style="stroke: #ff6f00; fill: #ffffff; ">
+        <animateMotion path="M369,172, L381,172" begin="1s" dur="4s" repeatCount="indefinite" />
+      </circle>
+    </g>
+
+    <g id="ABatAPDUC">
       <path d="M313,172 L329,172" style="stroke:#75890c; stroke-width: 2; fill:none;" />
       <circle cx="0" cy="0" r="1.5" style="stroke: #E0F47A; fill: #F6FFC5; ">
         <animateMotion path="M313,172 L329,172" begin="0s" dur="3s" repeatCount="indefinite" />
       </circle>
     </g>
 
-    <g id="A-PDU-MCU-C">
-      <path d="M329,121 L313,121" style="stroke:#ffff00; stroke-width: 1.5; fill:none;" />
-      <circle cx="0" cy="0" r="2.5" style="stroke: #e0e0e0; fill: #ffffff; ">
-        <animateMotion path="M329,121 L313,121" begin="0s" dur="3s" repeatCount="indefinite" />
-      </circle>
-    </g>
-
-    <g id="BatA-SKU-C">
+    <g id="ABatASKUC">
       <path d="M247,158, L247,141" style="stroke:#75890c; stroke-width: 1.5; fill:none;" />
       <circle cx="0" cy="0" r="1.5" style="stroke: #E0F47A; fill: #F6FFC5; ">
         <animateMotion path="M247,158, L247,141" begin="0s" dur="3s" repeatCount="indefinite" />
       </circle>
     </g>
 
-    <g id="BatA-PDU-C">
+    <g id="BatA-GI-C">
       <path d="M313,223 L329,223" style="stroke:#75890c; stroke-width: 2; fill:none;" />
       <circle cx="0" cy="0" r="1.5" style="stroke: #E0F47A; fill: #F6FFC5; ">
         <animateMotion path="M313,223 L329,223" begin="0s" dur="3s" repeatCount="indefinite" />
       </circle>
     </g>
 
-    <g id="GC-BatA-C">
+    <g id="AGCCBatAC">
       <path d="M209,223 L227,223" style="stroke:#75890c; stroke-width: 2; fill:none;" />
       <circle cx="0" cy="0" r="1.5" style="stroke: #E0F47A; fill: #F6FFC5; ">
-        <animateMotion path="M209,223 L227,223" begin="0s" dur="3s" repeatCount="indefinite" />
+        <animateMotion id="AGCCBatACA" path="M209,223 L227,223" begin="0s" dur="3s" repeatCount="indefinite" />
       </circle>
     </g>
 
@@ -605,21 +627,21 @@
 
     <g transform="translate(170,204)" onclick='console.log(evt)' class="button">
       <use xlink:href="#button_sq" />
-      <text x="11" y="24" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 14; letter-spacing:0.1;">
-        GC
+      <text x="7" y="24" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 14; ">
+        GCC
       </text>
     </g>
 
     <g transform="translate(330,204)" onclick='console.log(evt)' class="button">
       <use xlink:href="#button_sq" />
-      <text x="12" y="24" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 14; letter-spacing:0.1;">
+      <text x="12" y="24" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 14; ">
         GI
       </text>
     </g>
 
     <g transform="translate(227,102)" onclick='console.log(evt)' class="button">
       <use xlink:href="#button_sq" />
-      <text x="7.5" y="24" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 13; letter-spacing:0.1;">
+      <text x="7.5" y="24" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 13; ">
         SKU
       </text>
     </g>
@@ -633,24 +655,24 @@
 
     <g transform="translate(426,204)" onclick='console.log(evt)' class="button">
       <use xlink:href="#button_sq" />
-      <text x="7" y="24" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 13; letter-spacing:0.1;">
+      <text x="7" y="24" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 13; ">
         Grid
       </text>
     </g>
 
     <g transform="translate(330,102)" onclick='console.log(evt)' class="button">
       <use xlink:href="#button_ru" />
-      <text x="7" y="24" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 13; letter-spacing:0.1;">
+      <text x="7" y="24" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 13; ">
         PDU
       </text>
     </g>
 
     <g transform="translate(170,102)" onclick='console.log(evt)' class="button">
       <use xlink:href="#button_ru" />
-      <text x="11" y="24" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 14; letter-spacing:0.1;">
-        SC
+      <text x="7.5" y="24" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 14; ">
+        SCC
       </text>
-      <text id="A-SC-Text" x="19" y="57" font-family="'DIN',sans-serif" style="fill: #75890c; stroke: #D8D3C5; stroke-width: 0.2; font-size: 16; letter-spacing:0; text-anchor: middle;">
+      <text id="ASCCText" x="19" y="57" font-family="'DIN',sans-serif" style="fill: #75890c; stroke: #D8D3C5; stroke-width: 0.2; font-size: 16; letter-spacing:0; text-anchor: middle;">
         000
       </text>
       <text x="19.5" y="75" font-family="'DIN',sans-serif" style="fill: #75890c; stroke: none; font-size: 16; text-anchor: middle;">
@@ -658,24 +680,26 @@
       </text>
     </g>
 
-    <g transform="translate(227,158)" onclick='console.log(evt)' class="button">
+    <g transform="translate(227,158)" onclick="window.parent.popModal('md-ABat');" class="button">
       <use xlink:href="#button_bsq" />
-      <text x="17" y="24" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 13; letter-spacing:0.1;">
+      <text x="17" y="24" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 13; ">
         Battery A
       </text>
     </g>
 
     <g transform="translate(379,102)" onclick='console.log(evt)' class="button">
       <use xlink:href="#button_bsq" />
-      <text x="27.5" y="24" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 13; letter-spacing:0.1;">
+      <text x="27.5" y="24" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 13; ">
         Load
+      </text>
+      <text id="ALoadT" x="15" y="69" font-family="'DIN',sans-serif" style="fill: #75890c; stroke: #D8D3C5; stroke-width: 0.2; font-size: 23; letter-spacing:0; text-anchor: right;">
+        000
+      </text>
+      <text x="54" y="69" font-family="'DIN',sans-serif" style="fill: #75890c; stroke: none; font-size: 23;">
+        W
       </text>
     </g>
 
   </g>
-
-  <text id="svg-timestamp" x="530" y="615" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: #E8E3E5; stroke-width: 0.2; font-size: 16; text-anchor: middle;">
-      0000-00-00T00:00:00Z
-  </text>
 
 </svg>

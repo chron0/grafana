@@ -62,11 +62,16 @@ function (angular, $, config, _) {
        setTimeout(function ()
        {
            document.getElementById('system-overview').style.display = "block";
+           //document.getElementById('system-overview').style.opacity = 1;
+           document.getElementById('system-overview').className = "apollo-panel fadeIn";
            document.getElementById('svg-timerange').style.display = "list-item";
            document.getElementById('svg-refresh').style.display = "list-item";
            document.getElementById('grafana-menu-zoom-out').style.display = "none";
            document.getElementById('grafana-menu-home').style.display = "none";
-       }, 2000)
+           setTimeout(function () {
+               updateView();
+           }, 3000);
+       }, 2000);
     });
 
   });
