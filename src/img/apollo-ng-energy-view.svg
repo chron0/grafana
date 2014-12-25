@@ -54,6 +54,7 @@
 
     <linearGradient id="cloudGradient" x1="0%" y1="0%" x2="0%" y2="100%" spreadMethod="pad">
         <stop offset="0" stop-color="#8f8e8a" stop-opacity="0.8" />
+        <stop offset="40%" stop-color="#7f7e7a" stop-opacity="1" />
         <stop offset="45%" stop-color="#7f7e7a" stop-opacity="1" />
         <stop offset="100%" stop-color="#5f5e5a" stop-opacity="1" />
     </linearGradient>
@@ -98,10 +99,10 @@
       </path>
     </g>
     <path d="M60,0 A60,60 0 0,0 -60,0Z" transform="matrix(0.866, -0.5, 0.5, 0.866, 150, 150)" fill="#75890c" />
-    <text x="273" y="163" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 42;">
+    <text x="273" y="163" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 42px;">
       Collecting Data
     </text>
-    <text x="273" y="185" font-family="'DIN',sans-serif" style="fill: #fffefa; stroke: none; font-size: 23;">
+    <text x="273" y="185" font-family="'DIN',sans-serif" style="fill: #fffefa; stroke: none; font-size: 23px;">
       Please stand by...
     </text>
     <animate id="initComplete" attributeName="opacity" from="0.7" to="0" begin="indefinite" end="indefinite" dur="1s" fill="freeze" repeatCount="1" />
@@ -155,10 +156,10 @@
       <rect x="61" y="0" height="42" width="60" rx="4" ry="4" style="stroke: none; fill:url(#buttonDisplayGradient);" opacity="0.7" />
       <rect x="156" y="0" height="42" width="60" rx="4" ry="4" style="stroke:url(#buttonStrokeGradient); fill: url(#buttonPattern); stroke-width: 1.5;" opacity="0.6" />
       <rect x="156" y="0" height="42" width="60" rx="4" ry="4" style="stroke: none; fill:url(#buttonDisplayGradient);" opacity="0.7" />
-      <text id="O-RSO-Dir" x="30" y="23" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: #E8E3E5; stroke-width: 0.2; font-size: 22; letter-spacing:0; text-anchor: middle;">
+      <text id="O-RSO-Dir" x="30" y="23" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: #E8E3E5; stroke-width: 0.2; font-size: 22px; letter-spacing:0; text-anchor: middle;">
         0000
       </text>
-      <text x="30" y="37" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 10; letter-spacing:0; text-anchor: middle;">
+      <text x="30" y="37" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 10px; letter-spacing:0; text-anchor: middle;">
         Direct
       </text>
       <path id="O-RSO-Dir-INC" d="M20,-0.5 L30,-8 L40,-0.5" style="stroke:#ffad09; stroke-width: 0.5; fill:rgba(255, 173, 9, 0.9);" opacity="0">
@@ -173,10 +174,10 @@
         <animate id="ORDIDA3" attributeName="opacity" from="0" to="1" begin="ORDIDA2.end" dur="0.5s" fill="freeze" />
         <animate id="ORDIDA4" attributeName="opacity" from="1" to="0" begin="ORDIDA3.end" dur="2s" fill="freeze" />
       </path>
-      <text id="O-RSO-Dif" x="92" y="23" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: #E8E3E5; stroke-width: 0.2; font-size: 22; letter-spacing:0; text-anchor: middle;">
+      <text id="O-RSO-Dif" x="92" y="23" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: #E8E3E5; stroke-width: 0.2; font-size: 22px; letter-spacing:0; text-anchor: middle;">
         0000
       </text>
-      <text x="92" y="37" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 10;  text-anchor: middle;">
+      <text x="92" y="37" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 10px;  text-anchor: middle;">
         Diffuse
       </text>
       <path id="O-RSO-Dif-INC" d="M82,-0.5 L92,-8 L102,-0.5" style="stroke:#ffad09; stroke-width: 0.5; fill:rgba(255, 173, 9, 0.9);" opacity="0">
@@ -191,17 +192,17 @@
         <animate id="ORDFDA3" attributeName="opacity" from="0" to="1" begin="ORDFDA2.end" dur="0.5s" fill="freeze" />
         <animate id="ORDFDA4" attributeName="opacity" from="1" to="0" begin="ORDFDA3.end" dur="2s" fill="freeze" />
       </path>
-      <text x="131" y="19" font-family="'DIN',sans-serif" style="fill: #ffffff; stroke: #D8D3C5; stroke-width: 0.5; font-size: 18;">
+      <text x="131" y="19" font-family="'DIN',sans-serif" style="fill: #ffffff; stroke: #D8D3C5; stroke-width: 0.5; font-size: 18px;">
         W
       </text>
       <path d="M128,24 L150,24" style="stroke:#ffffff; stroke-width: 1; fill:none;" />
-      <text x="130" y="37" font-family="'DIN',sans-serif" style="fill: #ffffff; stroke: #D8D3C5; stroke-width: 0.5; font-size: 14; letter-spacing:0;">
+      <text x="130" y="37" font-family="'DIN',sans-serif" style="fill: #ffffff; stroke: #D8D3C5; stroke-width: 0.5; font-size: 14px; letter-spacing:0;">
         m²
       </text>
-      <text id="O-RSO-Max" x="186" y="23" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: #E8E3E5; stroke-width: 0.2; font-size: 22; letter-spacing:0; text-anchor: middle;">
+      <text id="O-RSO-Max" x="186" y="23" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: #E8E3E5; stroke-width: 0.2; font-size: 22px; letter-spacing:0; text-anchor: middle;">
         0000
       </text>
-      <text x="186" y="37" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 10;  text-anchor: middle;">
+      <text x="186" y="37" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 10px;  text-anchor: middle;">
         UCSSPM
       </text>
       <path id="O-RSO-Max-INC" d="M176,-0.5 L186,-8 L196,-0.5" style="stroke:#ffad09; stroke-width: 0.5; fill:rgba(255, 173, 9, 0.9);" opacity="0">
@@ -226,10 +227,10 @@
       <rect x="61" y="0" height="42" width="60" rx="4" ry="4" style="stroke: none; fill:url(#buttonDisplayGradient);" opacity="0.7" />
       <rect x="156" y="0" height="42" width="60" rx="4" ry="4" style="stroke:url(#buttonStrokeGradient); fill: url(#buttonPattern); stroke-width: 1.5;" opacity="0.6" />
       <rect x="156" y="0" height="42" width="60" rx="4" ry="4" style="stroke: none; fill:url(#buttonDisplayGradient);" opacity="0.7" />
-      <text id="A-RSO-Dir" x="30" y="23" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: #E8E3E5; stroke-width: 0.2; font-size: 22; letter-spacing:0; text-anchor: middle;">
+      <text id="A-RSO-Dir" x="30" y="23" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: #E8E3E5; stroke-width: 0.2; font-size: 22px; letter-spacing:0; text-anchor: middle;">
         0000
       </text>
-      <text x="30" y="37" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 10; letter-spacing:0; text-anchor: middle;">
+      <text x="30" y="37" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 10px; letter-spacing:0; text-anchor: middle;">
         Direct
       </text>
       <path id="A-RSO-Dir-INC" d="M20,-0.5 L30,-8 L40,-0.5" style="stroke:#ffad09; stroke-width: 0.5; fill:rgba(255, 173, 9, 0.99);" opacity="0">
@@ -244,10 +245,10 @@
         <animate id="ARDIDA3" attributeName="opacity" from="0" to="1" begin="ARDIDA2.end" dur="0.5s" fill="freeze" />
         <animate id="ARDIDA4" attributeName="opacity" from="1" to="0" begin="ARDIDA3.end" dur="2s" fill="freeze" />
       </path>
-      <text id="A-RSO-Dif" x="92" y="23" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: #E8E3E5; stroke-width: 0.2; font-size: 22; letter-spacing:0; text-anchor: middle;">
+      <text id="A-RSO-Dif" x="92" y="23" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: #E8E3E5; stroke-width: 0.2; font-size: 22px; letter-spacing:0; text-anchor: middle;">
         0000
       </text>
-      <text x="92" y="37" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 10;  text-anchor: middle;">
+      <text x="92" y="37" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 10px;  text-anchor: middle;">
         Diffuse
       </text>
       <path id="A-RSO-Dif-INC" d="M82,-0.5 L92,-8 L102,-0.5" style="stroke:#ffad09; stroke-width: 0.5; fill:rgba(255, 173, 9, 0.9);" opacity="0">
@@ -262,17 +263,17 @@
         <animate id="ARDFDA3" attributeName="opacity" from="0" to="1" begin="ARDFDA2.end" dur="0.5s" fill="freeze" />
         <animate id="ARDFDA4" attributeName="opacity" from="1" to="0" begin="ARDFDA3.end" dur="2s" fill="freeze" />
       </path>
-      <text x="131" y="19" font-family="'DIN',sans-serif" style="fill: #ffffff; stroke: #D8D3C5; stroke-width: 0.5; font-size: 18;">
+      <text x="131" y="19" font-family="'DIN',sans-serif" style="fill: #ffffff; stroke: #D8D3C5; stroke-width: 0.5; font-size: 18px;">
         W
       </text>
       <path d="M128,24 L150,24" style="stroke:#ffffff; stroke-width: 1; fill:none;" />
-      <text x="130" y="37" font-family="'DIN',sans-serif" style="fill: #ffffff; stroke: #D8D3C5; stroke-width: 0.5; font-size: 14; letter-spacing:0;">
+      <text x="130" y="37" font-family="'DIN',sans-serif" style="fill: #ffffff; stroke: #D8D3C5; stroke-width: 0.5; font-size: 14px; letter-spacing:0;">
         m²
       </text>
-      <text id="A-RSO-Max" x="186" y="23" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: #E8E3E5; stroke-width: 0.2; font-size: 22; letter-spacing:0; text-anchor: middle;">
+      <text id="A-RSO-Max" x="186" y="23" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: #E8E3E5; stroke-width: 0.2; font-size: 22px; letter-spacing:0; text-anchor: middle;">
         0000
       </text>
-      <text x="186" y="37" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 10;  text-anchor: middle;">
+      <text x="186" y="37" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 10px;  text-anchor: middle;">
         UCSSPM
       </text>
       <path id="A-RSO-Max-INC" d="M176,-0.5 L186,-8 L196,-0.5" style="stroke:#ffad09; stroke-width: 0.5; fill:rgba(255, 173, 9, 0.9);" opacity="0">
@@ -288,14 +289,14 @@
         <animate id="ARMDA4" attributeName="opacity" from="1" to="0" begin="ARMDA3.end" dur="2s" fill="freeze" />
       </path>
     </g>
-    <g id="AClouds" transform="translate(-95,-450) scale(1.4)" opacity="0">
+    <g id="AClouds" transform="translate(-35,-315) scale(1.1)" opacity="0">
         <path style="stroke-linejoin:round;stroke:#000000;stroke-linecap:round;stroke-width:0.5;fill:url(#cloudGradient)"
             d="m259.9 380.6c-13.132 0-24.365 8.755-28.939 21.153-3.2836-1.4488-6.9285-2.2234-10.754-2.2234-12.897 0-23.631 9.1352-25.978 21.246-1.6526-0.41046-3.3852-0.61761-5.1676-0.61761-11.606 0-21.006 9.2545-21.006 20.659 0 11.405 9.4001 20.659 21.006 20.659 3.6494 0 7.0932-0.92418 10.084-2.5322 5.1621 5.1757 13.55 8.554 23.017 8.554 7.6253 0 14.534-2.1895 19.637-5.7438 4.3851 4.5957 10.522 7.4422 17.319 7.4422 8.8302 0 16.549-4.8187 20.754-12.013 2.8951 1.6282 6.1657 2.5631 9.609 2.5631 12.035 0 21.788-11.171 21.788-24.952 0-13.272-9.0552-24.107-20.475-24.89-1.9342-16.53-15.033-29.306-30.894-29.306z"
             />
         <animate id="ACloudShow" attributeName="opacity" from="0" to="1" begin="indefinite" dur="3s" fill="freeze" />
         <animate id="ACloudHide" attributeName="opacity" from="1" to="0" begin="indefinite" dur="3s" fill="freeze" />
     </g>
-    <g id="OClouds" transform="translate(-205,-400) scale(1.4)" opacity="0">
+    <g id="OClouds" transform="translate(-115,-275) scale(1.1)" opacity="0">
         <path style="stroke-linejoin:round;stroke:#000000;stroke-linecap:round;stroke-width:0.5;fill:url(#cloudGradient)"
             d="m259.9 380.6c-13.132 0-24.365 8.755-28.939 21.153-3.2836-1.4488-6.9285-2.2234-10.754-2.2234-12.897 0-23.631 9.1352-25.978 21.246-1.6526-0.41046-3.3852-0.61761-5.1676-0.61761-11.606 0-21.006 9.2545-21.006 20.659 0 11.405 9.4001 20.659 21.006 20.659 3.6494 0 7.0932-0.92418 10.084-2.5322 5.1621 5.1757 13.55 8.554 23.017 8.554 7.6253 0 14.534-2.1895 19.637-5.7438 4.3851 4.5957 10.522 7.4422 17.319 7.4422 8.8302 0 16.549-4.8187 20.754-12.013 2.8951 1.6282 6.1657 2.5631 9.609 2.5631 12.035 0 21.788-11.171 21.788-24.952 0-13.272-9.0552-24.107-20.475-24.89-1.9342-16.53-15.033-29.306-30.894-29.306z"
         />
@@ -308,7 +309,7 @@
 
   <g id="OContainer">
 
-    <text x="250" y="625" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: #E8E3E5; stroke-width: 0.2; font-size: 25;  text-anchor: middle;">
+    <text x="250" y="625" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: #E8E3E5; stroke-width: 0.2; font-size: 25px;  text-anchor: middle;">
       Odyssey
     </text>
 
@@ -322,7 +323,7 @@
         <animate attributeName="r" attributeType="XML" from="0.5" to="2.5" begin="0s" dur="3s" fill="freeze" repeatCount="indefinite" />
         <animateTransform attributeName="transform" begin="0s" dur="3s" type="rotate" from="0 0 0" to="360 0 0" repeatCount="indefinite" />
       </circle>
-      <text x="-3.3" y="3" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 10;">
+      <text x="-3.3" y="3" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 10px;">
         A
       </text>
     </g>
@@ -417,88 +418,88 @@
       </g>
 
       <g id="OPDUL12C">
-        <path d="M320,527, L332,527" style="stroke:#ffff00; stroke-width: 1.5; fill:none;" />
+        <path d="M320,527 L332,527" style="stroke:#ffff00; stroke-width: 1.5; fill:none;" />
         <circle cx="0" cy="0" r="1.5" style="stroke: #ffff00; fill: #ffffff; ">
-          <animateMotion path="M320,527, L332,527" begin="0s" dur="3s" repeatCount="indefinite" />
+          <animateMotion path="M320,527 L332,527" begin="0s" dur="3s" repeatCount="indefinite" />
         </circle>
       </g>
       <g id="OPDUL5C">
-        <path d="M320,537, L332,537" style="stroke:#ff0000; stroke-width: 1.5; fill:none;" />
+        <path d="M320,537 L332,537" style="stroke:#ff0000; stroke-width: 1.5; fill:none;" />
         <circle cx="0" cy="0" r="1.5" style="stroke: #ff0000; fill: #ffffff; ">
-          <animateMotion path="M320,537, L332,537" begin="0.5s" dur="3.5s" repeatCount="indefinite" />
+          <animateMotion path="M320,537 L332,537" begin="0.5s" dur="3.5s" repeatCount="indefinite" />
         </circle>
       </g>
       <g id="OPDUL33C">
-        <path d="M320,547, L332,547" style="stroke:#ff6f00; stroke-width: 1.5; fill:none;" />
+        <path d="M320,547 L332,547" style="stroke:#ff6f00; stroke-width: 1.5; fill:none;" />
         <circle cx="0" cy="0" r="1.5" style="stroke: #ff6f00; fill: #ffffff; ">
-          <animateMotion path="M320,547, L332,547" begin="1s" dur="4s" repeatCount="indefinite" />
+          <animateMotion path="M320,547 L332,547" begin="1s" dur="4s" repeatCount="indefinite" />
         </circle>
       </g>
 
       <g transform="translate(135,518)" onclick="window.parent.popModal('md-OBatA')" class="button">
         <use xlink:href="#button_sqt" />
-        <text x="9" y="16.5" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 12;">
+        <text x="9" y="16.5" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 12px;">
           BAT
         </text>
-        <text x="14.5" y="31" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: #fafafa; stroke-width: 0.25; font-size: 15;">
+        <text x="14.5" y="31" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: #fafafa; stroke-width: 0.25; font-size: 15px;">
           A
         </text>
       </g>
 
       <g transform="translate(181,518)" onclick="window.parent.popModal('md-OBCC')" class="button">
         <use xlink:href="#button_sq" />
-        <text x="7.5" y="24.5" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 14;">
+        <text x="7.5" y="24.5" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 14px;">
           BCC
         </text>
       </g>
 
       <g transform="translate(234,518)" onclick="window.parent.popModal('md-OBatB')" class="button">
         <use xlink:href="#button_sqt" />
-        <text x="9" y="16.5" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 12;">
+        <text x="9" y="16.5" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 12px;">
           BAT
         </text>
-        <text x="14.5" y="31" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: #fafafa; stroke-width: 0.25; font-size: 15;">
+        <text x="14.5" y="31" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: #fafafa; stroke-width: 0.25; font-size: 15px;">
           B
         </text>
       </g>
 
       <g transform="translate(280,518)" onclick="window.parent.popModal('md-OPDU')" class="button">
         <use xlink:href="#button_sq" />
-        <text x="7.5" y="24" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 13;">
+        <text x="7.5" y="24" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 13px;">
           PDU
         </text>
       </g>
 
       <g transform="translate(234,472)" onclick="window.parent.popModal('md-OSKU')" class="button">
         <use xlink:href="#button_sq" />
-        <text x="7.5" y="24" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 13; ">
+        <text x="7.5" y="24" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 13px; ">
           SKU
         </text>
       </g>
 
       <g transform="translate(280,472)" onclick="window.parent.popModal('md-OMCU')" class="button">
         <use xlink:href="#button_sq" />
-        <text x="6.5" y="24" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 13; letter-spacing:0.15;">
+        <text x="6.5" y="24" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 13px; letter-spacing:0.15;">
           MCU
         </text>
       </g>
 
       <g transform="translate(332,472)" onclick="window.parent.popModal('md-OLOAD')" class="button">
         <use xlink:href="#button_ru" />
-        <text x="6" y="24" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 13; letter-spacing:0.15;">
+        <text x="6" y="24" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 13px; letter-spacing:0.15;">
           Load
         </text>
       </g>
 
       <g transform="translate(378,472)" onclick="window.parent.popModal('md-OSCC')" class="button">
         <use xlink:href="#button_ru" />
-        <text x="7.5" y="24" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 14; ">
+        <text x="8" y="24" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 13px; ">
           SCC
         </text>
-        <text id="OSCCText" x="19.5" y="57" font-family="'DIN',sans-serif" style="fill: #75890c; stroke: #D8D3C5; stroke-width: 0.2; font-size: 16; letter-spacing:0; text-anchor: middle;">
+        <text id="OSCCText" x="19.5" y="57" font-family="'DIN',sans-serif" style="fill: #75890c; stroke: #D8D3C5; stroke-width: 0.2; font-size: 16px; letter-spacing:0; text-anchor: middle;">
           000
         </text>
-        <text x="19.5" y="75" font-family="'DIN',sans-serif" style="fill: #75890c; stroke: none; font-size: 16; text-anchor: middle;">
+        <text x="19.5" y="75" font-family="'DIN',sans-serif" style="fill: #75890c; stroke: none; font-size: 16px; text-anchor: middle;">
           W
         </text>
       </g>
@@ -509,7 +510,7 @@
 
   <g id="AContainer" transform="translate(600,306)">
 
-    <text x="260" y="320" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: #E8E3E5; stroke-width: 0.2; font-size: 25;  text-anchor: middle;">
+    <text x="260" y="320" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: #E8E3E5; stroke-width: 0.2; font-size: 25px;  text-anchor: middle;">
       Aquarius
     </text>
 
@@ -590,7 +591,7 @@
     <g id="ABatASKUC">
       <path d="M247,158 L247,141" style="stroke:#75890c; stroke-width: 1.5; fill:none;" />
       <circle cx="0" cy="0" r="1.5" style="stroke: #E0F47A; fill: #F6FFC5; ">
-        <animateMotion path="M247,158, L247,141" begin="0s" dur="3s" repeatCount="indefinite" />
+        <animateMotion path="M247,158 L247,141" begin="0s" dur="3s" repeatCount="indefinite" />
       </circle>
     </g>
 
@@ -652,82 +653,82 @@
 
     <g transform="translate(32,204)" onclick="window.parent.popModal('md-AAPU')" class="button">
       <use xlink:href="#button_sq" />
-      <text x="7.5" y="24" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 13;">
+      <text x="7.5" y="24" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 13px;">
         APU
       </text>
     </g>
 
     <g transform="translate(170,204)" onclick="window.parent.popModal('md-AGCC')" class="button">
       <use xlink:href="#button_sq" />
-      <text x="7" y="24" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 14; ">
+      <text x="7" y="24" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 14px; ">
         GCC
       </text>
     </g>
 
     <g transform="translate(330,204)" onclick="window.parent.popModal('md-AGI')" class="button">
       <use xlink:href="#button_sq" />
-      <text x="12" y="24" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 14; ">
+      <text x="12" y="24" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 14px; ">
         GI
       </text>
     </g>
 
     <g transform="translate(227,102)" onclick="window.parent.popModal('md-ASKU')" class="button">
       <use xlink:href="#button_sq" />
-      <text x="7.5" y="24" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 13; ">
+      <text x="7.5" y="24" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 13px; ">
         SKU
       </text>
     </g>
 
     <g transform="translate(273,102)" onclick="window.parent.popModal('md-AMCU')" class="button">
       <use xlink:href="#button_sq" />
-      <text x="6.5" y="24" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 13; letter-spacing:0.15;">
+      <text x="6.5" y="24" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 13px; letter-spacing:0.15;">
         MCU
       </text>
     </g>
 
     <g transform="translate(426,204)" onclick="window.parent.popModal('md-AGRID')" class="button">
       <use xlink:href="#button_sq" />
-      <text x="7" y="24" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 13; ">
+      <text x="7" y="24" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 13px; ">
         Grid
       </text>
     </g>
 
     <g transform="translate(330,102)" onclick="window.parent.popModal('md-APDU')" class="button">
       <use xlink:href="#button_ru" />
-      <text x="7" y="24" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 13; ">
+      <text x="7" y="24" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 13px; ">
         PDU
       </text>
     </g>
 
     <g transform="translate(170,102)" onclick="window.parent.popModal('md-ASCC')" class="button">
       <use xlink:href="#button_ru" />
-      <text x="7.5" y="24" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 14; ">
+      <text x="8" y="24" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 13px; ">
         SCC
       </text>
-      <text id="ASCCText" x="19" y="57" font-family="'DIN',sans-serif" style="fill: #75890c; stroke: #D8D3C5; stroke-width: 0.2; font-size: 16; letter-spacing:0; text-anchor: middle;">
+      <text id="ASCCText" x="19" y="57" font-family="'DIN',sans-serif" style="fill: #75890c; stroke: #D8D3C5; stroke-width: 0.2; font-size: 16px; letter-spacing:0; text-anchor: middle;">
         000
       </text>
-      <text x="19.5" y="75" font-family="'DIN',sans-serif" style="fill: #75890c; stroke: none; font-size: 16; text-anchor: middle;">
+      <text x="19.5" y="75" font-family="'DIN',sans-serif" style="fill: #75890c; stroke: none; font-size: 16px; text-anchor: middle;">
         W
       </text>
     </g>
 
     <g transform="translate(227,158)" onclick="window.parent.popModal('md-ABatA')" class="button">
       <use xlink:href="#button_bsq" />
-      <text x="17" y="24" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 13; ">
+      <text x="17" y="24" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 13px; ">
         Battery A
       </text>
     </g>
 
     <g transform="translate(379,102)" onclick="window.parent.popModal('md-ALOAD')" class="button">
       <use xlink:href="#button_bsq" />
-      <text x="27.5" y="24" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 13; ">
+      <text x="27.5" y="24" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 13px; ">
         Load
       </text>
-      <text id="ALoadT" x="15" y="69" font-family="'DIN',sans-serif" style="fill: #75890c; stroke: #D8D3C5; stroke-width: 0.2; font-size: 23; letter-spacing:0; text-anchor: right;">
+      <text id="ALoadT" x="15" y="69" font-family="'DIN',sans-serif" style="fill: #75890c; stroke: #D8D3C5; stroke-width: 0.2; font-size: 23px; letter-spacing:0; text-anchor: right;">
         000
       </text>
-      <text x="54" y="69" font-family="'DIN',sans-serif" style="fill: #75890c; stroke: none; font-size: 23;">
+      <text x="54" y="69" font-family="'DIN',sans-serif" style="fill: #75890c; stroke: none; font-size: 23px;">
         W
       </text>
     </g>
