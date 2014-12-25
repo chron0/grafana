@@ -37,9 +37,6 @@
         "1d"
       ],
       "now": true
-  },
-  { "type": "home",
-    "enable": false
   }
   ],
   "time": {

@@ -4,6 +4,8 @@ var init = 1;
 var cur_angle = 0;
 var angle = 0;
 var sun = 0;
+var aclouds = 0;
+var oclouds = 0;
 var t_offset = 0;
 var intervallId;
 
@@ -312,7 +314,6 @@ function movePanels ()
 		setAquariusPanel(cur_angle);
         document.getElementById('OPVPA').innerHTML = cur_angle + " °";
         document.getElementById('APVPA').innerHTML = cur_angle + " °";
-        //divs = document.getElementsByClassName( 'count' );
 /*
         [].slice.call(document.getElementsByClassName( 'OPVPA' )).forEach(function (element)
         {
@@ -488,35 +489,75 @@ function updateSolarLive ()
                 svgSetText("svg-energy-overlay", "A-RSO-Max", a_rso_max);
             }
 
-            if (o_rso_dir > o_rso_dif)
-            {
-                var o_rso = Math.round(o_rso_dir*1.825*0.2*0.98*1.01);
-            }
-            else
-            {
-                var o_rso = Math.round(o_rso_dif*1.825*0.2*0.98*1.01);
-            }
-
-            svgSetText("svg-energy-overlay", "OSCCText",o_rso);
-            document.getElementById('OPVP1P').innerHTML = Math.round(o_rso/3) + " W";
-            document.getElementById('OPVP2P').innerHTML = Math.round(o_rso/3.1) + " W";
-            document.getElementById('OPVP3P').innerHTML = Math.round(o_rso/2.9) + " W";
-
+            // Electrical System output
 
             if (o_rso_dir > o_rso_dif)
             {
-                var a_rso = Math.round(a_rso_dir*5/100*19*0.98*1.01);
+                var o_pvo = Math.round(o_rso_dir*1.825*0.2*0.98*1.01);
             }
             else
             {
-                var a_rso = Math.round(a_rso_dif*5/100*19*0.98*1.01);
+                var o_pvo = Math.round(o_rso_dif*1.825*0.2*0.98*1.01);
             }
 
-            svgSetText("svg-energy-overlay", "ASCCText",a_rso);
-            document.getElementById('APVP1P').innerHTML = Math.round(a_rso/4) + " W";
-            document.getElementById('APVP2P').innerHTML = Math.round(a_rso/4.1) + " W";
-            document.getElementById('APVP3P').innerHTML = Math.round(a_rso/4) + " W";
-            document.getElementById('APVP4P').innerHTML = Math.round(a_rso/3.9) + " W";
+            svgSetText("svg-energy-overlay", "OSCCText",o_pvo);
+            document.getElementById('OPVP1P').innerHTML = Math.round(o_pvo/3) + " W";
+            document.getElementById('OPVP2P').innerHTML = Math.round(o_pvo/3.1) + " W";
+            document.getElementById('OPVP3P').innerHTML = Math.round(o_pvo/2.9) + " W";
+
+
+            if (o_rso_dir > o_rso_dif)
+            {
+                var a_pvo = Math.round(a_rso_dir*5/100*19*0.98*1.01);
+            }
+            else
+            {
+                var a_pvo = Math.round(a_rso_dif*5/100*19*0.98*1.01);
+            }
+
+            svgSetText("svg-energy-overlay", "ASCCText",a_pvo);
+            document.getElementById('APVP1P').innerHTML = Math.round(a_pvo/4) + " W";
+            document.getElementById('APVP2P').innerHTML = Math.round(a_pvo/4.1) + " W";
+            document.getElementById('APVP3P').innerHTML = Math.round(a_pvo/4) + " W";
+            document.getElementById('APVP4P').innerHTML = Math.round(a_pvo/3.9) + " W";
+
+            // Clouds
+
+            if ((o_rso_dir-o_rso_dif) < 10)
+            {
+                if(oclouds === 0)
+                {
+                    document.getElementById("svg-energy-overlay").contentDocument.getElementById("OCloudShow").beginElement();
+                    oclouds=1;
+                }
+            }
+            else
+            {
+                if(oclouds === 1)
+                {
+                    document.getElementById("svg-energy-overlay").contentDocument.getElementById("OCloudHide").beginElement();
+                    oclouds=0;
+                }
+            }
+
+            if ((a_rso_dir-a_rso_dif) < 10)
+            {
+                if(aclouds === 0)
+                {
+                    document.getElementById("svg-energy-overlay").contentDocument.getElementById("ACloudShow").beginElement();
+                    aclouds=1;
+                }
+            }
+            else
+            {
+                if(aclouds === 1)
+                {
+                    document.getElementById("svg-energy-overlay").contentDocument.getElementById("ACloudHide").beginElement();
+                    aclouds=0;
+                }
+            }
+
+            // Angles
 
             angle = Math.round(parseFloat(data[3]['points'][0][2])*10)/10;
 
@@ -626,7 +667,7 @@ function updateSolarHarvest ()
 {
     if (sun === 0)
     {
-        if (document.getElementById('energy-quickstats').style.display === "block")
+        if (document.getElementById('overlay-quickstats').style.display === "block")
         {
             return;
         }
@@ -667,9 +708,9 @@ function updateSolarHarvest ()
         {
             var data = JSON.parse(req.responseText);
 
-            if( document.getElementById('energy-quickstats').style.display !== "block" )
+            if( document.getElementById('overlay-quickstats').style.display !== "block" )
             {
-                document.getElementById('energy-quickstats').style.display = "block";
+                document.getElementById('overlay-quickstats').style.display = "block";
             }
 
             if (data.length === 0)

@@ -52,6 +52,12 @@
       <stop offset="100%" stop-color="#cfceca" stop-opacity="1" />
     </linearGradient>
 
+    <linearGradient id="cloudGradient" x1="0%" y1="0%" x2="0%" y2="100%" spreadMethod="pad">
+        <stop offset="0" stop-color="#8f8e8a" stop-opacity="0.8" />
+        <stop offset="45%" stop-color="#7f7e7a" stop-opacity="1" />
+        <stop offset="100%" stop-color="#5f5e5a" stop-opacity="1" />
+    </linearGradient>
+
     <g id="button_sq">
       <rect x="-1" y="-1" height="41" width="41" rx="4" ry="4" style="stroke:#000000; fill: none; stroke-width: 1.5; filter: url(#buttonBlur);" opacity="0.5" />
       <rect x="0" y="0" height="39" width="39" rx="4" ry="4" style="stroke:url(#buttonStrokeGradient); fill: url(#buttonPattern); stroke-width: 1.5;" />
@@ -139,9 +145,7 @@
       <animateMotion id="SunRayA4CA" path="M209,150 L1005,374" begin="indefinite" end="indefinite" dur="3s" restart="whenNotActive" repeatCount="indefinite" />
     </circle>
 
-    <circle fill="rgba(255, 173, 9, 0.4)" stroke="#ffad09" stroke-width="2" cx="150" cy="150" r="60" opacity="0.7">
-
-    </circle>
+    <circle fill="rgba(255, 173, 9, 0.4)" stroke="#ffad09" stroke-width="2" cx="150" cy="150" r="60" opacity="0.7"></circle>
 
     <g id="ORSO" transform="translate(140,280)" onclick="window.parent.popModal('md-OPVP')" class="button">
       <rect x="-1" y="-1" height="44" width="218" rx="4" ry="4" style="stroke:none; fill:#ffad09;" opacity="0.4" />
@@ -284,10 +288,23 @@
         <animate id="ARMDA4" attributeName="opacity" from="1" to="0" begin="ARMDA3.end" dur="2s" fill="freeze" />
       </path>
     </g>
+    <g id="AClouds" transform="translate(-95,-450) scale(1.4)" opacity="0">
+        <path style="stroke-linejoin:round;stroke:#000000;stroke-linecap:round;stroke-width:0.5;fill:url(#cloudGradient)"
+            d="m259.9 380.6c-13.132 0-24.365 8.755-28.939 21.153-3.2836-1.4488-6.9285-2.2234-10.754-2.2234-12.897 0-23.631 9.1352-25.978 21.246-1.6526-0.41046-3.3852-0.61761-5.1676-0.61761-11.606 0-21.006 9.2545-21.006 20.659 0 11.405 9.4001 20.659 21.006 20.659 3.6494 0 7.0932-0.92418 10.084-2.5322 5.1621 5.1757 13.55 8.554 23.017 8.554 7.6253 0 14.534-2.1895 19.637-5.7438 4.3851 4.5957 10.522 7.4422 17.319 7.4422 8.8302 0 16.549-4.8187 20.754-12.013 2.8951 1.6282 6.1657 2.5631 9.609 2.5631 12.035 0 21.788-11.171 21.788-24.952 0-13.272-9.0552-24.107-20.475-24.89-1.9342-16.53-15.033-29.306-30.894-29.306z"
+            />
+        <animate id="ACloudShow" attributeName="opacity" from="0" to="1" begin="indefinite" dur="3s" fill="freeze" />
+        <animate id="ACloudHide" attributeName="opacity" from="1" to="0" begin="indefinite" dur="3s" fill="freeze" />
+    </g>
+    <g id="OClouds" transform="translate(-205,-400) scale(1.4)" opacity="0">
+        <path style="stroke-linejoin:round;stroke:#000000;stroke-linecap:round;stroke-width:0.5;fill:url(#cloudGradient)"
+            d="m259.9 380.6c-13.132 0-24.365 8.755-28.939 21.153-3.2836-1.4488-6.9285-2.2234-10.754-2.2234-12.897 0-23.631 9.1352-25.978 21.246-1.6526-0.41046-3.3852-0.61761-5.1676-0.61761-11.606 0-21.006 9.2545-21.006 20.659 0 11.405 9.4001 20.659 21.006 20.659 3.6494 0 7.0932-0.92418 10.084-2.5322 5.1621 5.1757 13.55 8.554 23.017 8.554 7.6253 0 14.534-2.1895 19.637-5.7438 4.3851 4.5957 10.522 7.4422 17.319 7.4422 8.8302 0 16.549-4.8187 20.754-12.013 2.8951 1.6282 6.1657 2.5631 9.609 2.5631 12.035 0 21.788-11.171 21.788-24.952 0-13.272-9.0552-24.107-20.475-24.89-1.9342-16.53-15.033-29.306-30.894-29.306z"
+        />
+        <animate id="OCloudShow" attributeName="opacity" from="0" to="1" begin="indefinite" dur="3s" fill="freeze" />
+        <animate id="OCloudHide" attributeName="opacity" from="1" to="0" begin="indefinite" dur="3s" fill="freeze" />
+    </g>
     <animate id="SunRise" attributeName="opacity" from="0" to="1" begin="indefinite" dur="4s" fill="freeze" />
     <animate id="SunSet" attributeName="opacity" from="1" to="0" begin="indefinite" dur="4s" fill="freeze" />
   </g>
-
 
   <g id="OContainer">
 

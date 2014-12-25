@@ -11,16 +11,13 @@
 
   <title>Virtual Flight Control Center</title>
   <link rel="stylesheet" href="css/grafana.dark.min.css" title="Dark">
-  <link rel="stylesheet" href="css/local.css">
+  <link rel="stylesheet" href="css/vfcc.css">
   <link rel="icon" type="image/png" href="img/fav32.png">
-
-  <script src="app/local.js"></script>
-
+  <script src="app/vfcc.js"></script>
   <!-- build:js app/app.js -->
   <script src="vendor/require/require.js"></script>
   <script src="app/components/require.config.js"></script>
   <!-- endbuild -->
-
   <script>
     require(['app'], function(app) {
       app.boot();
@@ -46,15 +43,33 @@
   <div id="system-overview" class="apollo-panel">
     <object data="img/apollo-ng-system-view-basedrop.svg" type="image/svg+xml" height="600" width="1150" style="z-index: 99; position: relative; top: 260px; left: 0px;"></object>
     <object id="svg-energy-overlay" data="img/apollo-ng-energy-view.svg" type="image/svg+xml" height="630" width="1150" class="svg-overlay" style="z-index: 99; position: relative; top: -645px; left: 0px;"></object>
-    <div id="energy-quickstats">
-      <div><span id="qsday">Today</span><span class="title">Odyssey</span><span class="title">Aquarius</span>
-      </div>
-      <div><span class="ltitle">Sunlight</span><span id="OSolT" class="value">0.0 h</span><span id="ASolT" class="value">0.0 h</span>
-      </div>
-      <div><span class="ltitle">Harvest</span><span id="OPVHT" class="value">0000 Wh</span><span id="APVHT" class="value">0000 Wh</span>
-      </div>
-      <div><span class="ltitle">UCSSPM</span><span id="OPVUT" class="value">0000 Wh</span><span id="APVUT" class="value">0000 Wh</span>
-      </div>
+    <div id="overlay-quickstats">
+      <table class="qs-table t-orange">
+          <thead>
+              <tr>
+                  <th id="qsday">Today</th>
+                  <th scope="col">Odyssey</th>
+                  <th scope="col">Aquarius</th>
+              </tr>
+          </thead>
+          <tfoot>
+              <tr>
+                  <th>Sunlight</th>
+                  <td id="OSolT">0 h</td>
+                  <td id="ASolT">0 h</td>
+              </tr>
+              <tr>
+                  <th>Harvest</th>
+                  <td id="OPVHT">0 Wh</td>
+                  <td id="APVHT">0 Wh</td>
+              </tr>
+              <tr>
+                  <th>UCSSPM</th>
+                  <td id="OPVUT">0 Wh</td>
+                  <td id="APVUT">0 Wh</td>
+              </tr>
+          </tfoot>
+      </table>
     </div>
   </div>
 
@@ -226,7 +241,7 @@
     <div class="md-content">
       <h3>Odyssey - Solar Array<span class="md-icon" onclick="hideModal('md-OPVP')"><i class="icon-remove"></i></span></h3>
       <div>
-        <table class="md-table orange">
+        <table class="md-table t-orange">
           <thead>
             <tr>
               <th scope="col" colspan="2"><b>Angle</b>
@@ -253,7 +268,7 @@
           </tfoot>
         </table>
         <br />
-        <table class="md-table lightblue">
+        <table class="md-table t-lightblue">
           <thead>
             <tr>
               <th></th>
@@ -293,8 +308,8 @@
         </table>
       </div>
       <div class="md-footer">
-        <a href="#/dashboard/db/odyssey-solar-power" onclick="hideModal('md-OPVP')">Show Metrics History</a>
-        <a href="/mission:tech:odyssey#" target="_blank">Show Hardware Details</a>
+        <a href="#/dashboard/db/odyssey-solar-power" class="button" onclick="hideModal('md-OPVP')">Show Metrics History</a>
+        <a href="/mission:tech:odyssey#" class="button" target="_blank">Show Hardware Details</a>
       </div>
     </div>
   </div>
@@ -303,13 +318,11 @@
     <div class="md-content">
       <h3>Aquarius - Solar Array<span class="md-icon" onclick="hideModal('md-APVP')"><i class="icon-remove"></i></span></h3>
       <div>
-        <table class="md-table orange">
+        <table class="md-table t-orange">
           <thead>
             <tr>
-              <th scope="col" colspan="2"><b>Angle</b>
-              </th>
-              <th scope="col" colspan="3"><b>Global Solar Radiation</b>
-              </th>
+              <th scope="col" colspan="2"><b>Angle</b></th>
+              <th scope="col" colspan="3"><b>Global Solar Radiation</b></th>
             </tr>
             <tr>
               <td>Sun</td>
@@ -330,7 +343,7 @@
           </tfoot>
         </table>
         <br />
-        <table class="md-table lightblue">
+        <table class="md-table t-lightblue">
           <thead>
             <tr>
               <th></th>
@@ -375,8 +388,8 @@
         </table>
       </div>
       <div class="md-footer">
-        <a href="#/dashboard/db/aquarius-solar-power" onclick="hideModal('md-APVP')">Show Metrics History</a>
-        <a href="/mission:tech:aquarius#" target="_blank">Show Hardware Details</a>
+        <a href="#/dashboard/db/aquarius-solar-power" class="button" onclick="hideModal('md-APVP')">Show Metrics History</a>
+        <a href="/mission:tech:aquarius#" class="button" target="_blank">Show Hardware Details</a>
       </div>
     </div>
   </div>
