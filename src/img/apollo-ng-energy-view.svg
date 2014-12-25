@@ -111,7 +111,7 @@
 
   <g id="moon" opacity="0" transform="translate(-17,21) rotate(-15 75 75)">
     <circle cx="150" cy="150" r="60" fill="#D8D3C5" stroke="#ffffff" />
-    <path id="moonMask" d="M150,90 A60,60 10 0,1 150,210 Q110,150 150,90" fill="#1f1e1a" stroke="#0f0e0a" stroke-width="2" />
+    <path id="moonMask" d="M150,90 A 60,60 10 0,1 150,210 Q110,150 150,90 150,90" fill="#1f1e1a" stroke="#0f0e0a" stroke-width="2" />
     <animate id="moonRise" attributeName="opacity" from="0" to="0.35" begin="indefinite" dur="4s" fill="freeze" restart="whenNotActive" />
     <animate id="moonSet" attributeName="opacity" from="0.35" to="0" begin="indefinite" dur="4s" fill="freeze" restart="whenNotActive" />
   </g>

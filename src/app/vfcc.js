@@ -114,25 +114,25 @@ function moonPhase(year,month,day)
 
     if (phase === 0) // New Moon
     {
-        svgSetAtt("svg-energy-overlay","moonMask","d","M150,90, A 60,60 10 0,1 150,210 A 60,60 10 0,1 150,90");
+        svgSetAtt("svg-energy-overlay","moonMask","d","M150,90 A60,60 10 0,1 150,210 A 60,60 10 0,1 150,90");
         svgSetAtt("svg-energy-overlay","moonMask","opacity","1");
     }
 
     if (phase > 0 && phase < 7) // Waning Crescent Moon
     {
-        svgSetAtt("svg-energy-overlay","moonMask","d","M150,90, Q"+(230-(phase*10))+",150 150,210 A 60,60 10 0,1 150,90");
+        svgSetAtt("svg-energy-overlay","moonMask","d","M150,90 Q"+(230-(phase*10))+",150 150,210 A60,60 10 0,1 150,90");
         svgSetAtt("svg-energy-overlay","moonMask","opacity","1");
     }
 
     if (phase === 7) // First Quarter
     {
-        svgSetAtt("svg-energy-overlay","moonMask","d","M150,90, L150,210 A 60,60 10 0,1 150,90");
+        svgSetAtt("svg-energy-overlay","moonMask","d","M150,90 L150,210 A60,60 10 0,1 150,90");
         svgSetAtt("svg-energy-overlay","moonMask","opacity","1");
     }
 
     if (phase > 7 && phase < 15) // Waning Gibeous Moon
     {
-        svgSetAtt("svg-energy-overlay","moonMask","d","M150,90, Q"+(150-((phase-7)*10))+",150 150,210 A 60,60 10 0,1 150,90");
+        svgSetAtt("svg-energy-overlay","moonMask","d","M150,90 Q"+(150-((phase-7)*10))+",150 150,210 A60,60 10 0,1 150,90");
         svgSetAtt("svg-energy-overlay","moonMask","opacity","1");
     }
 
@@ -143,19 +143,19 @@ function moonPhase(year,month,day)
 
     if (phase > 15 && phase < 21) // Waxing Gibeous Moon
     {
-        svgSetAtt("svg-energy-overlay","moonMask","d","M150,90, A 60,60 10 0,1 150,210 Q"+(230-((phase-15)*10))+",150 150,90 ");
+        svgSetAtt("svg-energy-overlay","moonMask","d","M150,90 A60,60 10 0,1 150,210 Q"+(230-((phase-15)*10))+",150 150,90 ");
         svgSetAtt("svg-energy-overlay","moonMask","opacity","1");
     }
 
     if (phase === 21) // Last Quarter
     {
-        svgSetAtt("svg-energy-overlay","moonMask","d","M150,90, A 60,60 10 0,1 150,210 L150,90");
+        svgSetAtt("svg-energy-overlay","moonMask","d","M150,90 A60,60 10 0,1 150,210 150,90");
         svgSetAtt("svg-energy-overlay","moonMask","opacity","1");
     }
 
     if (phase > 21 && phase <= 29) // Waxing Crescent Moon
     {
-        svgSetAtt("svg-energy-overlay","moonMask","d","M150,90, A 60,60 10 0,1 150,210 Q"+(150-((phase-21)*10))+",150 150,90 ");
+        svgSetAtt("svg-energy-overlay","moonMask","d","M150,90 A60,60 10 0,1 150,210 Q"+(150-((phase-21)*10))+",150 150,90 ");
         svgSetAtt("svg-energy-overlay","moonMask","opacity","1");
     }
 }
