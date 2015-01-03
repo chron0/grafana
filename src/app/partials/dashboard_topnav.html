@@ -9,7 +9,7 @@
 
 				<li ng-show="dashboardViewState.fullscreen">
 					<a ng-click="exitFullscreen()">
-						Back to dashboard
+						<i class='icon-arrow-left'></i>
 					</a>
 				</li>
 
@@ -57,18 +57,14 @@
 					</ul>
 				</li>
 
-				<li id="svg-timerange" bs-tooltip="'Zoom Out'">
+				<li id="svg-timerange" bs-tooltip="'Slide to adjust Timetail'" data-placement="left">
 					<input type="range" min="0" max="360" value="360" step="10" id="svg-timeoffset" class="range-input" onchange="setTimeOffset(value)">
-				</li>
-
-				<li id="svg-refresh" class="grafana-menu-refresh">
-					<a><i class="icon-refresh"></i></a>
 				</li>
 
 				<li id="grafana-menu-zoom-out" class="grafana-menu-zoom-out"><a bs-tooltip="'Zoom Out'" data-placement="bottom" ng-click='zoom(2)'><i class='icon-zoom-out'></i></a></li>
 
 				<li class="dropdown grafana-menu-load">
-					<a ng-click="openSearch()" bs-tooltip="'Goto System Overview'">
+					<a ng-click="openSearch()" bs-tooltip="'Open Dashboard'" data-placement="bottom">
 						<i class='icon-folder-open'></i>
 					</a>
 				</li>

@@ -41,11 +41,9 @@ function (angular) {
       $scope.initDashboard(dashboard, $scope);
       document.getElementById('system-overview').style.display = "none";
       document.getElementById('svg-timerange').style.display = "none";
-      document.getElementById('svg-refresh').style.display = "none";
       document.getElementById('grafana-menu-zoom-out').style.display = "list-item";
       document.getElementById('grafana-menu-home').style.display = "list-item";
       clearInterval(intervallId);
-      console.log("Intervall terminated")
 
       var _paq = _paq || [];
       _paq.push(["trackPageView"]);
@@ -64,6 +62,7 @@ function (angular) {
           s.parentNode.insertBefore(g, s);
       })();
 
+      document.getElementById('emboss').style.display = "none";
 
     }).then(null, function(error) {
       $scope.initDashboard({ title: 'Grafana'}, $scope);

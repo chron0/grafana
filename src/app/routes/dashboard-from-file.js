@@ -57,18 +57,28 @@ function (angular, $, config, _) {
        cur_angle = 0;
        angle = 0;
        sun = 0;
+       aclouds = 0;
+       oclouds = 0;
        t_offset = 0;
-       intervallId = setInterval(function () {updateView();}, 10000);
+
        setTimeout(function ()
        {
            document.getElementById('system-overview').style.display = "block";
-           //document.getElementById('system-overview').style.opacity = 1;
            document.getElementById('system-overview').className = "apollo-panel fadeIn";
-           document.getElementById('svg-timerange').style.display = "list-item";
-           document.getElementById('svg-refresh').style.display = "list-item";
-           document.getElementById('grafana-menu-zoom-out').style.display = "none";
-           document.getElementById('grafana-menu-home').style.display = "none";
+
+           if(getCookie('visited'))
+           {
+               setCookie('visited',1,365);
+           }
+           else
+           {
+               document.getElementById('primer').style.display = "block";
+               document.getElementById('primer').className = "fadeIn";
+               setCookie('visited',1,365);
+           }
+
            setTimeout(function () {
+               intervallId = setInterval(function () {updateView();}, 10000);
                updateView();
            }, 3000);
        }, 2000);
@@ -89,6 +99,15 @@ function (angular, $, config, _) {
            g.src = u + "piwik.js";
            s.parentNode.insertBefore(g, s);
        })();
+
+       setTimeout(function ()
+       {
+           document.getElementById('svg-timerange').style.display = "list-item";
+           document.getElementById('grafana-menu-zoom-out').style.display = "none";
+           document.getElementById('grafana-menu-home').style.display = "none";
+           document.getElementById('topnav_title').setAttribute("style", "font-size: 22px; line-height: 16px; padding: 9px 0;");
+           document.getElementById('topnav_title').innerHTML = "Apollo-NG VFCC<br /><b class='topnav_timestamp'>Initializing Interface...</b>";
+       },1000);
 
     });
 

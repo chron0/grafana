@@ -25,26 +25,26 @@
       <feGaussianBlur in="SourceGraphic" stdDeviation="0.7" />
     </filter>
 
-    <pattern id="buttonPattern" x="0" y="0" width="20" height="50" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)">
-      <rect x="0" y="0" height="50" width="10" rx="0" ry="0" style="stroke: none; fill: #3f3e3a; " />
-      <path d="M10,0 L10,50" style="stroke:#8f8e8a; stroke-width: 1; fill:none;" />
-      <rect x="10" y="0" height="50" width="10" rx="0" ry="0" style="stroke: none; fill: #1f1e1a; " />
-      <path d="M20,0 L20,50" style="stroke:#0f0e0a; stroke-width: 1; fill:none;" />
+    <pattern id="buttonPattern" x="0" y="0" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)">
+      <rect x="0" y="0" height="9" width="5" rx="0" ry="0" style="stroke: none; fill: #2f2e2a; " />
+      <rect x="5" y="0" height="9" width="4" rx="0" ry="0" style="stroke: none; fill: #5f5e5a; " />
+      <path d="M9,0 L9,9" style="stroke:#cfceca; stroke-width: 1px; fill:none;"/>
+      <path d="M5,0 L5,9" style="stroke:#000; stroke-width: 1px; fill:none;"/>
     </pattern>
 
     <linearGradient id="buttonFaceGradient" x1="0%" y1="0%" x2="0%" y2="100%" spreadMethod="pad">
-      <stop offset="0" stop-color="#3f3e3a" stop-opacity="0.8" />
-      <stop offset="40%" stop-color="#1f1e1a" stop-opacity="0.8" />
+      <stop offset="0" stop-color="#6f6e6a" stop-opacity="0.5" />
+      <stop offset="40%" stop-color="#0f0e0a" stop-opacity="0.3" />
     </linearGradient>
 
     <linearGradient id="buttonStrokeGradient" x1="0%" y1="0%" x2="0%" y2="100%" spreadMethod="pad">
-      <stop offset="0" stop-color="#dfdeda" stop-opacity="0.5" />
-      <stop offset="40%" stop-color="#4f4e4a" stop-opacity="0.5" />
+      <stop offset="0" stop-color="#dfdeda" stop-opacity="0.7" />
+      <stop offset="40%" stop-color="#8f8e8a" stop-opacity="0.7" />
     </linearGradient>
 
     <linearGradient id="buttonDisplayGradient" x1="0%" y1="0%" x2="0%" y2="100%" spreadMethod="pad">
-      <stop offset="0" stop-color="#000000" stop-opacity="1" />
-      <stop offset="70%" stop-color="#1f1e1a" stop-opacity="1" />
+      <stop offset="0" stop-color="#000000" stop-opacity="0.9" />
+      <stop offset="70%" stop-color="#1f1e1a" stop-opacity="0.7" />
     </linearGradient>
 
     <linearGradient id="buttonDisplayStrokeGradient" x1="0%" y1="0%" x2="0%" y2="100%" spreadMethod="pad">
@@ -60,58 +60,40 @@
     </linearGradient>
 
     <g id="button_sq">
-      <rect x="-1" y="-1" height="41" width="41" rx="4" ry="4" style="stroke:#000000; fill: none; stroke-width: 1.5; filter: url(#buttonBlur);" opacity="0.5" />
-      <rect x="0" y="0" height="39" width="39" rx="4" ry="4" style="stroke:url(#buttonStrokeGradient); fill: url(#buttonPattern); stroke-width: 1.5;" />
+      <rect x="-1" y="-1" height="41" width="41" rx="4" ry="4" style="stroke:#000000; fill: none; stroke-width: 1.5; filter: url(#buttonBlur);" opacity="0.8" />
+      <rect class="button" x="0" y="0" height="39" width="39" rx="4" ry="4" style="stroke:url(#buttonStrokeGradient); fill: url(#buttonPattern); stroke-width: 1.5;" fill-opacity="0.4" />
       <rect x="0" y="0" height="40" width="39" rx="4" ry="4" style="stroke: none; fill:url(#buttonFaceGradient);" />
-      <rect x="3" y="11" height="18" width="33" style="stroke:url(#buttonDisplayStrokeGradient); fill: url(#buttonDisplayGradient); stroke-width: 0.5; " opacity="0.6" />
+      <rect x="3" y="11" height="18" width="33" style="stroke:url(#buttonDisplayStrokeGradient); fill: url(#buttonDisplayGradient); stroke-width: 0.6px; " opacity="1" />
     </g>
 
     <g id="button_sqt">
       <rect x="-1" y="-1" height="41" width="41" rx="4" ry="4" style="stroke:#000000; fill: none; stroke-width: 1.5; filter: url(#buttonBlur);" opacity="0.5" />
-      <rect x="0" y="0" height="39" width="39" rx="4" ry="4" style="stroke:url(#buttonStrokeGradient); fill: url(#buttonPattern); stroke-width: 1.5;" />
+      <rect x="0" y="0" height="39" width="39" rx="4" ry="4" style="stroke:url(#buttonStrokeGradient); fill: url(#buttonPattern); stroke-width: 1.5px;" fill-opacity="0.4" />
       <rect x="0" y="0" height="40" width="39" rx="4" ry="4" style="stroke: none; fill:url(#buttonFaceGradient);" />
-      <path d="M5,5 L34,5 L34,19 L28,25 L28,35 L11,35 L11,25 L5,19 L5,5" style="stroke:url(#buttonDisplayStrokeGradient); fill: url(#buttonDisplayGradient); stroke-width: 0.5; " opacity="0.6" />
+      <path d="M5,5 L34,5 L34,19 L28,25 L28,35 L11,35 L11,25 L5,19 L5,5" style="stroke:url(#buttonDisplayStrokeGradient); fill: url(#buttonDisplayGradient); stroke-width: 0.6px;" opacity="1" />
     </g>
 
     <g id="button_ru">
       <rect x="-1" y="-1" height="87" width="41" rx="4" ry="4" style="stroke:#000000; fill: none; stroke-width: 1.5; filter: url(#buttonBlur);" opacity="0.5" />
-      <rect x="0" y="0" height="85" width="39" rx="4" ry="4" style="stroke:url(#buttonStrokeGradient); fill: url(#buttonPattern); stroke-width: 1.5;" />
+      <rect x="0" y="0" height="85" width="39" rx="4" ry="4" style="stroke:url(#buttonStrokeGradient); fill: url(#buttonPattern); stroke-width: 1.5px;" fill-opacity="0.4" />
       <rect x="0" y="0" height="86" width="39" rx="4" ry="4" style="stroke: none; fill:url(#buttonFaceGradient);" />
-      <rect x="3" y="11" height="18" width="33" style="stroke:url(#buttonDisplayStrokeGradient); fill: url(#buttonDisplayGradient); stroke-width: 0.5; " opacity="0.7" />
-      <rect x="3" y="40" height="41" width="33" style="stroke:url(#buttonDisplayStrokeGradient); fill: url(#buttonDisplayGradient); stroke-width: 0.5; " opacity="0.6" />
+      <rect x="3" y="11" height="18" width="33" style="stroke:url(#buttonDisplayStrokeGradient); fill: url(#buttonDisplayGradient); stroke-width: 0.6px;" opacity="1" />
+      <rect x="3" y="40" height="41" width="33" style="stroke:url(#buttonDisplayStrokeGradient); fill: url(#buttonDisplayGradient); stroke-width: 0.6px;" opacity="1" />
     </g>
 
     <g id="button_bsq">
       <rect x="-1" y="-1" height="87" width="87" rx="4" ry="4" style="stroke:#000000; fill: none; stroke-width: 1.5; " opacity="0.5" />
-      <rect x="0" y="0" height="85" width="85" rx="4" ry="4" style="stroke:url(#buttonStrokeGradient); fill: url(#buttonPattern); stroke-width: 1.5;" />
+      <rect x="0" y="0" height="85" width="85" rx="4" ry="4" style="stroke:url(#buttonStrokeGradient); fill: url(#buttonPattern); stroke-width: 1.5px;" fill-opacity="0.4" />
       <rect x="0" y="0" height="86" width="85" rx="4" ry="4" style="stroke: none; fill:url(#buttonFaceGradient);" />
-      <rect x="6" y="11" height="18" width="73" style="stroke:url(#buttonDisplayStrokeGradient); fill: url(#buttonDisplayGradient); stroke-width: 0.5; " opacity="0.7" />
-      <rect x="6" y="40" height="41" width="73" style="stroke:url(#buttonDisplayStrokeGradient); fill: url(#buttonDisplayGradient); stroke-width: 0.5; " opacity="0.6" />
+      <rect x="6" y="11" height="18" width="73" style="stroke:url(#buttonDisplayStrokeGradient); fill: url(#buttonDisplayGradient); stroke-width: 0.6px;" opacity="1" />
+      <rect x="6" y="40" height="41" width="73" style="stroke:url(#buttonDisplayStrokeGradient); fill: url(#buttonDisplayGradient); stroke-width: 0.6px;" opacity="1" />
     </g>
 
   </defs>
 
-  <g id="splash" opacity="0.7">
-    <circle cx="150" cy="150" r="60" fill="#75890c" />
-    <g transform="matrix(0.866, -0.5, 0.25, 0.433, 150, 150)">
-      <path d="M0,70 A65,70 0 0,0 65,0 5,5 0 0,1 75,0 75,70 0 0,1 0,70Z" fill="#D8D3C5">
-        <animateTransform attributeName="transform" type="rotate" from="360 0 0" to="0 0 0" dur="1.5s" begin="0s" end="indefinite" repeatCount="indefinite" />
-      </path>
-    </g>
-    <path d="M60,0 A60,60 0 0,0 -60,0Z" transform="matrix(0.866, -0.5, 0.5, 0.866, 150, 150)" fill="#75890c" />
-    <text x="273" y="163" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 42px;">
-      Collecting Data
-    </text>
-    <text x="273" y="185" font-family="'DIN',sans-serif" style="fill: #fffefa; stroke: none; font-size: 23px;">
-      Please stand by...
-    </text>
-    <animate id="initComplete" attributeName="opacity" from="0.7" to="0" begin="indefinite" end="indefinite" dur="1s" fill="freeze" repeatCount="1" />
-  </g>
-
-
   <g id="moon" opacity="0" transform="translate(-17,21) rotate(-15 75 75)">
     <circle cx="150" cy="150" r="60" fill="#D8D3C5" stroke="#ffffff" />
-    <path id="moonMask" d="M150,90 A 60,60 10 0,1 150,210 Q110,150 150,90 150,90" fill="#1f1e1a" stroke="#0f0e0a" stroke-width="2" />
+    <path id="moonMask" d="M150,90 A 60,60 10 0,1 150,210 Q110,150 150,90" fill="#1f1e1a" stroke="#0f0e0a" stroke-width="2" />
     <animate id="moonRise" attributeName="opacity" from="0" to="0.35" begin="indefinite" dur="4s" fill="freeze" restart="whenNotActive" />
     <animate id="moonSet" attributeName="opacity" from="0.35" to="0" begin="indefinite" dur="4s" fill="freeze" restart="whenNotActive" />
   </g>
@@ -307,11 +289,15 @@
     <animate id="SunSet" attributeName="opacity" from="1" to="0" begin="indefinite" dur="4s" fill="freeze" />
   </g>
 
-  <g id="OContainer">
-
-    <text x="250" y="625" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: #E8E3E5; stroke-width: 0.2; font-size: 25px;  text-anchor: middle;">
+  <text x="250" y="625" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: #E8E3E5; stroke-width: 0.2; font-size: 25px;  text-anchor: middle;">
       Odyssey
-    </text>
+  </text>
+
+  <text x="860" y="625" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: #E8E3E5; stroke-width: 0.2; font-size: 25px;  text-anchor: middle;">
+      Aquarius
+  </text>
+
+  <g id="OContainer" opacity="0">
 
     <g id="OAlt" transform="translate(108,530)">
       <circle cx="0" cy="0" r="12" style="stroke: #c70000; fill: #1f1e1a;"></circle>
@@ -363,8 +349,9 @@
 
       <g id="OSCCBatBC">
         <path d="M390,557 L390,560 Q390,565 385,565 L265,565 Q260,565 260,560 L260,557" style="stroke:#75890c; stroke-width: 2; fill:none;" />
-        <circle id="OSCCBatBCC" cx="0" cy="0" r="1.5" style="stroke: #E0F47A; fill: #F6FFC5;" opacity="0">
-          <animateMotion id="OSCCBatBCA" path="M392,557 L392,560 Q392,565 387,565 L265,565 Q260,565 260,560 L260,557" begin="indefinite" end="indefinite" restart="whenNotActive" dur="3s" repeatCount="indefinite" />
+        <circle id="OSCCBatBCC" cx="0" cy="0" r="1.5" style="stroke: #E0F47A; fill: #F6FFC5;">
+          <animateMotion id="OSCCBatBCA" path="M390,557 L390,560 Q390,565 387,565 L265,565 Q260,565 260,560 L260,557" begin="indefinite" end="indefinite" restart="whenNotActive" dur="3s" repeatCount="indefinite" />
+          <animateMotion id="OSCCBatBCAR" path="M260,557 L260,560 Q260,565 265,565 L387,565 Q390,565 390,560 L390,557" begin="0s" end="indefinite" restart="whenNotActive" dur="10s" repeatCount="indefinite" />
         </circle>
       </g>
 
@@ -406,7 +393,7 @@
       <g id="OBatBSKUC">
         <path d="M254,517 L254,512" style="stroke:#75890c; stroke-width: 1.5; fill:none;" />
         <circle cx="0" cy="0" r="1.5" style="stroke: #E0F47A; fill: #F6FFC5;">
-          <animateMotion path="M254,518 L254,511" begin="0s" dur="3s" repeatCount="indefinite" />
+          <animateMotion path="M254,518 L254,511" begin="0s" dur="5s" repeatCount="indefinite" />
         </circle>
       </g>
 
@@ -441,14 +428,14 @@
         <text x="9" y="16.5" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 12px;">
           BAT
         </text>
-        <text x="14.5" y="31" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: #fafafa; stroke-width: 0.25; font-size: 15px;">
+        <text x="15" y="31" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: #fafafa; stroke-width: 0.25; font-size: 15px;">
           A
         </text>
       </g>
 
       <g transform="translate(181,518)" onclick="window.parent.popModal('md-OBCC')" class="button">
         <use xlink:href="#button_sq" />
-        <text x="7.5" y="24.5" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 14px;">
+        <text x="7" y="24.5" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 14px;">
           BCC
         </text>
       </g>
@@ -458,7 +445,7 @@
         <text x="9" y="16.5" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 12px;">
           BAT
         </text>
-        <text x="14.5" y="31" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: #fafafa; stroke-width: 0.25; font-size: 15px;">
+        <text x="15" y="31" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: #fafafa; stroke-width: 0.25; font-size: 15px;">
           B
         </text>
       </g>
@@ -479,7 +466,7 @@
 
       <g transform="translate(280,472)" onclick="window.parent.popModal('md-OMCU')" class="button">
         <use xlink:href="#button_sq" />
-        <text x="6.5" y="24" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 13px; letter-spacing:0.15;">
+        <text x="7" y="24" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 13px; letter-spacing:0.15;">
           MCU
         </text>
       </g>
@@ -488,6 +475,12 @@
         <use xlink:href="#button_ru" />
         <text x="6" y="24" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 13px; letter-spacing:0.15;">
           Load
+        </text>
+        <text id="OLoadText" x="19.5" y="57" font-family="'DIN',sans-serif" style="fill: #75890c; stroke: #D8D3C5; stroke-width: 0.2; font-size: 16px; letter-spacing:0; text-anchor: middle;">
+            0.9
+        </text>
+        <text x="19.5" y="75" font-family="'DIN',sans-serif" style="fill: #75890c; stroke: none; font-size: 16px; text-anchor: middle;">
+            W
         </text>
       </g>
 
@@ -505,14 +498,11 @@
       </g>
 
     </g>
-  </g>
+    <animate id="OCFadeIn" attributeName="opacity" from="0" to="1" begin="indefinite" end="indefinite" dur="2s" fill="freeze" repeatCount="1" />
+   </g>
 
 
-  <g id="AContainer" transform="translate(600,306)">
-
-    <text x="260" y="320" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: #E8E3E5; stroke-width: 0.2; font-size: 25px;  text-anchor: middle;">
-      Aquarius
-    </text>
+  <g id="AContainer" transform="translate(600,306)" opacity="0">
 
     <g id="APVP" onclick="window.parent.popModal('md-APVP')">
 
@@ -520,7 +510,7 @@
       <circle id="APVP1CC" cx="0" cy="0" r="1.5" style="stroke: #5abde6; fill: #ffffff;" opacity="0">
         <animateMotion id="APVP1CA" path="M105,75 L105,82 Q105,87 110,87 L180,87 Q185,87 185,92 L185,100" begin="indefinite" end="indefinite" restart="whenNotActive" dur="3s" repeatCount="indefinite" />
       </circle>
-      <rect id="APVP1" x="85" y="68" width="65" height="7" fill="#0f0e0a" stroke="#888385" stroke-width="0.6" class="button">
+      <rect id="APVP1" x="85" y="69" width="65" height="6.5" fill="#0f0e0a" stroke="#888385" stroke-width="0.6" class="button">
         <animate id="APVP1SA" attributeName="stroke" attributeType="XML" from="#ffad09" to="#5abde6" begin="indefinite" end="indefinite" dur="3s" repeatCount="indefinite" restart="whenNotActive" fill="remove" />
         <animate attributeName="stroke" attributeType="XML" from="#888385" to="#888385" begin="APVP1SA.end" end="indefinite" dur="1s" repeatCount="1" restart="whenNotActive" fill="remove" />
       </rect>
@@ -529,7 +519,7 @@
       <circle id="APVP2CC" cx="0" cy="0" r="1.5" style="stroke: #5abde6; fill: #ffffff;" opacity="0">
         <animateMotion id="APVP2CA" path="M202,75 L202,80 Q202,84 197,84 L197,84 Q188,84 188,95 L188,100" begin="indefinite" end="indefinite" restart="whenNotActive" dur="3s" repeatCount="indefinite" />
       </circle>
-      <rect id="APVP2" x="180" y="68" width="65" height="7" fill="#0f0e0a" stroke="#888385" stroke-width="0.6" class="button">
+      <rect id="APVP2" x="180" y="69" width="65" height="6.5" fill="#0f0e0a" stroke="#888385" stroke-width="0.6" class="button">
         <animate id="APVP2SA" attributeName="stroke" attributeType="XML" from="#ffad09" to="#5abde6" begin="indefinite" end="indefinite" dur="3s" repeatCount="indefinite" restart="whenNotActive" fill="remove" />
         <animate attributeName="stroke" attributeType="XML" from="#888385" to="#888385" begin="APVP2SA.end" end="indefinite" dur="1s" repeatCount="1" restart="whenNotActive" fill="remove" />
       </rect>
@@ -538,7 +528,7 @@
       <circle id="APVP3CC" cx="0" cy="0" r="1.5" style="stroke: #5abde6; fill: #ffffff;" opacity="0">
         <animateMotion id="APVP3CA" path="M295,75 L295,82 Q295,87 290,87 L198,87 Q191,87 191,95 L191,100" begin="indefinite" end="indefinite" restart="whenNotActive" dur="3s" repeatCount="indefinite" />
       </circle>
-      <rect id="APVP3" x="275" y="68" width="65" height="7" fill="#0f0e0a" stroke="#888385" stroke-width="0.6" class="button">
+      <rect id="APVP3" x="275" y="69" width="65" height="6.5" fill="#0f0e0a" stroke="#888385" stroke-width="0.6" class="button">
         <animate id="APVP3SA" attributeName="stroke" attributeType="XML" from="#ffad09" to="#5abde6" begin="indefinite" end="indefinite" dur="3s" repeatCount="indefinite" restart="whenNotActive" fill="remove" />
         <animate attributeName="stroke" attributeType="XML" from="#888385" to="#888385" begin="APVP3SA.end" end="indefinite" dur="1s" repeatCount="1" restart="whenNotActive" fill="remove" />
       </rect>
@@ -547,7 +537,7 @@
       <circle id="APVP4CC" cx="0" cy="0" r="1.5" style="stroke: #5abde6; fill: #ffffff;" opacity="0">
         <animateMotion id="APVP4CA" path="M390,75 L390,85 Q390,90 385,90 L199,90 Q194,90 194,95 L194,100" begin="indefinite" end="indefinite" restart="whenNotActive" dur="3s" repeatCount="indefinite" />
       </circle>
-      <rect id="APVP4" x="370" y="68" width="65" height="7" fill="#0f0e0a" stroke="#888385" stroke-width="0.6" class="button">
+      <rect id="APVP4" x="370" y="69" width="65" height="6.5" fill="#0f0e0a" stroke="#888385" stroke-width="0.6" class="button">
         <animate id="APVP4SA" attributeName="stroke" attributeType="XML" from="#ffad09" to="#5abde6" begin="indefinite" end="indefinite" dur="3s" repeatCount="indefinite" restart="whenNotActive" fill="remove" />
         <animate attributeName="stroke" attributeType="XML" from="#888385" to="#888385" begin="APVP4SA.end" end="indefinite" dur="1s" repeatCount="1" restart="whenNotActive" fill="remove" />
       </rect>
@@ -667,28 +657,28 @@
 
     <g transform="translate(330,204)" onclick="window.parent.popModal('md-AGI')" class="button">
       <use xlink:href="#button_sq" />
-      <text x="12" y="24" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 14px; ">
+      <text x="13" y="24" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 14px; ">
         GI
       </text>
     </g>
 
     <g transform="translate(227,102)" onclick="window.parent.popModal('md-ASKU')" class="button">
       <use xlink:href="#button_sq" />
-      <text x="7.5" y="24" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 13px; ">
+      <text x="8" y="24" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 13px; ">
         SKU
       </text>
     </g>
 
     <g transform="translate(273,102)" onclick="window.parent.popModal('md-AMCU')" class="button">
       <use xlink:href="#button_sq" />
-      <text x="6.5" y="24" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 13px; letter-spacing:0.15;">
+      <text x="7" y="24" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 13px; letter-spacing:0.15;">
         MCU
       </text>
     </g>
 
     <g transform="translate(426,204)" onclick="window.parent.popModal('md-AGRID')" class="button">
       <use xlink:href="#button_sq" />
-      <text x="7" y="24" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 13px; ">
+      <text x="8" y="24" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 13px; ">
         Grid
       </text>
     </g>
@@ -697,6 +687,12 @@
       <use xlink:href="#button_ru" />
       <text x="7" y="24" font-family="'DIN',sans-serif" style="fill: #D8D3C5; stroke: none; font-size: 13px; ">
         PDU
+      </text>
+      <text id="ALoadText" x="19.5" y="57" font-family="'DIN',sans-serif" style="fill: #75890c; stroke: #D8D3C5; stroke-width: 0.2; font-size: 16px; letter-spacing:0; text-anchor: middle;">
+          0
+      </text>
+      <text x="19.5" y="75" font-family="'DIN',sans-serif" style="fill: #75890c; stroke: none; font-size: 16px; text-anchor: middle;">
+          W
       </text>
     </g>
 
@@ -732,7 +728,7 @@
         W
       </text>
     </g>
-
+    <animate id="ACFadeIn" attributeName="opacity" from="0" to="1" begin="OCFadeIn.begin" end="indefinite" dur="2s" fill="freeze" repeatCount="1" />
   </g>
 
 </svg>

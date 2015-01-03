@@ -40,64 +40,164 @@
 
   <div ng-view></div>
 
+  <h1 id="emboss" class="emboss">APOLLO-NG VFCC</h1>
+
   <div id="system-overview" class="apollo-panel">
-    <object data="img/apollo-ng-system-view-basedrop.svg" type="image/svg+xml" height="600" width="1150" style="z-index: 99; position: relative; top: 260px; left: 0px;"></object>
+    <object id="svg-vehicle-backdrop" data="img/apollo-ng-vehicle-backdrop.svg" type="image/svg+xml" height="610" width="1150" style="z-index: 98; position: relative; top: -30px; left: 0px;"></object>
     <object id="svg-energy-overlay" data="img/apollo-ng-energy-view.svg" type="image/svg+xml" height="630" width="1150" class="svg-overlay" style="z-index: 99; position: relative; top: -645px; left: 0px;"></object>
     <div id="overlay-quickstats">
       <table class="qs-table">
-          <thead>
-              <tr>
-                  <th id="qsday">Today</th>
-                  <th scope="col">Odyssey</th>
-                  <th scope="col">Aquarius</th>
-              </tr>
-          </thead>
-          <tbody>
-              <tr>
-                  <th>Sunlight</th>
-                  <td id="OSolT">0 h</td>
-                  <td id="ASolT">0 h</td>
-              </tr>
-              <tr>
-                  <th>Harvest</th>
-                  <td id="OPVHT">0 Wh</td>
-                  <td id="APVHT">0 Wh</td>
-              </tr>
-          </tbody>
-          <tfoot>
-              <tr>
-                  <th>UCSSPM</th>
-                  <td id="OPVUT">0 Wh</td>
-                  <td id="APVUT">0 Wh</td>
-              </tr>
-          </tfoot>
+        <thead>
+          <tr>
+            <th id="qsday">Today</th>
+            <th scope="col">Odyssey</th>
+            <th scope="col">Aquarius</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>Sunlight</th>
+            <td id="OSolT">0 h</td>
+            <td id="ASolT">0 h</td>
+          </tr>
+          <tr>
+            <th>Harvest</th>
+            <td id="OPVHT">0 Wh</td>
+            <td id="APVHT">0 Wh</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <th>UCSSPM</th>
+            <td id="OPVUT">0 Wh</td>
+            <td id="APVUT">0 Wh</td>
+          </tr>
+        </tfoot>
       </table>
     </div>
+  </div>
+
+  <div id="primer">
+    <p>Ahoy there, welcome to the Apollo-NG Virtual Flight Control Center. Here are a few tips what to do next:</p>
+    <ul>
+      <li>If you see the Moon, then it's night. Use the timeslider at the top to adjust a 24h time tail</li>
+      <li>Most Buttons and Elements show more details on a click</li>
+      <li>Use the "Open Dashboard" Button at the top right to open other dashboards</li>
+    </ul>
   </div>
 
   <div class="md-modal md-effect-1" id="md-OBatA">
     <div class="md-content">
       <h3>Odyssey - Battery A <span class="md-icon" onclick="hideModal('md-OBatA')"><i class="icon-remove"></i></span></h3>
       <div>
-        <p>This is an empty modal window</p>
+        <p>Odyssey Lead-Acid Starter Battery</p>
       </div>
     </div>
   </div>
 
   <div class="md-modal md-effect-1" id="md-OBatB">
-      <div class="md-content">
-          <h3>Odyssey - Battery B <span class="md-icon" onclick="hideModal('md-OBatB')"><i class="icon-remove"></i></span></h3>
-              <div>
-                  <p>This is an empty modal window</p>
-              </div>
-          </div>
+    <div class="md-content">
+      <h3>Odyssey - Battery B <span class="md-icon" onclick="hideModal('md-OBatB')"><i class="icon-remove"></i></span></h3>
+      <div>
+        <p>Winner Protheus 270Ah AGM Battery</p>
+        <p>Sponsored by Nep</p>
       </div>
+    </div>
+  </div>
 
   <div class="md-modal md-effect-1" id="md-OSKU">
     <div class="md-content">
       <h3>Odyssey - Station Keeping Unit (SKU) <span class="md-icon" onclick="hideModal('md-OSKU')"><i class="icon-remove"></i></span></h3>
       <div>
-        <p>This is an empty modal window</p>
+        <table class="md-table">
+          <thead>
+            <tr>
+              <th scope="col" colspan="3"><b>Unit</b>
+              </th>
+            </tr>
+            <tr>
+              <td>Status</td>
+              <td>ID</td>
+              <td>Temperature</td>
+            </tr>
+          </thead>
+          <tfoot>
+            <tr>
+              <td class="online">Online</td>
+              <td>28-000004822342</td>
+              <td>21 °C</td>
+            </tr>
+          </tfoot>
+        </table>
+        <br />
+        <table class="md-table t-green">
+          <thead>
+            <tr>
+              <th scope="col" colspan="3">Input</th>
+            </tr>
+            <tr>
+              <td>Voltage (U)</td>
+              <td>Current (I)</td>
+              <td>Power (P)</td>
+            </tr>
+          </thead>
+          <tfoot>
+            <tr>
+              <td>13.8 V</td>
+              <td>0.03 A</td>
+              <td>0.4 W</td>
+            </tr>
+          </tfoot>
+        </table>
+        <br />
+        <table class="md-table">
+          <thead>
+            <tr>
+              <th scope="col" colspan="4">Services</th>
+            </tr>
+            <tr>
+              <td></td>
+              <td>Status</td>
+              <td>Metrics</td>
+              <td>Value</td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>SKUD</th>
+              <td class="online">Online</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <th>PDUD</th>
+              <td class="online">Online</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <th>GPSD</th>
+              <td class="online">Online</td>
+              <td>Status</td>
+              <td>[L4D] [VS13] [P3m] [LPPS]</td>
+            </tr>
+            <tr>
+              <th>CHRONYD</th>
+              <td class="online">Online</td>
+              <td>StdDev (UTC)</td>
+              <td>Min: -18 µs Avg: 17.1 ns Max: 58.2 µs</td>
+            </tr>
+            <tr>
+              <th>COLLECTD</th>
+              <td class="online">Online</td>
+              <td></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="md-footer">
+        <a href="/mission:tech:odyssey:sku#" class="button" target="_blank"><i class="icon-info-sign"></i> Hardware Details</a>
       </div>
     </div>
   </div>
@@ -106,7 +206,83 @@
     <div class="md-content">
       <h3>Odyssey - Power Distribution Unit (PDU) <span class="md-icon" onclick="hideModal('md-OPDU')"><i class="icon-remove"></i></span></h3>
       <div>
-        <p>This is an empty modal window</p>
+        <table class="md-table">
+          <thead>
+            <tr>
+              <th scope="col" colspan="3"><b>Unit</b>
+              </th>
+            </tr>
+            <tr>
+              <td>Status</td>
+              <td>ID</td>
+              <td>Temperature</td>
+            </tr>
+          </thead>
+          <tfoot>
+            <tr>
+              <td class="online">Online</td>
+              <td>28-000004822342</td>
+              <td>21 °C</td>
+            </tr>
+          </tfoot>
+        </table>
+        <br />
+        <table class="md-table t-green">
+          <thead>
+            <tr>
+              <th scope="col" colspan="3">Input</th>
+            </tr>
+            <tr>
+              <td>Voltage (U)</td>
+              <td>Current (I)</td>
+              <td>Power (P)</td>
+            </tr>
+          </thead>
+          <tfoot>
+            <tr>
+              <td>13.8 V</td>
+              <td>0.04 A</td>
+              <td>0.5 W</td>
+            </tr>
+          </tfoot>
+        </table>
+        <br />
+        <table class="md-table">
+          <thead>
+            <tr>
+              <th scope="col" colspan="4">Output</th>
+            </tr>
+            <tr>
+              <td style="text-align: left; padding-left: 8px;">Main Bus</td>
+              <td>Status</td>
+              <td>Nominal</td>
+              <td>Voltage</td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th class="fg-yellow"><b>12V</b></th>
+              <td class="online">Online</td>
+              <td>12.0 V</td>
+              <td>12.0 V</td>
+            </tr>
+            <tr>
+              <th class="fg-red"><b>5V</b></th>
+              <td class="online">Online</td>
+              <td>5.0 V</td>
+              <td>5.0 V</td>
+            </tr>
+            <tr>
+              <th class="fg-orange"><b>3.3V</b></th>
+              <td>Offline</td>
+              <td>3.3 V</td>
+              <td>0 V</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="md-footer">
+        <a href="/mission:tech:odyssey:pdu#" class="button" target="_blank"><i class="icon-info-sign"></i> Hardware Details</a>
       </div>
     </div>
   </div>
@@ -115,16 +291,104 @@
     <div class="md-content">
       <h3>Odyssey - Main Computing Unit (MCU) <span class="md-icon" onclick="hideModal('md-OMCU')"><i class="icon-remove"></i></span></h3>
       <div>
-        <p>This is an empty modal window</p>
+          <table class="md-table">
+              <thead>
+                  <tr>
+                      <th scope="col" colspan="3"><b>Unit</b>
+                      </th>
+                  </tr>
+                  <tr>
+                      <td>Status</td>
+                      <td>ID</td>
+                      <td>Temperature</td>
+                  </tr>
+              </thead>
+              <tfoot>
+                  <tr>
+                      <td class="online">Online</td>
+                      <td>28-000004822342</td>
+                      <td>21 °C</td>
+                  </tr>
+              </tfoot>
+          </table>
+          <br />
+          <table class="md-table t-green">
+              <thead>
+                  <tr>
+                      <th scope="col" colspan="3">Input</th>
+                  </tr>
+                  <tr>
+                      <td>Voltage (U)</td>
+                      <td>Current (I)</td>
+                      <td>Power (P)</td>
+                  </tr>
+              </thead>
+              <tfoot>
+                  <tr>
+                      <td>13.8 V</td>
+                      <td>0.03 A</td>
+                      <td>0.4 W</td>
+                  </tr>
+              </tfoot>
+          </table>
+          <br />
+          <table class="md-table">
+              <thead>
+                  <tr>
+                      <th scope="col" colspan="4">Services</th>
+                  </tr>
+                  <tr>
+                      <td></td>
+                      <td>Status</td>
+                      <td>Metrics</td>
+                      <td>Value</td>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr>
+                      <th>SKUD</th>
+                      <td class="online">Online</td>
+                      <td></td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <th>PDUD</th>
+                      <td class="online">Online</td>
+                      <td></td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <th>GPSD</th>
+                      <td class="online">Online</td>
+                      <td>Status</td>
+                      <td>[L4D] [VS13] [P3m] [LPPS]</td>
+                  </tr>
+                  <tr>
+                      <th>CHRONYD</th>
+                      <td class="online">Online</td>
+                      <td>StdDev (UTC)</td>
+                      <td>Min: -18 µs Avg: 17.1 ns Max: 58.2 µs</td>
+                  </tr>
+                  <tr>
+                      <th>COLLECTD</th>
+                      <td class="online">Online</td>
+                      <td></td>
+                      <td></td>
+                  </tr>
+              </tbody>
+          </table>
       </div>
-    </div>
+      <div class="md-footer">
+          <a href="/mission:tech:odyssey:sku#" class="button" target="_blank"><i class="icon-info-sign"></i> Hardware Details</a>
+      </div>
   </div>
+</div>
 
-   <div class="md-modal md-effect-1" id="md-OBCC">
+  <div class="md-modal md-effect-1" id="md-OBCC">
     <div class="md-content">
       <h3>Odyssey - Boost Charge Controller (BCC) <span class="md-icon" onclick="hideModal('md-OBCC')"><i class="icon-remove"></i></span></h3>
       <div>
-        <p>This is an empty modal window</p>
+        <p>Votronic VCC 1212-25</p>
       </div>
     </div>
   </div>
@@ -133,16 +397,147 @@
     <div class="md-content">
       <h3>Odyssey - Solar Charge Controller (SCC) <span class="md-icon" onclick="hideModal('md-OSCC')"><i class="icon-remove"></i></span></h3>
       <div>
-        <p>This is an empty modal window</p>
+        <table class="md-table">
+          <thead>
+            <tr>
+              <th scope="col" colspan="3"><b>Unit</b>
+              </th>
+            </tr>
+            <tr>
+              <td>Status</td>
+              <td>ID</td>
+              <td>Temperature</td>
+            </tr>
+          </thead>
+          <tfoot>
+            <tr>
+              <td id="OSCCStatus" class="online">Standby</td>
+              <td>Votronic MPP 420 Duo Digital</td>
+              <td>21 °C</td>
+            </tr>
+          </tfoot>
+        </table>
+        <br />
+        <table id="OSCCIB" class="md-table t-green">
+          <thead>
+            <tr>
+              <th scope="col" colspan="3">Input from Battery A</th>
+            </tr>
+            <tr>
+              <td>Voltage (U)</td>
+              <td>Current (I)</td>
+              <td>Power (P)</td>
+            </tr>
+          </thead>
+          <tfoot>
+            <tr>
+              <td>13.8 V</td>
+              <td>0.01 A</td>
+              <td>0.1 W</td>
+            </tr>
+          </tfoot>
+        </table>
+        <table id="OSCCIS" class="md-table t-lightblue" style="display:none">
+            <thead>
+                <tr>
+                    <th scope="col" colspan="4">Input from PV-Panels</th>
+                </tr>
+                <tr>
+                    <td>MPP</td>
+                    <td>Voltage (U)</td>
+                    <td>Current (I)</td>
+                    <td>Power (P)</td>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <td>18.1 V</td>
+                    <td>18.1 V</td>
+                    <td id="OSCCII">0 A</td>
+                    <td id="OSCCIP">0 W</td>
+                </tr>
+            </tfoot>
+        </table>
+        <br />
+        <div id="OSCCO" style="opacity: 0.4">
+            <div style="display: inline-block; width: 49%; width: calc(50% - 8px); width: -moz-calc(50% - 8px); width: -webkit-calc(50% - 8px); margin-right: 16px;">
+              <table id="OSCCOM" class="md-table">
+                <thead>
+                  <tr>
+                    <th scope="col" colspan="2">Main Output</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th>Type</th>
+                    <td>AGM</td>
+                  </tr>
+                  <tr>
+                    <th>Curve</th>
+                    <td>IUoU2</td>
+                  </tr>
+                  <tr>
+                    <th>Voltage (U)</th>
+                    <td>14.4 V</td>
+                  </tr>
+                  <tr>
+                    <th>Current (I)</th>
+                    <td id="OSCCOMI">0 A</td>
+                  </tr>
+                </tbody>
+                <tfoot>
+                  <tr>
+                    <th>Power (P)</th>
+                    <td id="OSCCOMP">0 W</td>
+                  </tr>
+                </tfoot>
+              </table>
+          </div><div style="display: inline-block; width: 49%; width: calc(50% - 8px); width: -moz-calc(50% - 8px); width: -webkit-calc(50% - 8px);">
+              <table id="OSCCOA" class="md-table">
+                <thead>
+                  <tr>
+                    <th scope="col" colspan="2">Aux. Output</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th>Type</th>
+                    <td>Lead-Acid</td>
+                  </tr>
+                  <tr>
+                    <th>Curve</th>
+                    <td>IUoU2</td>
+                  </tr>
+                  <tr>
+                    <th>Voltage (U)</th>
+                    <td>0 V</td>
+                  </tr>
+                  <tr>
+                    <th>Current (I)</th>
+                    <td>0 A</td>
+                  </tr>
+                </tbody>
+                <tfoot>
+                  <tr>
+                    <th>Power (P)</th>
+                    <td>0 W</td>
+                  </tr>
+                </tfoot>
+              </table>
+        </div>
+        </div>
+      </div>
+      <div class="md-footer">
+        <a href="/mission:tech:odyssey:pdu#" class="button" target="_blank"><i class="icon-info-sign"></i> Hardware Details</a>
       </div>
     </div>
   </div>
 
-   <div class="md-modal md-effect-1" id="md-OLOAD">
+  <div class="md-modal md-effect-1" id="md-OLOAD">
     <div class="md-content">
       <h3>Odyssey - Load (Power Consumers)<span class="md-icon" onclick="hideModal('md-OLOAD')"><i class="icon-remove"></i></span></h3>
       <div>
-        <p>This is an empty modal window</p>
+        <p>This feature will be unlocked once additional funding for the required hardware is aquired</p>
       </div>
     </div>
   </div>
@@ -151,7 +546,7 @@
     <div class="md-content">
       <h3>Aquarius - Battery A <span class="md-icon" onclick="hideModal('md-ABatA')"><i class="icon-remove"></i></span></h3>
       <div>
-        <p>This is an empty modal window</p>
+        <p>This feature will be unlocked once additional funding for the required hardware is aquired</p>
       </div>
     </div>
   </div>
@@ -160,7 +555,7 @@
     <div class="md-content">
       <h3>Aquarius - Station Keeping Unit (SKU) <span class="md-icon" onclick="hideModal('md-ASKU')"><i class="icon-remove"></i></span></h3>
       <div>
-        <p>This is an empty modal window</p>
+        <p>This feature will be unlocked once additional funding for the required hardware is aquired</p>
       </div>
     </div>
   </div>
@@ -169,7 +564,7 @@
     <div class="md-content">
       <h3>Aquarius - Power Distribution Unit (PDU) <span class="md-icon" onclick="hideModal('md-APDU')"><i class="icon-remove"></i></span></h3>
       <div>
-        <p>This is an empty modal window</p>
+        <p>This feature will be unlocked once additional funding for the required hardware is aquired</p>
       </div>
     </div>
   </div>
@@ -178,7 +573,7 @@
     <div class="md-content">
       <h3>Aquarius - Main Computing Unit (MCU) <span class="md-icon" onclick="hideModal('md-AMCU')"><i class="icon-remove"></i></span></h3>
       <div>
-        <p>This is an empty modal window</p>
+        <p>This feature will be unlocked once additional funding for the required hardware is aquired</p>
       </div>
     </div>
   </div>
@@ -187,7 +582,10 @@
     <div class="md-content">
       <h3>Aquarius - Auxiliary Power Unit (APU) <span class="md-icon" onclick="hideModal('md-AAPU')"><i class="icon-remove"></i></span></h3>
       <div>
-        <p>This is an empty modal window</p>
+        <p>This feature will be unlocked once additional funding for the required hardware is aquired</p>
+      </div>
+      <div class="md-footer">
+        <a href="/mission:tech:aquarius:apu#" class="button" target="_blank"><i class="icon-info-sign"></i> Hardware Details</a>
       </div>
     </div>
   </div>
@@ -197,7 +595,7 @@
     <div class="md-content">
       <h3>Aquarius - Grid Charge Controller (GCC) <span class="md-icon" onclick="hideModal('md-AGCC')"><i class="icon-remove"></i></span></h3>
       <div>
-        <p>This is an empty modal window</p>
+        <p>Votronic Automatic Charger Pb 1240 SMT 3B</p>
       </div>
     </div>
   </div>
@@ -206,7 +604,7 @@
     <div class="md-content">
       <h3>Aquarius - Grid Inverter (GI) <span class="md-icon" onclick="hideModal('md-AGI')"><i class="icon-remove"></i></span></h3>
       <div>
-        <p>This is an empty modal window</p>
+        <p>Votronic MobilPOWER Inverter SMI 1000 ST-NVS</p>
       </div>
     </div>
   </div>
@@ -215,7 +613,7 @@
     <div class="md-content">
       <h3>Aquarius - Solar Charge Controller (SCC) <span class="md-icon" onclick="hideModal('md-ASCC')"><i class="icon-remove"></i></span></h3>
       <div>
-        <p>This is an empty modal window</p>
+        <p>This feature will be unlocked once additional funding for the required hardware is aquired</p>
       </div>
     </div>
   </div>
@@ -224,7 +622,7 @@
     <div class="md-content">
       <h3>Aquarius - Grid Power<span class="md-icon" onclick="hideModal('md-AGRID')"><i class="icon-remove"></i></span></h3>
       <div>
-        <p>This is an empty modal window</p>
+        <p>This feature will be unlocked once additional funding for the required hardware is aquired</p>
       </div>
     </div>
   </div>
@@ -233,7 +631,7 @@
     <div class="md-content">
       <h3>Aquarius - Load (Power Consumers)<span class="md-icon" onclick="hideModal('md-ALOAD')"><i class="icon-remove"></i></span></h3>
       <div>
-        <p>This is an empty modal window</p>
+        <p>This feature will be unlocked once additional funding for the required hardware is aquired</p>
       </div>
     </div>
   </div>
@@ -310,8 +708,8 @@
         </table>
       </div>
       <div class="md-footer">
-        <a href="#/dashboard/db/odyssey-solar-power" class="button" onclick="hideModal('md-OPVP')">Show Metrics History</a>
-        <a href="/mission:tech:odyssey#" class="button" target="_blank">Show Hardware Details</a>
+        <a href="#/dashboard/db/odyssey-solar-power" class="button" onclick="hideModal('md-OPVP')"><i class="icon-signal"></i> Charts/History</a>
+        <a href="/mission:tech:odyssey#" class="button" target="_blank"><i class="icon-info-sign"></i> Hardware Details</a>
       </div>
     </div>
   </div>
@@ -323,8 +721,10 @@
         <table class="md-table t-orange">
           <thead>
             <tr>
-              <th scope="col" colspan="2"><b>Angle</b></th>
-              <th scope="col" colspan="3"><b>Global Solar Radiation</b></th>
+              <th scope="col" colspan="2"><b>Angle</b>
+              </th>
+              <th scope="col" colspan="3"><b>Global Solar Radiation</b>
+              </th>
             </tr>
             <tr>
               <td>Sun</td>
@@ -390,8 +790,8 @@
         </table>
       </div>
       <div class="md-footer">
-        <a href="#/dashboard/db/aquarius-solar-power" class="button" onclick="hideModal('md-APVP')">Show Metrics History</a>
-        <a href="/mission:tech:aquarius#" class="button" target="_blank">Show Hardware Details</a>
+        <a href="#/dashboard/db/aquarius-solar-power" class="button" onclick="hideModal('md-APVP')"><i class="icon-signal"></i> Charts/History</a>
+        <a href="/mission:tech:aquarius#" class="button" target="_blank"><i class="icon-info-sign"></i> Hardware Details</a>
       </div>
     </div>
   </div>

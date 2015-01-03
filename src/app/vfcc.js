@@ -77,7 +77,7 @@ function setTimeOffset (position)
     {
         v_offset = "-"+ secToHH(t_offset);
     }
-    document.getElementById('topnav_title').innerHTML = "Apollo-NG VFCC ["+v_offset+"] @ " + timestamp.toISOString();
+    document.getElementById('topnav_title').innerHTML = "Apollo-NG VFCC<br /><b class='topnav_timestamp'>" + timestamp.toISOString() + " ("+v_offset+")</b>";
 
     updateView();
 }
@@ -94,6 +94,29 @@ function jDay(year, month, day)
         jul = jul + 2 - ja + Math.floor(0.25 * ja);
     }
     return jul;
+}
+
+function setCookie(c_name,value,exdays)
+{
+    var exdate=new Date();
+    exdate.setDate(exdate.getDate() + exdays);
+    var c_value=escape(value) + ((exdays==null) ? "" : "; expires="+exdate.toUTCString());
+    document.cookie=c_name + "=" + c_value;
+}
+
+function getCookie(c_name)
+{
+    var i,x,y,ARRcookies=document.cookie.split(";");
+    for (i=0;i<ARRcookies.length;i++)
+    {
+        x=ARRcookies[i].substr(0,ARRcookies[i].indexOf("="));
+        y=ARRcookies[i].substr(ARRcookies[i].indexOf("=")+1);
+        x=x.replace(/^\s+|\s+$/g,"");
+        if (x==c_name)
+        {
+            return unescape(y);
+        }
+    }
 }
 
 function moonPhase(year,month,day)
@@ -262,8 +285,8 @@ function setAquariusPanel (deg)
     + " L105,82 Q105,87 110,87 L180,87 Q185,87 185,92 L185,100");
     svgSetAtt("svg-energy-overlay","APVP1CA",
     "path", "M105," + (75-(shift*1.2)) + " L105,82 Q105,87 110,87 L180,87 Q185,87 185,92 L185,100");
-    svgSetAtt("svg-energy-overlay","SunRayA1C","d", "M208,164 L" + (719-(shift/2.2)) + "," + (376-(shift*2.1)));
-    svgSetAtt("svg-energy-overlay","SunRayA1CA","path", "M208,164 L" + (719-(shift/2.2)) + "," + (376-(shift*2.1)));
+    svgSetAtt("svg-energy-overlay","SunRayA1C","d", "M208,164 L" + (721-(shift/2.2)) + "," + (376-(shift*2.1)));
+    svgSetAtt("svg-energy-overlay","SunRayA1CA","path", "M208,164 L" + (721-(shift/2.2)) + "," + (376-(shift*2.1)));
 
     svgSetAtt("svg-energy-overlay","APVP2","transform", "translate(" + shift*1.1 + ") rotate(" + deg*-1 + " 180 68)");
     svgSetAtt("svg-energy-overlay","APVP2C",
@@ -274,8 +297,8 @@ function setAquariusPanel (deg)
     "path", "M" + (202+(shift*0.9)) + "," + (75-(shift*1.2))
     + " L" + (202+(shift*0.9)) + ",80 Q" + (202+(shift*0.9)) + ",84 " + (197+(shift*0.9))
      + ",84 L197,84 Q188,84 188,95 L188,100");
-    svgSetAtt("svg-energy-overlay","SunRayA2C","d", "M209,160 L" + (815+(shift/1.7)) + "," + (376-(shift*2)));
-    svgSetAtt("svg-energy-overlay","SunRayA2CA","path", "M209,160 L" + (815+(shift/1.7)) + "," + (376-(shift*2)));
+    svgSetAtt("svg-energy-overlay","SunRayA2C","d", "M209,160 L" + (815+(shift/1.7)) + "," + (377-(shift*2)));
+    svgSetAtt("svg-energy-overlay","SunRayA2CA","path", "M209,160 L" + (815+(shift/1.7)) + "," + (377-(shift*2)));
 
     svgSetAtt("svg-energy-overlay","APVP3","transform", "translate(" + shift*2.3 + ") rotate(" + deg*-1 + " 275 68)");
     svgSetAtt("svg-energy-overlay","APVP3C",
@@ -360,7 +383,9 @@ function updateSolarLive ()
             {
                 v_offset = "-"+ secToHH(t_offset);
             }
-            document.getElementById('topnav_title').innerHTML = "Apollo-NG VFCC ["+v_offset+"] @ " + timestamp.toISOString();
+
+            document.getElementById('topnav_title').innerHTML = "Apollo-NG VFCC<br /><b class='topnav_timestamp'>" + timestamp.toISOString() + " ("+v_offset+")</b>";
+
 
             [].slice.call(document.getElementsByClassName( 'OPVPT' )).forEach(function (element)
             {
@@ -500,7 +525,12 @@ function updateSolarLive ()
                 var o_pvo = Math.round(o_rso_dif*1.825*0.2*0.98*1.01);
             }
 
-            svgSetText("svg-energy-overlay", "OSCCText",o_pvo);
+            var o_osccom = Math.round(o_pvo*0.9*10)/10;
+            svgSetText("svg-energy-overlay", "OSCCText",(o_osccom > 10 ? Math.round(o_osccom) : o_osccom) );
+            document.getElementById('OSCCII').innerHTML = Math.round(o_pvo/18.1*10)/10 + " A";
+            document.getElementById('OSCCIP').innerHTML = o_pvo + " W";;
+            document.getElementById('OSCCOMI').innerHTML = Math.round(o_pvo*0.9/14.4*10)/10 + " A";
+            document.getElementById('OSCCOMP').innerHTML = (o_osccom > 100 ? Math.round(o_osccom) : o_osccom) + " W";;
             document.getElementById('OPVP1P').innerHTML = Math.round(o_pvo/3) + " W";
             document.getElementById('OPVP2P').innerHTML = Math.round(o_pvo/3.1) + " W";
             document.getElementById('OPVP3P').innerHTML = Math.round(o_pvo/2.9) + " W";
@@ -523,6 +553,10 @@ function updateSolarLive ()
 
             // Clouds
 
+            if (o_rso_max < o_rso_dir)
+            {
+                var o_clouds=0;
+            }
             if ((o_rso_dir-o_rso_dif) < 10)
             {
                 if(oclouds === 0)
@@ -566,7 +600,13 @@ function updateSolarLive ()
 
             if (init === 1)
             {
-                document.getElementById("svg-energy-overlay").contentDocument.getElementById("initComplete").beginElement();
+                document.getElementById("svg-vehicle-backdrop").contentDocument.getElementById("initComplete").beginElement();
+                document.getElementById("svg-vehicle-backdrop").contentDocument.getElementById("solidFadeOut").beginElement();
+
+                setTimeout(function ()
+                {
+                    document.getElementById("svg-energy-overlay").contentDocument.getElementById("OCFadeIn").beginElement();
+                },1500);
 
                 if (angle >= 90)
                 {
@@ -596,7 +636,8 @@ function updateSolarLive ()
                 stopAnim("APVP3C");
                 stopAnim("APVP4C");
                 stopAnim("OSCCBatAC");
-                stopAnim("OSCCBatBC");
+                document.getElementById("svg-energy-overlay").contentDocument.getElementById("OSCCBatBCA").endElement();
+                document.getElementById("svg-energy-overlay").contentDocument.getElementById("OSCCBatBCAR").beginElement();
                 stopAnim("ASCCBatAC");
                 document.getElementById("svg-energy-overlay").contentDocument.getElementById("OPVP1SA").endElement();
                 document.getElementById("svg-energy-overlay").contentDocument.getElementById("OPVP2SA").endElement();
@@ -605,6 +646,12 @@ function updateSolarLive ()
                 document.getElementById("svg-energy-overlay").contentDocument.getElementById("APVP2SA").endElement();
                 document.getElementById("svg-energy-overlay").contentDocument.getElementById("APVP3SA").endElement();
                 document.getElementById("svg-energy-overlay").contentDocument.getElementById("APVP4SA").endElement();
+                document.getElementById('OSCCStatus').innerHTML = "Standby";
+                document.getElementById('OSCCO').style.opacity = "0.4";
+                document.getElementById("OSCCIS").style.display = "none";
+                document.getElementById("OSCCIB").style.display = "table";
+                document.getElementById("OSCCOM").className = "md-table";
+                document.getElementById("OSCCOA").className = "md-table";
 
             }
             else if (angle < 90 && sun === 0)
@@ -627,6 +674,7 @@ function updateSolarLive ()
                 startAnim("APVP3C",1.0);
                 startAnim("APVP4C",1.5);
                 startAnim("OSCCBatAC",1.0);
+                document.getElementById("svg-energy-overlay").contentDocument.getElementById("OSCCBatBCAR").endElement();
                 startAnim("OSCCBatBC",1.0);
                 startAnim("ASCCBatAC",1.5);
                 document.getElementById("svg-energy-overlay").contentDocument.getElementById("OPVP1SA").beginElement();
@@ -636,7 +684,12 @@ function updateSolarLive ()
                 document.getElementById("svg-energy-overlay").contentDocument.getElementById("APVP2SA").beginElementAt(0.5);
                 document.getElementById("svg-energy-overlay").contentDocument.getElementById("APVP3SA").beginElementAt(1.0);
                 document.getElementById("svg-energy-overlay").contentDocument.getElementById("APVP4SA").beginElementAt(1.5);
-
+                document.getElementById('OSCCStatus').innerHTML = "Online";
+                document.getElementById('OSCCO').style.opacity = "1";
+                document.getElementById("OSCCIB").style.display = "none";
+                document.getElementById("OSCCIS").style.display = "table";
+                document.getElementById("OSCCOM").className = "md-table t-green";
+                document.getElementById("OSCCOA").className = "md-table t-white";
             }
 
             if (init !== 0)         { init  = 0;  }
@@ -676,11 +729,11 @@ function updateSolarHarvest ()
     var timestamp = +new Date();
 
     var today  = new Date(timestamp);
-    var tday   = today.getUTCFullYear() + "-" + (today.getUTCMonth()+1) + "-" + today.getUTCDate();
+    var tday   = today.getUTCFullYear() + "-" + pad(today.getUTCMonth()+1) + "-" + pad(today.getUTCDate());
     var jtday  = jDay(today.getUTCFullYear(),(today.getUTCMonth()+1),today.getUTCDate());
 
     var offday = new Date((timestamp-(t_offset*1000)));
-    var oday   = offday.getUTCFullYear() + "-" + (offday.getUTCMonth()+1) + "-" + offday.getUTCDate();
+    var oday   = offday.getUTCFullYear() + "-" + pad(offday.getUTCMonth()+1) + "-" + pad(offday.getUTCDate());
     var joday  = jDay(offday.getUTCFullYear(),(offday.getUTCMonth()+1),offday.getUTCDate());
 
     var otime  = offday.getUTCFullYear() + "-" + pad((offday.getUTCMonth()+1)) + "-" + pad(offday.getUTCDate()) + " "
