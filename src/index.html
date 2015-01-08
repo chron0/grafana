@@ -40,7 +40,7 @@
 
   <div ng-view></div>
 
-  <h1 id="emboss" class="emboss">APOLLO-NG VFCC</h1>
+  <h1 id="emboss" class="emboss">Apollo-NG<br /><b style="font-size: 44px; margin-top: 50px; display: inline-block">Virtual Flight Control Center</b></h1>
 
   <div id="system-overview" class="apollo-panel">
     <object id="svg-vehicle-backdrop" data="img/apollo-ng-vehicle-backdrop.svg" type="image/svg+xml" height="610" width="1150" style="z-index: 98; position: relative; top: -30px; left: 0px;"></object>
@@ -80,9 +80,9 @@
   <div id="primer">
     <p>Ahoy there, welcome to the Apollo-NG Virtual Flight Control Center. Here are a few tips what to do next:</p>
     <ul>
-      <li>If you see the Moon, then it's night. Use the timeslider at the top to adjust a 24h time tail</li>
+      <li>If you see the Moon, then it's night :) Use the timeslider at the top to adjust a 24h time tail</li>
       <li>Most Buttons and Elements show more details on a click</li>
-      <li>Use the "Open Dashboard" Button at the top right to open other dashboards</li>
+      <li>Use the "Open Dashboard" Button in the top right to open other dashboards</li>
     </ul>
   </div>
 
@@ -112,12 +112,13 @@
         <table class="md-table">
           <thead>
             <tr>
-              <th scope="col" colspan="3"><b>Unit</b>
+              <th scope="col" colspan="4"><b>Unit</b>
               </th>
             </tr>
             <tr>
               <td>Status</td>
               <td>ID</td>
+              <td>Name</td>
               <td>Temperature</td>
             </tr>
           </thead>
@@ -125,6 +126,7 @@
             <tr>
               <td class="online">Online</td>
               <td>28-000004822342</td>
+              <td>SKU</td>
               <td>21 °C</td>
             </tr>
           </tfoot>
@@ -197,7 +199,7 @@
         </table>
       </div>
       <div class="md-footer">
-        <a href="/mission:tech:odyssey:sku#" class="button" target="_blank"><i class="icon-info-sign"></i> Hardware Details</a>
+        <a href="https://apollo.open-resource.org/mission:tech:odyssey:sku" class="button" target="_blank"><i class="icon-info-sign"></i> Hardware Details</a>
       </div>
     </div>
   </div>
@@ -207,21 +209,23 @@
       <h3>Odyssey - Power Distribution Unit (PDU) <span class="md-icon" onclick="hideModal('md-OPDU')"><i class="icon-remove"></i></span></h3>
       <div>
         <table class="md-table">
-          <thead>
-            <tr>
-              <th scope="col" colspan="3"><b>Unit</b>
-              </th>
-            </tr>
-            <tr>
-              <td>Status</td>
-              <td>ID</td>
-              <td>Temperature</td>
-            </tr>
-          </thead>
+            <thead>
+                <tr>
+                    <th scope="col" colspan="4"><b>Unit</b>
+                    </th>
+                </tr>
+                <tr>
+                    <td>Status</td>
+                    <td>ID</td>
+                    <td>Name</td>
+                    <td>Temperature</td>
+                </tr>
+            </thead>
           <tfoot>
             <tr>
               <td class="online">Online</td>
               <td>28-000004822342</td>
+              <td>PDU</td>
               <td>21 °C</td>
             </tr>
           </tfoot>
@@ -282,7 +286,7 @@
         </table>
       </div>
       <div class="md-footer">
-        <a href="/mission:tech:odyssey:pdu#" class="button" target="_blank"><i class="icon-info-sign"></i> Hardware Details</a>
+        <a href="https://apollo.open-resource.org/mission:tech:odyssey:pdu" class="button" target="_blank"><i class="icon-info-sign"></i> Hardware Details</a>
       </div>
     </div>
   </div>
@@ -294,12 +298,13 @@
           <table class="md-table">
               <thead>
                   <tr>
-                      <th scope="col" colspan="3"><b>Unit</b>
+                      <th scope="col" colspan="4"><b>Unit</b>
                       </th>
                   </tr>
                   <tr>
                       <td>Status</td>
                       <td>ID</td>
+                      <td>Name</td>
                       <td>Temperature</td>
                   </tr>
               </thead>
@@ -307,6 +312,7 @@
                   <tr>
                       <td class="online">Online</td>
                       <td>28-000004822342</td>
+                      <td>MCU</td>
                       <td>21 °C</td>
                   </tr>
               </tfoot>
@@ -379,7 +385,7 @@
           </table>
       </div>
       <div class="md-footer">
-          <a href="/mission:tech:odyssey:sku#" class="button" target="_blank"><i class="icon-info-sign"></i> Hardware Details</a>
+          <a href="https://apollo.open-resource.org/mission:tech:odyssey:mcu" class="button" target="_blank"><i class="icon-info-sign"></i> Hardware Details</a>
       </div>
   </div>
 </div>
@@ -388,7 +394,71 @@
     <div class="md-content">
       <h3>Odyssey - Boost Charge Controller (BCC) <span class="md-icon" onclick="hideModal('md-OBCC')"><i class="icon-remove"></i></span></h3>
       <div>
-        <p>Votronic VCC 1212-25</p>
+          <table class="md-table">
+              <thead>
+                  <tr>
+                      <th scope="col" colspan="4"><b>Unit</b>
+                      </th>
+                  </tr>
+                  <tr>
+                      <td>Status</td>
+                      <td>ID</td>
+                      <td>Name</td>
+                      <td>Temperature</td>
+                  </tr>
+              </thead>
+              <tfoot>
+                  <tr>
+                      <td>Standby</td>
+                      <td>N/A</td>
+                      <td>Votronic VCC 1212-25</td>
+                      <td>21 °C</td>
+                  </tr>
+              </tfoot>
+          </table>
+          <br />
+          <table class="md-table t-white">
+              <thead>
+                  <tr>
+                      <th scope="col" colspan="3">Input</th>
+                  </tr>
+                  <tr>
+                      <td>Voltage (U)</td>
+                      <td>Current (I)</td>
+                      <td>Power (P)</td>
+                  </tr>
+              </thead>
+              <tfoot>
+                  <tr>
+                      <td>13.1 V</td>
+                      <td>0 A</td>
+                      <td>0 W</td>
+                  </tr>
+              </tfoot>
+          </table>
+          <br />
+          <table class="md-table t-green">
+              <thead>
+                  <tr>
+                      <th scope="col" colspan="3">Output</th>
+                  </tr>
+                  <tr>
+                      <td>Voltage (U)</td>
+                      <td>Current (I)</td>
+                      <td>Power (P)</td>
+                  </tr>
+              </thead>
+              <tfoot>
+                  <tr>
+                      <td>13.8 V</td>
+                      <td>0 A</td>
+                      <td>0 W</td>
+                  </tr>
+              </tfoot>
+          </table>
+      </div>
+      <div class="md-footer">
+          <a href="https://apollo.open-resource.org/mission:tech:odyssey#alternator" class="button" target="_blank"><i class="icon-info-sign"></i> Hardware Details</a>
       </div>
     </div>
   </div>
@@ -398,20 +468,22 @@
       <h3>Odyssey - Solar Charge Controller (SCC) <span class="md-icon" onclick="hideModal('md-OSCC')"><i class="icon-remove"></i></span></h3>
       <div>
         <table class="md-table">
-          <thead>
-            <tr>
-              <th scope="col" colspan="3"><b>Unit</b>
-              </th>
-            </tr>
-            <tr>
-              <td>Status</td>
-              <td>ID</td>
-              <td>Temperature</td>
-            </tr>
-          </thead>
+            <thead>
+                <tr>
+                    <th scope="col" colspan="4"><b>Unit</b>
+                    </th>
+                </tr>
+                <tr>
+                    <td>Status</td>
+                    <td>ID</td>
+                    <td>Name</td>
+                    <td>Temperature</td>
+                </tr>
+            </thead>
           <tfoot>
             <tr>
               <td id="OSCCStatus" class="online">Standby</td>
+              <td>N/A</td>
               <td>Votronic MPP 420 Duo Digital</td>
               <td>21 °C</td>
             </tr>
@@ -474,7 +546,7 @@
                   </tr>
                   <tr>
                     <th>Curve</th>
-                    <td>IUoU2</td>
+                    <td>IU1oU2</td>
                   </tr>
                   <tr>
                     <th>Voltage (U)</th>
@@ -506,7 +578,7 @@
                   </tr>
                   <tr>
                     <th>Curve</th>
-                    <td>IUoU2</td>
+                    <td>IU1oU2</td>
                   </tr>
                   <tr>
                     <th>Voltage (U)</th>
@@ -528,7 +600,7 @@
         </div>
       </div>
       <div class="md-footer">
-        <a href="/mission:tech:odyssey:pdu#" class="button" target="_blank"><i class="icon-info-sign"></i> Hardware Details</a>
+        <a href="https://apollo.open-resource.org/mission:tech:odyssey#solar-charging-controller-with-mppt" class="button" target="_blank"><i class="icon-info-sign"></i> Hardware Details</a>
       </div>
     </div>
   </div>
@@ -537,7 +609,7 @@
     <div class="md-content">
       <h3>Odyssey - Load (Power Consumers)<span class="md-icon" onclick="hideModal('md-OLOAD')"><i class="icon-remove"></i></span></h3>
       <div>
-        <p>This feature will be unlocked once additional funding for the required hardware is aquired</p>
+        <p style="width: 100%; text-align: center">This unit will be available when funding for the required hardware is aquired</p>
       </div>
     </div>
   </div>
@@ -546,7 +618,7 @@
     <div class="md-content">
       <h3>Aquarius - Battery A <span class="md-icon" onclick="hideModal('md-ABatA')"><i class="icon-remove"></i></span></h3>
       <div>
-        <p>This feature will be unlocked once additional funding for the required hardware is aquired</p>
+        <p style="width: 100%; text-align: center">This unit will be available when funding for the required hardware is aquired</p>
       </div>
     </div>
   </div>
@@ -555,7 +627,7 @@
     <div class="md-content">
       <h3>Aquarius - Station Keeping Unit (SKU) <span class="md-icon" onclick="hideModal('md-ASKU')"><i class="icon-remove"></i></span></h3>
       <div>
-        <p>This feature will be unlocked once additional funding for the required hardware is aquired</p>
+        <p style="width: 100%; text-align: center">This unit will be available when funding for the required hardware is aquired</p>
       </div>
     </div>
   </div>
@@ -564,7 +636,7 @@
     <div class="md-content">
       <h3>Aquarius - Power Distribution Unit (PDU) <span class="md-icon" onclick="hideModal('md-APDU')"><i class="icon-remove"></i></span></h3>
       <div>
-        <p>This feature will be unlocked once additional funding for the required hardware is aquired</p>
+        <p style="width: 100%; text-align: center">This unit will be available when funding for the required hardware is aquired</p>
       </div>
     </div>
   </div>
@@ -573,7 +645,7 @@
     <div class="md-content">
       <h3>Aquarius - Main Computing Unit (MCU) <span class="md-icon" onclick="hideModal('md-AMCU')"><i class="icon-remove"></i></span></h3>
       <div>
-        <p>This feature will be unlocked once additional funding for the required hardware is aquired</p>
+        <p style="width: 100%; text-align: center">This unit will be available when funding for the required hardware is aquired</p>
       </div>
     </div>
   </div>
@@ -582,10 +654,10 @@
     <div class="md-content">
       <h3>Aquarius - Auxiliary Power Unit (APU) <span class="md-icon" onclick="hideModal('md-AAPU')"><i class="icon-remove"></i></span></h3>
       <div>
-        <p>This feature will be unlocked once additional funding for the required hardware is aquired</p>
+        <p style="width: 100%; text-align: center">This unit will be available when funding for the required hardware is aquired</p>
       </div>
       <div class="md-footer">
-        <a href="/mission:tech:aquarius:apu#" class="button" target="_blank"><i class="icon-info-sign"></i> Hardware Details</a>
+        <a href="https://apollo.open-resource.org/mission:tech:aquarius:apu" class="button" target="_blank"><i class="icon-info-sign"></i> Hardware Details</a>
       </div>
     </div>
   </div>
@@ -597,6 +669,9 @@
       <div>
         <p>Votronic Automatic Charger Pb 1240 SMT 3B</p>
       </div>
+      <div class="md-footer">
+        <a href="https://apollo.open-resource.org/mission:tech:aquarius:sku" class="button" target="_blank"><i class="icon-info-sign"></i> Hardware Details</a>
+      </div>
     </div>
   </div>
 
@@ -604,7 +679,10 @@
     <div class="md-content">
       <h3>Aquarius - Grid Inverter (GI) <span class="md-icon" onclick="hideModal('md-AGI')"><i class="icon-remove"></i></span></h3>
       <div>
-        <p>Votronic MobilPOWER Inverter SMI 1000 ST-NVS</p>
+        <p>Votronic Inverter SMI 1000 ST-NVS</p>
+      </div>
+      <div class="md-footer">
+        <a href="https://apollo.open-resource.org/mission:tech:aquarius:sku" class="button" target="_blank"><i class="icon-info-sign"></i> Hardware Details</a>
       </div>
     </div>
   </div>
@@ -613,7 +691,7 @@
     <div class="md-content">
       <h3>Aquarius - Solar Charge Controller (SCC) <span class="md-icon" onclick="hideModal('md-ASCC')"><i class="icon-remove"></i></span></h3>
       <div>
-        <p>This feature will be unlocked once additional funding for the required hardware is aquired</p>
+        <p style="width: 100%; text-align: center">This unit will be available when funding for the required hardware is aquired</p>
       </div>
     </div>
   </div>
@@ -622,7 +700,7 @@
     <div class="md-content">
       <h3>Aquarius - Grid Power<span class="md-icon" onclick="hideModal('md-AGRID')"><i class="icon-remove"></i></span></h3>
       <div>
-        <p>This feature will be unlocked once additional funding for the required hardware is aquired</p>
+        <p style="width: 100%; text-align: center">This unit will be available when funding for the required hardware is aquired</p>
       </div>
     </div>
   </div>
@@ -631,7 +709,7 @@
     <div class="md-content">
       <h3>Aquarius - Load (Power Consumers)<span class="md-icon" onclick="hideModal('md-ALOAD')"><i class="icon-remove"></i></span></h3>
       <div>
-        <p>This feature will be unlocked once additional funding for the required hardware is aquired</p>
+        <p style="width: 100%; text-align: center">This unit will be available when funding for the required hardware is aquired</p>
       </div>
     </div>
   </div>
@@ -709,7 +787,7 @@
       </div>
       <div class="md-footer">
         <a href="#/dashboard/db/odyssey-solar-power" class="button" onclick="hideModal('md-OPVP')"><i class="icon-signal"></i> Charts/History</a>
-        <a href="/mission:tech:odyssey#" class="button" target="_blank"><i class="icon-info-sign"></i> Hardware Details</a>
+        <a href="https://apollo.open-resource.org/mission:tech:odyssey#solar" class="button" target="_blank"><i class="icon-info-sign"></i> Hardware Details</a>
       </div>
     </div>
   </div>
@@ -791,7 +869,7 @@
       </div>
       <div class="md-footer">
         <a href="#/dashboard/db/aquarius-solar-power" class="button" onclick="hideModal('md-APVP')"><i class="icon-signal"></i> Charts/History</a>
-        <a href="/mission:tech:aquarius#" class="button" target="_blank"><i class="icon-info-sign"></i> Hardware Details</a>
+        <a href="https://apollo.open-resource.org/mission:tech:aquarius#solar" class="button" target="_blank"><i class="icon-info-sign"></i> Hardware Details</a>
       </div>
     </div>
   </div>

@@ -79,7 +79,8 @@ function (angular, $, config, _) {
 
            setTimeout(function () {
                intervallId = setInterval(function () {updateView();}, 10000);
-               updateView();
+               document.getElementById('emboss').style.display = "none";
+               updateView("force");
            }, 3000);
        }, 2000);
 

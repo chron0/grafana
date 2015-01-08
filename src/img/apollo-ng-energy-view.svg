@@ -365,14 +365,14 @@
       <g id="OBCCBatBC">
         <path d="M201,557 L201,560 Q201,565 207,565 L240,565 Q245,565 245,560 L245,557" style="stroke:#75890c; stroke-width: 1.5; fill:none;" />
         <circle cx="0" cy="0" r="1.5" style="stroke: #E0F47A; fill: #F6FFC5;">
-          <animateMotion id="OBCCBatBCA" path="M201,557 L201,560 Q201,565 207,565 L240,565 Q245,565 245,560 L245,557" begin="0s" dur="3s" repeatCount="indefinite" />
+          <animateMotion id="OBCCBatBCA" path="M201,557 L201,560 Q201,565 207,565 L240,565 Q245,565 245,560 L245,557" begin="indefinite" end="indefinite" dur="3s" repeatCount="indefinite" />
         </circle>
       </g>
 
       <g id="OAltBCCC">
         <path d="M109,531 L109,517 Q109,512 114,512 L196,512 Q201,512 201,517" style="stroke:#d0d0d0; stroke-width: 1.5; fill:none;" />
         <circle cx="0" cy="0" r="1.5" style="stroke: #e0e0e0; fill: #ffffff; ">
-          <animateMotion id="OAltBCCCA" path="M109,532 L109,517 Q109,512 114,512 L196,512 Q201,512 201,517" begin="0s" dur="3s" repeatCount="indefinite" />
+          <animateMotion id="OAltBCCCA" path="M109,532 L109,517 Q109,512 114,512 L196,512 Q201,512 201,517" begin="indefinite" end="indefinite" dur="3s" repeatCount="indefinite" />
         </circle>
       </g>
 
@@ -554,14 +554,14 @@
 
     <g id="AGridGCCC">
       <path d="M445,244 L445,250 Q445,255 440,255 L194,255 Q189,255 189,250 L189,244" style="stroke:#83652E; stroke-width: 1.5; fill:none;" />
-      <circle cx="0" cy="0" r="1.5" style="stroke: #DFC479; fill: #DAB782; ">
-        <animateMotion id="AGridGCCCA" path="M445,244 L445,250 Q445,255 440,255 L194,255 Q189,255 189,250 L189,244" begin="0s" dur="3s" repeatCount="indefinite" />
+      <circle cx="0" cy="0" r="1.5" style="stroke: #DFC479; fill: #DAB782; " opacity="0">
+        <animateMotion id="AGridGCCCA" path="M445,244 L445,250 Q445,255 440,255 L194,255 Q189,255 189,250 L189,244" begin="indefinite" end="indefinite" dur="3s" repeatCount="indefinite" />
       </circle>
     </g>
     <g id="AGridGIC">
       <path d="M349,255 L349,244" style="stroke:#83652E; stroke-width: 1.5; fill:none;" />
-      <circle cx="0" cy="0" r="1.5" style="stroke: #DFC479; fill: #E8DAB2; ">
-        <animateMotion path="M445,244 L445,250 Q445,255 440,255 L349,255 L349,244" begin="0s" dur="3s" repeatCount="indefinite" />
+      <circle cx="0" cy="0" r="1.5" style="stroke: #DFC479; fill: #E8DAB2; " opacity="0">
+        <animateMotion path="M445,244 L445,250 Q445,255 440,255 L349,255 L349,244" begin="indefinite" end="indefinite" dur="3s" repeatCount="indefinite" />
       </circle>
     </g>
     <g id="AGILoadC">
@@ -601,15 +601,15 @@
 
     <g id="AGCCBatAC">
       <path d="M209,223 L227,223" style="stroke:#75890c; stroke-width: 2; fill:none;" />
-      <circle cx="0" cy="0" r="1.5" style="stroke: #E0F47A; fill: #F6FFC5; ">
-        <animateMotion id="AGCCBatACA" path="M209,223 L227,223" begin="0s" dur="3s" repeatCount="indefinite" />
+      <circle cx="0" cy="0" r="1.5" style="stroke: #E0F47A; fill: #F6FFC5; " opacity="0">
+        <animateMotion id="AGCCBatACA" path="M209,223 L227,223" begin="indefinite" end="indefinite" dur="3s" repeatCount="indefinite" />
       </circle>
     </g>
 
     <g id="AAPUBatAC">
       <path d="M51,202 L51,200 Q51,195 56,195 L227,195" style="stroke:#75890c; stroke-width: 2; fill:none;" />
-      <circle cx="0" cy="0" r="1.5" style="stroke: #E0F47A; fill: #F6FFC5; ">
-        <animateMotion path="M51,202 L51,200 Q51,195 56,195 L227,195" begin="0s" dur="3s" repeatCount="indefinite" />
+      <circle cx="0" cy="0" r="1.5" style="stroke: #E0F47A; fill: #F6FFC5; " opacity="0">
+        <animateMotion path="M51,202 L51,200 Q51,195 56,195 L227,195" begin="indefinite" end="indefinite" dur="3s" repeatCount="indefinite" />
       </circle>
     </g>
 

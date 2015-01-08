@@ -1000,7 +1000,7 @@
        inkscape:export-filename="/home/chrono/Pictures/aquarius-specs.png"
        inkscape:export-xdpi="99.519386"
        inkscape:export-ydpi="99.519386" />
-       <animate id="ghostFadeIn" attributeName="opacity" from="0" to="0.6" begin="solidFadeOut.begin" end="indefinite" dur="2s" fill="freeze" repeatCount="1" />
+       <animate id="ghostFadeIn" attributeName="opacity" from="0" to="0.6" begin="solidFadeOut.begin" end="indefinite" dur="1.8s" fill="freeze" repeatCount="1" />
   </g>
 
   <g

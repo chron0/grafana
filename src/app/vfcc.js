@@ -79,7 +79,7 @@ function setTimeOffset (position)
     }
     document.getElementById('topnav_title').innerHTML = "Apollo-NG VFCC<br /><b class='topnav_timestamp'>" + timestamp.toISOString() + " ("+v_offset+")</b>";
 
-    updateView();
+    updateView("force");
 }
 
 function jDay(year, month, day)
@@ -337,12 +337,6 @@ function movePanels ()
 		setAquariusPanel(cur_angle);
         document.getElementById('OPVPA').innerHTML = cur_angle + " °";
         document.getElementById('APVPA').innerHTML = cur_angle + " °";
-/*
-        [].slice.call(document.getElementsByClassName( 'OPVPA' )).forEach(function (element)
-        {
-            element.innerHTML = cur_angle + " °";
-        });
-*/
         setTimeout(movePanels, 35);
     }
 }
@@ -716,9 +710,9 @@ function updateSolarLive ()
     req.send();
 }
 
-function updateSolarHarvest ()
+function updateSolarHarvest (force)
 {
-    if (sun === 0)
+    if (sun === 0 && force === "undefined")
     {
         if (document.getElementById('overlay-quickstats').style.display === "block")
         {
@@ -739,16 +733,16 @@ function updateSolarHarvest ()
     var otime  = offday.getUTCFullYear() + "-" + pad((offday.getUTCMonth()+1)) + "-" + pad(offday.getUTCDate()) + " "
                + pad(offday.getUTCHours()) + ":" + pad(offday.getUTCMinutes()) + ":" + pad(offday.getUTCSeconds());
 
-    var Q = "select+*+from+%22aquarius.env.outdoor.pyrano%22,%22aquarius.ucsspm.out%22+where+value+>0+";
+    var Q = "select+*+from+%22aquarius.env.outdoor.pyrano%22,%22aquarius.ucsspm.out%22,%22odyssey.ucsspm.out%22+where+value+>+0+";
 
     if (jtday !== joday)
     {
-        Q += "and+time+>+'" + oday + " 00:00:00'+and+time+<+'" + otime + "'";
+        Q += "and+time+>+'" + oday + " 00:00:00'+and+time+<+'" + otime + "' group+by+10s+order+asc";
         document.getElementById('qsday').innerHTML = "Yesterday";
     }
     else
     {
-        Q += "and+time+>+'" + tday + " 00:00:00'+and+time+<+'" + otime + "'";
+        Q += "and+time+>+'" + tday + " 00:00:00'+and+time+<+'" + otime + "'+group+by+10s+order+asc";
         document.getElementById('qsday').innerHTML = "Today";
     }
 
@@ -769,10 +763,10 @@ function updateSolarHarvest ()
             if (data.length === 0)
             {
                 console.log("no harvest data");
-                document.getElementById('OPVHT').innerHTML = "0000 Wh";
-                document.getElementById('APVHT').innerHTML = "0000 Wh";
-                document.getElementById('OPVUT').innerHTML = "0000 Wh";
-                document.getElementById('APVUT').innerHTML = "0000 Wh";
+                document.getElementById('OPVHT').innerHTML = "0 Wh";
+                document.getElementById('APVHT').innerHTML = "0 Wh";
+                document.getElementById('OPVUT').innerHTML = "0 Wh";
+                document.getElementById('APVUT').innerHTML = "0 Wh";
                 document.getElementById('OSolT').innerHTML = "0.0 h";
                 document.getElementById('ASolT').innerHTML = "0.0 h";
                 return;
@@ -804,35 +798,54 @@ function updateSolarHarvest ()
                 }
             }
 
-            var ucsspm = 0;
-            var u = 0;
+            var ucsspmA = 0;
+            var uA = 0;
             for( var i = 0; i < data[1]['columns'].length; i++ ){
                 if (data[1]['columns'][i] === "value")
                 {
-                    var uc = i;
+                    var ucA = i;
                     break;
                 }
             }
 
             for( var i = 0; i < data[1]['points'].length; i++ ){
-                if (data[1]['points'][i][uc] > 0)
+                if (data[1]['points'][i][ucA] > 0)
                 {
-                    ucsspm += parseInt( data[1]['points'][i][uc], 10 );
-                    u++;
+                    ucsspmA += parseInt( data[1]['points'][i][ucA], 10 );
+                    uA++;
                 }
             }
 
-            var harvesto = Math.round((pyrano/p)*(((p/360)*10)/10)*1.825*0.2);
-            var harvesta = Math.round((pyrano/p)*(((p/360)*10)/10)*5*0.19);
-            var ucsspmo = Math.round((ucsspm/u)*(((u/360)*10)/10)*1.825*0.2);
-            var ucsspma = Math.round((ucsspm/u)*(((u/360)*10)/10)*5*0.19);
+            var ucsspmO = 0;
+            var uO = 0;
+            for( var i = 0; i < data[2]['columns'].length; i++ ){
+                if (data[2]['columns'][i] === "value")
+                {
+                    var ucO = i;
+                    break;
+                }
+            }
+
+            for( var i = 0; i < data[2]['points'].length; i++ ){
+                if (data[2]['points'][i][ucO] > 0)
+                {
+                    ucsspmO += parseInt( data[2]['points'][i][ucO], 10 );
+                    uO++;
+                }
+            }
+
+            var hours = Math.round(((data[0]["points"][data[0]['points'].length-1][0]-data[0]["points"][0][0])/1000/3600)*10)/10;
+            var harvesto = Math.round(((pyrano/p) * 1.825 * 0.2 * 0.98 * 1.01)*hours);
+            var ucsspmo = Math.round((ucsspmO/uO)*hours);
+            var harvesta = Math.round(((pyrano/p) * 5 * 0.19 * 0.98 * 1.01)*hours);
+            var ucsspma = Math.round((ucsspmA/uA)*hours);
 
             document.getElementById('OPVHT').innerHTML = harvesto + " Wh";
             document.getElementById('APVHT').innerHTML = harvesta + " Wh";
             document.getElementById('OPVUT').innerHTML = ucsspmo + " Wh";
             document.getElementById('APVUT').innerHTML = ucsspma + " Wh";
-            document.getElementById('OSolT').innerHTML = Math.round((p/360)*10)/10 + " h";
-            document.getElementById('ASolT').innerHTML = Math.round((p/360)*10)/10 + " h";
+            document.getElementById('OSolT').innerHTML = hours + " h";
+            document.getElementById('ASolT').innerHTML = hours + " h";
         }
         else
         {
@@ -849,7 +862,7 @@ function updateSolarHarvest ()
 
 }
 
-function updateView ()
+function updateView (force)
 {
     if( document.getElementById('system-overview').style.display !== "block" )
     {
@@ -857,5 +870,5 @@ function updateView ()
     }
 
     updateSolarLive();
-    updateSolarHarvest();
+    updateSolarHarvest(force);
 }
